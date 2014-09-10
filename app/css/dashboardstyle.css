@@ -1,5 +1,5 @@
 html,body {
-height: 100%;
+	height: 100%;
 }
 
 .dashboard-header{
@@ -31,16 +31,22 @@ height: 100%;
 
 .menu ul li {
 	width: 95px;
-	padding: 25px 30px 20px 30px;
 	background-color: #f9f9f9;
+	text-align: center;
+
 }
 
 .menu ul li:hover{
 	color: #fb9821;
 }
 
-.menu ul li:first-child {
-	width: 95px;
-	padding: 40px 30px 20px 30px;
-	background-color: #f9f9f9;
+.menu img {
+	height: auto;
+	margin-top: 35px;
+	padding: 0 0 5px;
+	width: 40%;
+}
+
+.menu-icon{
+	fill:#000000;
 }
