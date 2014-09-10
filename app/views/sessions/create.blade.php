@@ -12,11 +12,9 @@
 <div id="loginbox" class="container-fluid">
 	<p>Velkommen! Log ind for at adgang til systemet</p>
 	<div>
-
-	{{ Form::open(['route'=>'sessions.store']) }}
-		{{Form::label('email', 'E-Mail:')}}
-		{{Form::text('email')}}
-
+	{{ Form::open(['url' => 'login']) }}
+		{{Form::label('username', 'E-mail:')}}
+		{{Form::text('username')}}
 	</div>
 	<div>
 		{{Form::label('password', 'Kodeord:')}}
@@ -25,9 +23,12 @@
 
 	<div>
 		{{
-			Form::select(
+			Form::select('ejendomsselskab',
 				array(
-					'Ejendomsselskab 1' => 
+					'Ejendomsselskab 1' => 'e1',
+					'Ejendomsselskab 2' => 'e2',
+					'Ejendomsselskab 3' => 'e3',
+					'Ejendomsselskab 4' => 'e4'
 					)
 			)
 			}}
