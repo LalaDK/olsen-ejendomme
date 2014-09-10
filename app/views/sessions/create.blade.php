@@ -5,7 +5,7 @@
 	<p>Velkommen! Log ind for at adgang til systemet</p>
 	<div>
 	{{ Form::open(['url' => 'login']) }}
-		{{Form::label('username', 'Brugernavn:')}}
+		{{Form::label('username', 'E-mail:')}}
 		{{Form::text('username')}}
 	</div>
 	<div>

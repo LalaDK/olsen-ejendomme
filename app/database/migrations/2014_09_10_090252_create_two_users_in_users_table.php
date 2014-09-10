@@ -16,20 +16,19 @@ class CreateTwoUsersInUsersTable extends Migration {
 
 		DB::table('users')->insert(
 			array(
-				'email' => 'admin',
-				'password' => 'qwerty',
-				'created_at' => $date,
-				'updated_at' => $date
-				)
-			);
+				array(
+					'email' => 'admin',
+					'password' => 'qwerty',
+					'created_at' => $date,
+					'updated_at' => $date
+					),
 
-
-		DB::table('users')->insert(
-			array(
-				'email' => 'user',
-				'password' => 'qwerty',
-				'created_at' => $date,
-				'updated_at' => $date
+				array(
+					'email' => 'user',
+					'password' => 'qwerty',
+					'created_at' => $date,
+					'updated_at' => $date
+					)
 				)
 			);
 	}
