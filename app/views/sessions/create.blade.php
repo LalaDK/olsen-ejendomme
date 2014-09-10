@@ -18,7 +18,7 @@
 		<br>
 		{{Form::password('password', ['class' => 'form-control', 'style' => 'width:100%'])}}
 		<br>
-		{{ HTML::link('http://test.com', 'Glemt password?')}}
+		{{ HTML::link('http://www.youtube.com/watch?v=dQw4w9WgXcQ', 'Glemt password?')}}
 		<br>
 		<table style="width:100%;">
 			<tr>
