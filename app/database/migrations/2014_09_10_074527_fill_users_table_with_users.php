@@ -40,5 +40,6 @@ class FillUsersTableWithUsers extends Migration {
 	public function down()
 	{
 		DB::table('users')->where('email', '=', 'admin')->delete();
+		DB::table('users')->where('email', '=', 'user')->delete();
 	}
 }
