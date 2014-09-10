@@ -1,5 +1,8 @@
+/* CSS-styling for login page */
+
 .loginbox {
 	position: relative;
+	top:30px;
 	max-width: 380px;
 
 	border-style: solid;
@@ -14,6 +17,10 @@
 
 }
 
+.loginbox a {
+	float:right;
+}
+
 .loginbox form {
 	padding:15px;
 	padding-top: 0;
@@ -21,6 +28,17 @@
 
 .loginbox form input, .loginbox form select {
 	margin-bottom: 5px;
+}
+
+.loginbutton {
+	float: right;
+	text-align: left;
+	min-width: 100px;
+	background: url('../images/login.png');
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size: 28px;
+	background-color: green;
 }
 
 .top {
@@ -36,8 +54,4 @@
 	font-weight: bold;
 	color:white;
 	line-height: 45px;
-}
-
-.maxwidth {
-	width:50px;
 }
