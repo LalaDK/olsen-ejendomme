@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<div id="loginbox" class="container-fluid">
+<div class="container-fluid form-group">
 	<p>Velkommen! Log ind for at adgang til systemet</p>
 	<div>
 	{{ Form::open(['route'=>'sessions.store']) }}
@@ -23,12 +23,13 @@
 
 	<div>
 		{{
-			Form::select('ejendomsselskab',
+			Form::select('selskab',
 				array(
-					'Ejendomsselskab 1' => 'e1',
-					'Ejendomsselskab 2' => 'e2',
-					'Ejendomsselskab 3' => 'e3',
-					'Ejendomsselskab 4' => 'e4'
+					'e1 1' => 'Selskab 1',
+					'e2 2' => 'Selskab 2',
+					'e3 3' => 'Selskab 3',
+					'e3 4' => 'Selskab 4',
+					'e4 5' => 'Selskab 5'
 					)
 			)
 			}}
