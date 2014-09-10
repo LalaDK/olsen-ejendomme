@@ -9,7 +9,8 @@ class SessionsController extends BaseController {
 	 */
 	public function index()
 	{
-		//
+		return 'HEP!';
+		
 	}
 
 
@@ -20,7 +21,8 @@ class SessionsController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('sessions.create');
+		return 'HEP!';
+		//return View::make('sessions.create');
 	}
 
 
