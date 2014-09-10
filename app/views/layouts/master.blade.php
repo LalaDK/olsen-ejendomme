@@ -34,11 +34,11 @@
 		<div class="col-md-1 col-menu">
 			<div class="menu">
 				<ul>
-					<li><?php include("../app/images/Dashboard.svg"); ?>Dashboard</li>
-					<li><?php include("../app/images/Dashboard.svg"); ?>Lejere</li>
-					<li><?php include("../app/images/Dashboard.svg"); ?>Økonomi</li>
-					<li><?php include("../app/images/Dashboard.svg"); ?>Selskab</li>
-					<li><?php include("../app/images/Dashboard.svg"); ?>Selskab</li>
+					<li><?php include("../app/images/Dashboard.svg"); ?><br>Dashboard</li>
+					<li><?php include("../app/images/Dashboard.svg"); ?><br>Lejere</li>
+					<li><?php include("../app/images/Dashboard.svg"); ?><br>Økonomi</li>
+					<li><?php include("../app/images/Dashboard.svg"); ?><br>Selskab</li>
+					<li><?php include("../app/images/Dashboard.svg"); ?><br>Selskab</li>
 				</ul>
 			</div>
 		</div>
