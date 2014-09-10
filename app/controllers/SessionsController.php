@@ -1,6 +1,6 @@
 <?php
 
-class SessionsController extends \BaseController {
+class SessionsController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
