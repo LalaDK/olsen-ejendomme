@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="login-box">
+<div id="login-box" class="container-fluid centerbox">
 	<p>Velkommen! Log ind for at adgang til systemet</p>
 	<div>
 	{{ Form::open(['url' => 'login']) }}
