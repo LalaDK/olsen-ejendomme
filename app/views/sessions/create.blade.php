@@ -9,35 +9,32 @@
 </head>
 <body>
 
-<div class="container-fluid form-group">
-	<p>Velkommen! Log ind for at adgang til systemet</p>
-	<div>
-	{{ Form::open(['route'=>'sessions.store']) }}
-		{{Form::label('username', 'E-mail:')}}
-		{{Form::text('username')}}
-	</div>
-	<div>
-		{{Form::label('password', 'Kodeord:')}}
-		{{Form::password('password')}}
-	</div>
+	<div class="container-fluid">
+		<p>Velkommen! Log ind for at adgang til systemet</p>
 
-	<div>
-		{{
-			Form::select('selskab',
-				array(
-					'e1 1' => 'Selskab 1',
-					'e2 2' => 'Selskab 2',
-					'e3 3' => 'Selskab 3',
-					'e3 4' => 'Selskab 4',
-					'e4 5' => 'Selskab 5'
-					)
-			)
-			}}
-	</div>
+			{{ Form::open(['route'=>'sessions.store']) }}
+			<div class="form-group form-control btn btn-default">
+				{{Form::label('email', 'E-mail:')}}
+				{{Form::text('email')}}
+				{{Form::label('password', 'Kodeord:')}}
+				{{Form::password('password')}}
+				{{
+					Form::select('selskab',
+						array(
+							'e1 1' => 'Selskab 1',
+							'e2 2' => 'Selskab 2',
+							'e3 3' => 'Selskab 3',
+							'e3 4' => 'Selskab 4',
+							'e4 5' => 'Selskab 5'
+							)
+						)
+					}}
+				
 
-	{{Form::submit('Login')}}
-	{{ Form::Close()}}
-</div>
+				{{Form::submit('Login')}}
+			</div>
+			{{ Form::Close()}}
+		</div>
 
-</body>
-</html>
+	</body>
+	</html>
