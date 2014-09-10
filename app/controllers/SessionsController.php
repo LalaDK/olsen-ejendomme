@@ -9,8 +9,7 @@ class SessionsController extends BaseController {
 	 */
 	public function index()
 	{
-		return 'HEP!';
-		
+		return "SessionsController index showing";
 	}
 
 
@@ -21,8 +20,7 @@ class SessionsController extends BaseController {
 	 */
 	public function create()
 	{
-		return 'HEP!';
-		//return View::make('sessions.create');
+		return View::make('sessions.create');
 	}
 
 
@@ -36,8 +34,9 @@ class SessionsController extends BaseController {
 		if (Auth::attempt(Input::only('email','password')))
 		{
 			Auth::user();
+			return View::make('dashboard.index');
 		}
-		return Redirect::back()->withInput();
+		return "KEGLE!";
 	}
 
 
@@ -50,7 +49,7 @@ class SessionsController extends BaseController {
 	public function destroy($id)
 	{
 		Auth::logout();
-		return Redirect::('sessions.create');
+		return Redirect::make('sessions.create');
 	}
 
 
