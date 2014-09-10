@@ -4,7 +4,7 @@
 <div class="login-box">
 	<p>Velkommen! Log ind for at adgang til systemet</p>
 	<div>
-	{{ Form::open(['url' => 'login']) }}
+	{{ Form::open(sessionsController.create) }}
 		{{Form::label('username', 'Brugernavn:')}}
 		{{Form::text('username')}}
 	</div>
