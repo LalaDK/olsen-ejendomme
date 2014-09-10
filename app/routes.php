@@ -17,5 +17,5 @@ Route::resource('users','UserController');
 
 Route::get('login','SessionsController@create');
 
-Route::get('logout','SessionsController@destroy');
+Route::get('logout','SessionsController@destroy'); 
 
