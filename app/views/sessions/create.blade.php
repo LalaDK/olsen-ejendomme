@@ -13,8 +13,8 @@
 	<p>Velkommen! Log ind for at adgang til systemet</p>
 	<div>
 	{{ Form::open(['route'=>'sessions.store']) }}
-		{{Form::label('email', 'E-mail:')}}
-		{{Form::text('email')}}
+		{{Form::label('username', 'E-mail:')}}
+		{{Form::text('username')}}
 	</div>
 	<div>
 		{{Form::label('password', 'Kodeord:')}}
