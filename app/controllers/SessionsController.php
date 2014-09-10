@@ -9,7 +9,7 @@ class SessionsController extends BaseController {
 	 */
 	public function index()
 	{
-		return "SessionsController index showing";
+//
 	}
 
 
@@ -34,7 +34,7 @@ class SessionsController extends BaseController {
 		if (Auth::attempt(Input::only('email','password')))
 		{
 			Auth::user();
-			return "Ikke så meget kegle!";
+			return Redirect::route('admin.dashboard');
 		}
 		return "KEGLE!";
 	}
@@ -46,10 +46,10 @@ class SessionsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
 		Auth::logout();
-		return Redirect::make('sessions.create');
+		return "Logged out!";
 	}
 
 

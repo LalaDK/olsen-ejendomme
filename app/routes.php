@@ -16,3 +16,9 @@ Route::get('dashboard', function(){
 	return View::make('dasboard.index');
 });
 
+
+Route::get('url', [
+	'as' => 'admin.dashboard',
+	'uses' => 'AdminController@dashboard',
+	'before' => 'Auth',
+]);
