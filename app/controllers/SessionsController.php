@@ -34,7 +34,7 @@ class SessionsController extends BaseController {
 		if (Auth::attempt(Input::only('email','password')))
 		{
 			Auth::user();
-			return View::make('dashboard.index');
+			return "Ikke så meget kegle!";
 		}
 		return "KEGLE!";
 	}
