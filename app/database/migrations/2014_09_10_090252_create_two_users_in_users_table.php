@@ -18,14 +18,14 @@ class CreateTwoUsersInUsersTable extends Migration {
 			array(
 				array(
 					'email' => 'admin',
-					'password' => 'qwerty',
+					'password' => Hash::make('qwerty'),
 					'created_at' => $date,
 					'updated_at' => $date
 					),
 
 				array(
 					'email' => 'user',
-					'password' => 'qwerty',
+					'password' => Hash::make('qwerty'),
 					'created_at' => $date,
 					'updated_at' => $date
 					)
