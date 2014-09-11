@@ -50,3 +50,7 @@ html,body {
 .menu-icon{
 	fill:#000000;
 }
+
+#selected{
+	color:#fb9821;
+}

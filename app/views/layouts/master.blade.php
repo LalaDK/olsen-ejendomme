@@ -14,8 +14,21 @@
 		$("li").mouseover(function(){
 			$(this).children().find(".menu-icon").css("fill","#fb9821");
 		});
+		
 		$("li").mouseout(function(){
-			$(this).children().find(".menu-icon").css("fill","#000000");
+			if($(this).attr("id") != "selected"){
+				$(this).children().find(".menu-icon").css("fill","#000000");
+			}
+		});
+		
+		$("ul").find("#selected").children().find(".menu-icon").css("fill","#fb9821");
+
+		$("li").click(function(){
+			$("ul").find("#selected").children().find(".menu-icon").css("fill","#000000");
+			$("ul").find("#selected").attr("id","");
+			$(this).attr("id","selected");
+			$("ul").find("#selected").children().find(".menu-icon").css("fill","#fb9821");
+
 		});
 	});
 
@@ -34,7 +47,7 @@
 		<div class="col-md-1 col-menu">
 			<div class="menu">
 				<ul>
-					<li><?php include("../app/images/Dashboard.svg"); ?><br>Dashboard</li>
+					<li id="selected"><?php include("../app/images/Dashboard.svg"); ?><br>Dashboard</li>
 					<li><?php include("../app/images/Dashboard.svg"); ?><br>Lejere</li>
 					<li><?php include("../app/images/Dashboard.svg"); ?><br>Økonomi</li>
 					<li><?php include("../app/images/Dashboard.svg"); ?><br>Selskab</li>
