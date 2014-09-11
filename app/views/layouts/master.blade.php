@@ -28,12 +28,15 @@
 			$("ul").find("#selected").attr("id","");
 			$(this).attr("id","selected");
 			$("ul").find("#selected").children().find(".menu-icon").css("fill","#fb9821");
-
+			$.ajax({url:"tenants",
+				success:function(result){
+					$("#main-content").html(result);
+				}});
 		});
 	});
-
 	</script>
 </head>
+
 <body>
 	<div class="row">
 		<div class="col-md-12 ">
@@ -56,9 +59,11 @@
 			</div>
 		</div>
 		<div class="col-md-11 ">
-
+			<div id="main-content">
+			</div>
 			@yield('content')
 		</div>
+		
 	</div>
 </div>
 </body>
