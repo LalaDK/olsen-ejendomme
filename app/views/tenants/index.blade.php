@@ -4,7 +4,7 @@
 	<div class="panel">
 		<div class="col-md-3">
 			<div class="panel panel-default">
-				<div class="panel-heading">
+				<div class="panel-heading panel-header">
 					<h3 class="panel-title">Panel title</h3>
 				</div>
 				<div class="panel-body">
@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-md-3">
 			<div class="panel panel-default">
-				<div class="panel-heading">
+				<div class="panel-heading panel-header">
 					<h3 class="panel-title">Panel title</h3>
 				</div>
 				<div class="panel-body">
@@ -24,7 +24,7 @@
 		</div>
 		<div class="col-md-3">
 			<div class="panel panel-default">
-				<div class="panel-heading">
+				<div class="panel-heading panel-header">
 					<h3 class="panel-title">Panel title</h3>
 				</div>
 				<div class="panel-body">
@@ -34,9 +34,9 @@
 		</div>
 
 		<div class="col-md-10">
-			<table class="table-stribed table-curved" style="width:50%">
+			<table class="table-stribed table-curved" style="width:100%">
 				<th>
-					T
+					
 				</th>
 				<th>
 					Id

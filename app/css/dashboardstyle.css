@@ -55,6 +55,11 @@ html,body {
 	color:#fb9821;
 }
 
+.panel-default > .panel-heading {
+  color: #ffffff;
+  background-color: #fb9821;
+  border-color: #ddd;
+}
 .table-curved {
     border-collapse: separate;
 }
