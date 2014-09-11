@@ -4,7 +4,7 @@
 <svg version="1.1" id="All_glyphs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="40px" height="35px" viewBox="0 0 40 35" enable-background="new 0 0 40 35" xml:space="preserve">
 <g>
-	<path fill="#FFFFFF" d="M38.492,18.214L21.11,0.817c-0.889-0.921-2.342-0.921-3.231,0L0.498,18.214
+	<path class="menu-icon" fill="#FFFFFF" d="M38.492,18.214L21.11,0.817c-0.889-0.921-2.342-0.921-3.231,0L0.498,18.214
 		c-0.888,0.92-0.557,1.675,0.736,1.675h3.623V33.25C4.857,34.217,4.9,35,6.644,35h8.437V21.601h8.829V35h8.856
 		c1.331,0,1.365-0.783,1.365-1.75V19.89h3.624C39.049,19.89,39.38,19.135,38.492,18.214z"/>
 </g>

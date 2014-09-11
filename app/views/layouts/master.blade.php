@@ -48,10 +48,10 @@
 			<div class="menu">
 				<ul>
 					<li id="selected"><?php include("../app/images/Dashboard.svg"); ?><br>Dashboard</li>
-					<li><?php include("../app/images/Dashboard.svg"); ?><br>Lejere</li>
-					<li><?php include("../app/images/Dashboard.svg"); ?><br>Økonomi</li>
-					<li><?php include("../app/images/Dashboard.svg"); ?><br>Selskab</li>
-					<li><?php include("../app/images/Dashboard.svg"); ?><br>Selskab</li>
+					<li><?php include("../app/images/tenants.svg"); ?><br>Lejere</li>
+					<li><?php include("../app/images/company.svg"); ?><br>Økonomi</li>
+					<li><?php include("../app/images/economic.svg"); ?><br>Selskab</li>
+					<li><?php include("../app/images/dashboard.svg"); ?><br>Selskab</li>
 				</ul>
 			</div>
 		</div>
