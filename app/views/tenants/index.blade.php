@@ -8,37 +8,7 @@ $(document).ready(function(){
 });
 </script>
 
-<h3>Dashboard</h3>
-<div class="col-md-3">
-	<div class="panel panel-default">
-		<div class="panel-heading panel-header">
-			<h3 class="panel-title">Bruger administration</h3>
-		</div>
-		<div class="panel-body">
-			Panel content
-		</div>
-	</div>
-</div>
-<div class="col-md-3">
-	<div class="panel panel-default">
-		<div class="panel-heading panel-header">
-			<h3 class="panel-title">Opret selskab</h3>
-		</div>
-		<div class="panel-body">
-			Panel content
-		</div>
-	</div>
-</div>
-<div class="col-md-3">
-	<div class="panel panel-default">
-		<div class="panel-heading panel-header">
-			<h3 class="panel-title">Opret ejendom</h3>
-		</div>
-		<div class="panel-body">
-			Panel content
-		</div>
-	</div>
-</div>
+<h3>Tenants</h3>
 
 <div class="col-md-10">
 	<table class="table-stribed table-curved" style="width:100%">
