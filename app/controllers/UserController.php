@@ -79,7 +79,15 @@ class UserController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$user = User::find($id);
+
+		$user->name = Input::get('name');
+		$user->email = Input::get('email');
+		$user->password = Hash::make(Input::get('password'));
+		$user->save();
+
+		Session::flash('message', 'Brugeren blev opdateret!');
+		return Redirect::to('users');
 	}
 
 

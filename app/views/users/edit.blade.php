@@ -1,16 +1,19 @@
 @extends('layouts.lightbox')
 
 @section('content')
-	{{Form::open(['route' => 'users.update'])}}
+{{Form::open(['route' => ['users.update', $user->id]])}}
 
-	{{Form::label('name', 'Navn:')}}
-	{{Form::text('name', $user->name)}}
+{{ Form::hidden('_method', 'PUT') }}
 
-	{{Form::label('username', 'E-mail:')}}
-	{{Form::text('username', $user->email)}}
+{{ Form::hidden('_method', 'PUT') }}
+{{Form::label('name', 'Navn:')}}
+{{Form::text('name', $user->name)}}
 
-	{{Form::label('password', 'Kodeord:')}}
-	{{Form::password('password')}}
+{{Form::label('username', 'E-mail:')}}
+{{Form::text('email', $user->email)}}
 
-	{{Form::submit('Opdatér')}}
+{{Form::label('password', 'Kodeord:')}}
+{{Form::password('password')}}
+
+{{Form::submit('Opdatér')}}
 @stop

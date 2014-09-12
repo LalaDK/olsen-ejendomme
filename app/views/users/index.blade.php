@@ -1,6 +1,6 @@
 @extends('layouts.lightbox')
 @section('content')
-<table border=1>
+<table class="table-curved">
 	<tr>
 		<th>Navn</th>
 		<th>E-mail</th>
