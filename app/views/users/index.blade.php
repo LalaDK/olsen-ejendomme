@@ -1,6 +1,6 @@
 @extends('layouts.lightbox')
 @section('content')
-<table class="table-curved">
+<table class="table table-curved">
 	<tr>
 		<th>Navn</th>
 		<th>E-mail</th>
@@ -12,25 +12,26 @@
 	<tr>
 		<td>{{ $user->name }} </td>
 		<td>{{ $user->email }} </td>
+
 		<!-- Vis -->
 		<td> 
-			{{Form::open(array('action' => array('UserController@show', $user->id))) }}
+			{{ Form::open(array('action' => array('UserController@show', $user->id))) }}
 			{{ Form::hidden('_method', 'GET') }}
-			{{Form::submit('Vis')}}
+			{{ Form::submit('Vis')}}
 			{{ Form::close() }}
 		</td>
 
 		<!-- Redigér -->
 		<td> 
-			{{Form::open(array('action' => array('UserController@edit', $user->id))) }}
+			{{ Form::open(array('action' => array('UserController@edit', $user->id))) }}
 			{{ Form::hidden('_method', 'GET') }}
-			{{Form::submit('Redigér')}}
+			{{ Form::submit('Redigér')}}
 			{{ Form::close() }}
 		</td>		
 
 		<!-- Slet -->
 		<td> 
-			{{ Form::open(array('url' => 'users/' . $user->id, 'class' => 'pull-right')) }}
+			{{ Form::open(array('url' => 'users/' . $user->id)) }}
 			{{ Form::hidden('_method', 'DELETE') }}
 			{{ Form::submit('Slet') }}
 			{{ Form::close() }}

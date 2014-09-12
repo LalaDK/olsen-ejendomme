@@ -2,10 +2,8 @@
 
 @section('content')
 {{Form::open(['route' => ['users.update', $user->id]])}}
+{{Form::hidden('_method', 'PUT') }}
 
-{{ Form::hidden('_method', 'PUT') }}
-
-{{ Form::hidden('_method', 'PUT') }}
 {{Form::label('name', 'Navn:')}}
 {{Form::text('name', $user->name)}}
 
