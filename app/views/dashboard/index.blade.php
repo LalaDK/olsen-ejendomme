@@ -1,11 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
+
 <script>
 $(document).ready(function(){
 	setselected("#dashboard");
 });
 </script>
+
 <h3>Dashboard</h3>
 <div class="col-md-3">
 	<div class="panel panel-default">
