@@ -14,7 +14,7 @@ class CreateNameFieldInUsers extends Migration {
 	{
 		Schema::table('users', function($table)
 		{
-			$table->text('name')-after('email');
+			$table->text('name')->after('email');
 		});
 	}
 
