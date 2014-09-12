@@ -4,26 +4,24 @@
 	<title></title>
 </head>
 <body>
-
-
-	<table>
+	<table border=1>
 		<tr>
 			<th>Navn</th>
 			<th>E-mail</th>
 			<th>Vis</th>
 			<th>Slet</th>
-			@foreach ($users as $key => $user) {
-			<tr>
-				<td> {{ $user-name }} </td>
-				<td>{{ $user-email }} </td>
-				<td> {{link_to("/users/show/{$user-id}")}} </td>
-				<td> </td>
-			</tr>
-		}
+		</tr>
+		@foreach ($users as $user) 
+		<tr>
+			<td>{{ $user->name }} </td>
+			<td>{{ $user->email }} </td>
+			<td>{{link_to("/users/show/{$user->id}")}} </td>
+			<td> {{link_to("/users/destroy/{$user->id}")}}</td>
+		</tr>
+	
+	@endforeach
 
-		@endforeach
-
-	</table>
+</table>
 
 </body>
 </html>
