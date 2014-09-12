@@ -12,7 +12,10 @@
 
 	<div id="loginbox" class="container-fluid loginbox">
 		<div class="top">Log ind</div>
-		<br>
+		@if (Session::has('message'))
+		<div class="alert alert-info">{{ Session::get('message') }}</div>
+		@endif
+		
 		{{Form::open(['route'=>'sessions.store', 'class' => 'form-inline']) }}
 		{{Form::text('email','user@example.com', ['class' => 'form-control', 'style' => 'width:100%']) }}
 		{{Form::password('password', ['class' => 'form-control', 'style' => 'width:100%'])}}

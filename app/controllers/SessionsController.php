@@ -20,6 +20,9 @@ class SessionsController extends BaseController {
 	 */
 	public function create()
 	{
+		if(Input::has('username')) {
+			
+		}
 		return View::make('sessions.create');
 	}
 
@@ -36,7 +39,9 @@ class SessionsController extends BaseController {
 			Auth::user();
 			return Redirect::route('admin.dashboard');
 		}
-		return "KEGLE!";
+
+		Session::flash('message', "Brugernavn og/eller kodeord er forkert!");
+		return Redirect::back();
 	}
 
 
