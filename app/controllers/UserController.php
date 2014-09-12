@@ -21,6 +21,7 @@ class UserController extends \BaseController {
 	 */
 	public function create()
 	{
+
 		Return View::make('users.create');
 	}
 
@@ -39,7 +40,8 @@ class UserController extends \BaseController {
 		$user->email = Input::get('username');
 		$user->password = Hash::make(Input::get('password'));
 		$user->save();
-		return 'success!';
+		Session::flash('message', 'Brugeren blev oprettet!');
+		return Redirect::to('users');
 	}
 
 
@@ -51,7 +53,8 @@ class UserController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$user = User::find($id);
+		return View::make('users.show', ['user' => $user]);
 	}
 
 
@@ -63,7 +66,8 @@ class UserController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$user = User::find($id);
+		return View::make('users.edit', ['user' => $user]);
 	}
 
 
@@ -87,12 +91,8 @@ class UserController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		DB::table('users')->get($id)->delete();
+		User::find($id)->delete();
+		Session::flash('message', 'Brugeren blev slettet!');
+		return Redirect::to('users');
 	}
-
-
-	public function showAll() {
-		return View::make('users.showAll');
-	}
-
 }

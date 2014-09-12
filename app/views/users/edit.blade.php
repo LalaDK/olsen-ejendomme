@@ -1,12 +1,16 @@
 @extends('layouts.lightbox')
 
 @section('content')
-	{{Form::open(['route' => 'users.store'])}}
+	{{Form::open(['route' => 'users.update'])}}
+
 	{{Form::label('name', 'Navn:')}}
-	{{Form::text('name', 'name')}}
+	{{Form::text('name', $user->name)}}
+
 	{{Form::label('username', 'E-mail:')}}
-	{{Form::text('username', 'username')}}
+	{{Form::text('username', $user->email)}}
+
 	{{Form::label('password', 'Kodeord:')}}
 	{{Form::password('password')}}
-	{{Form::submit('Create user')}}
+
+	{{Form::submit('Opdatér')}}
 @stop
