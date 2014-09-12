@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Olsen Ejendomme</title>
-	<link rel="stylesheet" type="text/css" href="../app/css/style.css">
-	<link rel="stylesheet" type="text/css" href="../app/css/dashboardstyle.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../app/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../app/css/dashboardstyle.css">	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
@@ -20,20 +20,15 @@
 				$(this).children().find(".menu-icon").css("fill","#000000");
 			}
 		});
-		
-		$("ul").find("#selected").children().find(".menu-icon").css("fill","#fb9821");
 
-		$("li").click(function(){
-			$("ul").find("#selected").children().find(".menu-icon").css("fill","#000000");
-			$("ul").find("#selected").attr("id","");
-			$(this).attr("id","selected");
-			$("ul").find("#selected").children().find(".menu-icon").css("fill","#fb9821");
-			$.ajax({url:"tenants",
-				success:function(result){
-					$("#main-content").html(result);
-				}});
-		});
 	});
+	
+	function setselected(select_id){
+		$("ul").find(select_id).attr('id',"selected");
+		$("ul").find("#selected").addClass('selected');
+		$("ul").find("#selected").children().find(".menu-icon").css("fill","#fb9821");
+	}
+
 	</script>
 </head>
 
@@ -50,11 +45,11 @@
 		<div class="col-md-1 col-menu">
 			<div class="menu">
 				<ul>
-					<li id="selected"><?php include("../app/images/Dashboard.svg"); ?><br>Dashboard</li>
-					<li><?php include("../app/images/tenants.svg"); ?><br>Lejere</li>
-					<li><?php include("../app/images/company.svg"); ?><br>Økonomi</li>
-					<li><?php include("../app/images/economic.svg"); ?><br>Selskab</li>
-					<li><?php include("../app/images/dashboard.svg"); ?><br>Selskab</li>
+					<li id="dashboard" onclick='location.href="/olsen-ejendomme/public/dashboard"'><?php include("../app/images/Dashboard.svg"); ?><br>Dashboard</li>
+					<li id="tenants" onclick='location.href="/olsen-ejendomme/public/tenants"'><?php include("../app/images/tenants.svg"); ?><br>Lejere</li>
+					<li id="economic"><?php include("../app/images/company.svg"); ?><br>Økonomi</li>
+					<li id="company"><?php include("../app/images/economic.svg"); ?><br>Selskab</li>
+					<li id="dashboard"><?php include("../app/images/dashboard.svg"); ?><br>Selskab</li>
 				</ul>
 			</div>
 		</div>
