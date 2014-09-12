@@ -1,5 +1,5 @@
 html,body {
-height: 100%;
+	height: 100%;
 }
 
 .dashboard-header{
@@ -31,16 +31,67 @@ height: 100%;
 
 .menu ul li {
 	width: 95px;
-	padding: 25px 30px 20px 30px;
 	background-color: #f9f9f9;
+	text-align: center;
+	margin-top: 25px;
 }
 
 .menu ul li:hover{
 	color: #fb9821;
 }
 
-.menu ul li:first-child {
-	width: 95px;
-	padding: 40px 30px 20px 30px;
-	background-color: #f9f9f9;
+.menu img {
+	height: auto;
+	margin-top: 35px;
+	padding: 0 0 5px;
+	width: 40%;
+}
+
+.menu-icon{
+	fill:#000000;
+}
+
+#selected{
+	color:#fb9821;
+}
+
+.panel-default > .panel-heading {
+  color: #ffffff;
+  background-color: #fb9821;
+  border-color: #ddd;
+}
+.table-curved {
+    border-collapse: separate;
+}
+.table-curved {
+    border: solid #ccc 1px;
+    border-radius: 4px;
+    border-left:0px;
+}
+.table-curved td, .table-curved th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 5px;
+}
+.table-curved th {
+    border-top: none;
+    color:#ffffff;
+    background-color:#fb9821;
+
+}
+.table-curved th:first-child {
+    border-radius: 4px 0 0 0;
+    background-color:#fb9821;
+}
+.table-curved th:last-child {
+    border-radius: 0 4px 0 0;
+}
+.table-curved th:only-child{
+    border-radius: 4px 4px 0 0;
+}
+.table-curved tr:last-child td:first-child {
+    border-radius: 0 0 0 4px;
+}
+.table-curved tr:last-child td:last-child {
+    border-radius: 0 0 4px 0;
 }

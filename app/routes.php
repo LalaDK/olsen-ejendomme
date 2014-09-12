@@ -22,3 +22,9 @@ Route::get('url', [
 	'uses' => 'AdminController@dashboard',
 	'before' => 'Auth',
 ]);
+
+Route::get('tenants', [
+	'as' => 'tenant.index',
+	'uses' => 'TenantController@index',
+	'before' => 'Auth',
+]);
