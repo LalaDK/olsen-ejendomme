@@ -17,14 +17,14 @@ Route::get('dashboard', function(){
 });
 
 
-Route::get('url', [
+Route::get('dashboard', [
 	'as' => 'admin.dashboard',
 	'uses' => 'AdminController@dashboard',
-	'before' => 'Auth',
+	'before' => 'auth',
 ]);
 
 Route::get('tenants', [
 	'as' => 'tenant.index',
 	'uses' => 'TenantController@index',
-	'before' => 'Auth',
+	'before' => 'auth',
 ]);
