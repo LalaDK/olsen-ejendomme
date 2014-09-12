@@ -9,7 +9,8 @@ class AdminController extends \BaseController {
 	 */
 	public function dashboard()
 	{
-		return View::make('dashboard.index');
+		$companies = Company::all();
+		return View::make('dashboard.index',['companies' => $companies]);
 	}
 
 
