@@ -182,6 +182,7 @@ html,body {
 	text-align: justify;
 	margin-left:6px;
 	margin-right:6px;
+	margin-bottom:-21px;
 	}
 #dashboard-user-panel > div {
 	width: 75px; /* Declare your value. Can be in relative units. */
