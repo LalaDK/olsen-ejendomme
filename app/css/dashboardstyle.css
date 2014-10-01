@@ -98,73 +98,67 @@ html,body {
 
 .btn-new-item{
 	background-color: #fcae4a;
-    border: medium none;
-    border-radius: 0;
-    color: #ffffff;
-    width: 80%;
+	border: medium none;
+	border-radius: 0;
+	color: #ffffff;
+	line-height: 32px;
+	text-align: center;
+	width: 80%;
 }
-.btn-new-item:focus{
-	background-color: #fcae4a;
-    border: medium none;
-    border-radius: 0;
-    color: #ffffff;
-    width: 80%;
-}
+
 
 .btn-new-item:hover{
 	background-color: #fcae4a;
-    border: medium none;
-    border-radius: 0;
-    color: #ffffff;
-    width: 80%;
+	border: medium none;
+	border-radius: 0;
+	color: #ffffff;
+	width: 80%;
 }
 
 .btn-new-item-background{
 	background-color: #fdc174;
-    color: #ffffff;
-    width: 100%;
-    height: 32px;
-    margin-bottom: 10px;
-    float: left;
+	color: #ffffff;
+	width: 100%;
+	height: 32px;
+	margin-bottom: 10px;
+	float: left;
 }
 
 .btn-delete-item{
 	background-color: #cfcfcf;
-    border: medium none;
-    border-radius: 0;
-    color: #ffffff;
-    width: 80%;
+	border: medium none;
+	border-radius: 0;
+	color: #ffffff;
+	line-height: 32px;
+	text-align: center;
+	width: 80%;
 	
-}
-
-.btn-delete-item:focus{
-	background-color: #cfcfcf;
-    border: medium none;
-    border-radius: 0;
-    color: #ffffff;
-    width: 80%;
-	
-}
-
-.btn-delete-item:hover{
-	background-color: #cfcfcf;
-    border: medium none;
-    border-radius: 0;
-    color: #ffffff;
-    width: 80%;
 }
 
 .btn-delete-item-background{
 	background-color: #dadada;
-    color: #ffffff;
-    width: 100%;
-    height: 32px;
-    float: left;
+	color: #ffffff;
+	width: 100%;
+	height: 32px;
+	float: left;
+}
+
+.btn-new-item-background a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.btn-delete-item-background a:hover {
+	color: #ffffff;
+	text-decoration: none;
 }
 
 .glyphicon-center{
+	float: right;
+	margin-right: 1.4em;
+	margin-top: -1.6em;
 	vertical-align: middle;
-	margin-left: 1.4em;
+	color: #ffffff;
 }
 
 .dashboard-user-administration {
@@ -182,7 +176,7 @@ html,body {
 	text-align: justify;
 	margin-left:6px;
 	margin-right:6px;
-	}
+}
 #dashboard-user-panel > div {
 	width: 75px; /* Declare your value. Can be in relative units. */
 	display: inline-block;
@@ -191,9 +185,9 @@ html,body {
 	/* IE fix. */
 	*display: inline;
 	zoom: 1;
-	}
+}
 #dashboard-user-panel:after {
 	content: "";
 	width: 100%;
 	display: inline-block;
-    }
+}
