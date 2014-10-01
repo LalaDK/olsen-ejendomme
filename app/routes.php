@@ -10,6 +10,9 @@ Route::resource('companies','CompanyController');
 
 Route::resource('users','UserController');
 
+Route::resource('realestates','RealestateController');
+
+
 Route::get('login','SessionsController@create');
 
 Route::get('logout','SessionsController@destroy'); 

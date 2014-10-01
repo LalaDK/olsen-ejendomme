@@ -17,7 +17,7 @@
 		@endif
 		
 		{{Form::open(['route'=>'sessions.store', 'class' => 'form-inline']) }}
-		{{Form::text('email','user@example.com', ['class' => 'form-control', 'style' => 'width:100%']) }}
+		{{Form::text('email',Input::old('email'), array('placeholder'=>'user@example.com', 'class' => 'form-control', 'style' => 'width:100%'))}}
 		{{Form::password('password', ['class' => 'form-control', 'style' => 'width:100%'])}}
 		{{ HTML::link('http://www.youtube.com/watch?v=dQw4w9WgXcQ', 'Glemt password?')}}
 		<br>

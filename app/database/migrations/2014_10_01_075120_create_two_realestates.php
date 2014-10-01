@@ -18,7 +18,10 @@ class CreateTwoRealestates extends Migration {
 			array(
 				array(
 					'company_id' => 1,
-					'address' => 'Vesterbrogade 45',
+					'street_name' => 'Vesterbrogade',
+					'street_number' => '20',
+					'zip_code' => '1666',
+					'city' => 'København',
 					'cadastral_number' => 'euref89',
 					'leases' => 10,
 					'build_date' => $date,
@@ -27,13 +30,18 @@ class CreateTwoRealestates extends Migration {
 					'ground_area' => 65,
 					'energy_label' => 'D',
 					'property_valuation' => 1200000,
+					'purchase_value' => 1100000,
 					'base_value' => 400000,
 					'created_at' => $date,
 					'updated_at' => $date
 					),
 				array(
 					'company_id' => 1,
-					'address' => 'Nørregade 35',
+					
+					'street_name' => 'Vesterbrogade',
+					'street_number' => '20',
+					'zip_code' => '1666',
+					'city' => 'København',
 					'cadastral_number' => 'euref90',
 					'leases' => 20,
 					'build_date' => $date,
@@ -42,13 +50,18 @@ class CreateTwoRealestates extends Migration {
 					'ground_area' => 45,
 					'energy_label' => 'D',
 					'property_valuation' => 1000000,
+					'purchase_value' => 1800000,
 					'base_value' => 350000,
 					'created_at' => $date,
 					'updated_at' => $date
 					),
 				array(
 					'company_id' => 2,
-					'address' => 'Nyhavn 1',
+					
+					'street_name' => 'Vesterbrogade',
+					'street_number' => '20',
+					'zip_code' => '1666',
+					'city' => 'København',
 					'cadastral_number' => 'euref91',
 					'leases' => 4,
 					'build_date' => $date,
@@ -58,12 +71,16 @@ class CreateTwoRealestates extends Migration {
 					'energy_label' => 'A',
 					'property_valuation' => 2200000,
 					'base_value' => 900000,
+					'purchase_value' => 2100000,
 					'created_at' => $date,
 					'updated_at' => $date
 					),
 				array(
 					'company_id' => 2,
-					'address' => 'Nørrebrogade',
+					'street_name' => 'Vesterbrogade',
+					'street_number' => '20',
+					'zip_code' => '1666',
+					'city' => 'København',
 					'cadastral_number' => 'euref92',
 					'leases' => 24,
 					'build_date' => $date,
@@ -72,6 +89,7 @@ class CreateTwoRealestates extends Migration {
 					'ground_area' => 55,
 					'energy_label' => 'C',
 					'property_valuation' => 1100000,
+					'purchase_value' => 3100000,
 					'base_value' => 300000,
 					'created_at' => $date,
 					'updated_at' => $date

@@ -78,13 +78,15 @@
 				<table class="table-stribed table-curved" style="width:100%">
 					<th>Id</th>
 					<th>Adresse</th>
+					<th>Nr</th>
 					<th>Matrikel nr.</th>
 					<th>Antal lejemål</th>
 					<th></th>
 					@foreach ($company->realestates as $estate)
 					<tr>
 						<td>{{$estate->id}}</td>
-						<td>{{$estate->address}}</td>
+						<td>{{$estate->street_name}}</td>
+						<td>{{$estate->street_number}}</td>
 						<td>{{$estate->cadastral_number}}</td>
 						<td>{{$estate->leases}}</td>
 						<td><span class="glyphicon glyphicon-chevron-right"></span></td>
