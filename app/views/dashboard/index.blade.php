@@ -3,24 +3,28 @@
 @section('content')
 
 <script>
-$(document).ready(function(){
-	setselected("#dashboard");
-	$('#companyTabs a:first').tab('show');
-
-
-});
+	$(document).ready(function(){
+		setselected("#dashboard");
+		$('#companyTabs a:first').tab('show');
+	});
 
 
 </script>
 
 <h3>Dashboard</h3>
-<div class="col-md-3">
+<div class="col-md-4">
 	<div class="panel panel-default">
 		<div class="panel-heading panel-header">
 			<h3 class="panel-title">Bruger administration</h3>
 		</div>
 		<div class="panel-body">
-			Panel content
+			<div id="dashboard-user-panel">
+				<div class='dashboard-user-administration'>
+				<a href="users/create" rel="lightbox">
+				{{ HTML::image('../app/images/opret.png') }}</a></div>
+				<div class='dashboard-user-administration'>{{ HTML::image('../app/images/slet.png') }}</div>
+				<div class='dashboard-user-administration'>{{ HTML::image('../app/images/retweet.png') }}</div>
+			</div>
 		</div>
 	</div>
 </div>

@@ -4,10 +4,11 @@
 	<meta charset="UTF-8">
 	<title>Olsen Ejendomme</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../app/css/style.css">
 	<link rel="stylesheet" type="text/css" href="../app/css/dashboardstyle.css">	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="../app/scripts/lightbox/js/lightbox.min.js"></script>
+	<link href="../app/scripts/lightbox/css/lightbox.css" rel="stylesheet" />
 	<script type="text/javascript">
 
 	$(document).ready(function() {

@@ -167,3 +167,21 @@ html,body {
 	margin-left: 1.4em;
 }
 
+
+#dashboard-user-panel {
+	text-align: justify;
+}
+
+.dashboard-user-administration {
+	display: inline-block;
+	width:90px;
+	height:91px;
+	margin-left:10px;
+	margin-right:10px;
+}
+
+#dashboard-user-panel:after {
+  content: '';
+  width: 100%; /* Ensures there are at least 2 lines of text, so justification works */
+  display: inline-block;
+}
