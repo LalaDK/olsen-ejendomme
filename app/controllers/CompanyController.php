@@ -45,5 +45,7 @@ class CompanyController extends \BaseController {
 		return Redirect::route('company.dashboard');
 	}
 
+	public function deleteform(){
 
+	}
 }
