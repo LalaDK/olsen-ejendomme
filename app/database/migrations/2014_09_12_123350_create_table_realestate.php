@@ -19,7 +19,8 @@ class CreateTableRealestate extends Migration {
 			$table->foreign('company_id')->references('id')->on('companies');
 
 			$table->string('address');
-			$table->float('lease_amount');
+			$table->string('cadastral_number');
+			$table->float('leases');
 			$table->datetime('build_date');
 			$table->integer('outer_sqm');
 			$table->integer('inner_sqm');

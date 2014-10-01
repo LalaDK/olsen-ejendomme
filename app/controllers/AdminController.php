@@ -9,8 +9,9 @@ class AdminController extends \BaseController {
 	 */
 	public function dashboard()
 	{
-		$companies = Company::all();
-		return View::make('dashboard.index',['companies' => $companies]);
+		$companies = Company::with('realestates')->get();
+
+		return View::make('dashboard.index', compact('companies'));
 	}
 
 
