@@ -10,7 +10,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body style="width:500px;">
 	<div class="container-fluid">
 		@if (Session::has('message'))
 		<div class="alert alert-info">{{ Session::get('message') }}</div>
