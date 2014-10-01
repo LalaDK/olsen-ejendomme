@@ -37,7 +37,7 @@ class SessionsController extends BaseController {
 		if (Auth::attempt(Input::only('email','password')))
 		{
 			Auth::user();
-			return Redirect::route('admin.dashboard');
+			return Redirect::route('company.dashboard');
 		}
 
 		Session::flash('message', "Brugernavn og/eller kodeord er forkert!");

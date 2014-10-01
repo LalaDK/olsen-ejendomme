@@ -6,20 +6,17 @@ Route::get('/', function(){
 
 Route::resource('sessions','SessionsController');
 
+Route::resource('companies','CompanyController');
+
 Route::resource('users','UserController');
 
 Route::get('login','SessionsController@create');
 
 Route::get('logout','SessionsController@destroy'); 
 
-Route::get('dashboard', function(){
-	return View::make('dasboard.index');
-});
-
-
 Route::get('dashboard', [
-	'as' => 'admin.dashboard',
-	'uses' => 'AdminController@dashboard',
+	'as' => 'company.dashboard',
+	'uses' => 'CompanyController@dashboard',
 	'before' => 'auth',
 ]);
 
