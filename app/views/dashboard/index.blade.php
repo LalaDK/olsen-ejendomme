@@ -62,9 +62,7 @@ $(document).ready(function(){
 				</div>
 			</div>
 		</div>
-		<<<<<<< HEAD
 	</div>
-</div>
 <div class="col-md-10">
 	<ul class="nav nav-tabs" data-tabs="tabs" id="companyTabs">
 		@foreach ($companies as $company) 
@@ -103,6 +101,7 @@ $(document).ready(function(){
 		</div>
 		@endforeach
 	</div>
+</div>
 </div>
 
 @stop
