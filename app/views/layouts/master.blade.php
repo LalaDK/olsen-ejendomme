@@ -7,28 +7,31 @@
 	<link rel="stylesheet" type="text/css" href="../app/css/dashboardstyle.css">	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script src="../app/scripts/lightbox/js/lightbox.min.js"></script>
-	<link href="../app/scripts/lightbox/css/lightbox.css" rel="stylesheet" />
+	
+	<link href="../app/scripts/litebox-master/assets/css/litebox.css" rel="stylesheet" />
+	<script src="../app/scripts/litebox-master/assets/js/images-loaded.min.js"></script>
+	<script src="../app/scripts/litebox-master/assets/js/litebox.js"></script>
+
 	<script type="text/javascript">
 
-	$(document).ready(function() {
-		$("li").mouseover(function(){
-			$(this).children().find(".menu-icon").css("fill","#fb9821");
-		});
-		
-		$("li").mouseout(function(){
-			if($(this).attr("id") != "selected"){
-				$(this).children().find(".menu-icon").css("fill","#000000");
-			}
+		$(document).ready(function() {
+			$("li").mouseover(function(){
+				$(this).children().find(".menu-icon").css("fill","#fb9821");
+			});
+
+			$("li").mouseout(function(){
+				if($(this).attr("id") != "selected"){
+					$(this).children().find(".menu-icon").css("fill","#000000");
+				}
+			});
+
 		});
 
-	});
-	
-	function setselected(select_id){
-		$("ul").find(select_id).attr('id',"selected");
-		$("ul").find("#selected").addClass('selected');
-		$("ul").find("#selected").children().find(".menu-icon").css("fill","#fb9821");
-	}
+		function setselected(select_id){
+			$("ul").find(select_id).attr('id',"selected");
+			$("ul").find("#selected").addClass('selected');
+			$("ul").find("#selected").children().find(".menu-icon").css("fill","#fb9821");
+		}
 
 	</script>
 </head>
@@ -62,5 +65,10 @@
 		
 	</div>
 </div>
+<!-- Script for activating and setting up liteboxes -->
+<script>
+	$('.litebox').liteBox();
+</script>
+
 </body>
 </html>
