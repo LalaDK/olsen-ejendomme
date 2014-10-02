@@ -60,62 +60,14 @@ html,body {
 	background-color: #fb9821;
 	border-color: #ddd;
 }
-.table-curved {
-	border-collapse: separate;
-}
-.table-curved {
-	border: solid #ccc 1px;
-	border-radius: 4px;
-	border-left:0px;
-}
-.table-curved td, .table-curved th {
-	border-left: 1px solid #ccc;
-	border-top: 1px solid #ccc;
-	padding: 5px;
-}
-.table-curved th {
-	border-top: none;
-	color:#ffffff;
-	background-color:#fb9821;
-
-}
-.table-curved th:first-child {
-	border-radius: 4px 0 0 0;
-	background-color:#fb9821;
-}
-.table-curved th:last-child {
-	border-radius: 0 4px 0 0;
-}
-.table-curved th:only-child{
-	border-radius: 4px 4px 0 0;
-}
-.table-curved tr:last-child td:first-child {
-	border-radius: 0 0 0 4px;
-}
-.table-curved tr:last-child td:last-child {
-	border-radius: 0 0 4px 0;
-}
 
 .btn-new-item{
 	background-color: #fcae4a;
 	border: medium none;
 	border-radius: 0;
 	color: #ffffff;
-	width: 80%;
-}
-.btn-new-item:focus{
-	background-color: #fcae4a;
-	border: medium none;
-	border-radius: 0;
-	color: #ffffff;
-	width: 80%;
-}
-
-.btn-new-item:hover{
-	background-color: #fcae4a;
-	border: medium none;
-	border-radius: 0;
-	color: #ffffff;
+	line-height: 32px;
+	text-align: center;
 	width: 80%;
 }
 
@@ -128,29 +80,23 @@ html,body {
 	float: left;
 }
 
+.btn-new-item-background a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.btn-new-item-background a:active{
+	color: #ffffff;
+	text-decoration: none;
+}
+
 .btn-delete-item{
 	background-color: #cfcfcf;
 	border: medium none;
 	border-radius: 0;
 	color: #ffffff;
-	width: 80%;
-	
-}
-
-.btn-delete-item:focus{
-	background-color: #cfcfcf;
-	border: medium none;
-	border-radius: 0;
-	color: #ffffff;
-	width: 80%;
-	
-}
-
-.btn-delete-item:hover{
-	background-color: #cfcfcf;
-	border: medium none;
-	border-radius: 0;
-	color: #ffffff;
+	line-height: 32px;
+	text-align: center;
 	width: 80%;
 }
 
@@ -162,9 +108,22 @@ html,body {
 	float: left;
 }
 
+.btn-delete-item-background a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.btn-delete-item-background a:active {
+	color: #ffffff;
+	text-decoration: none;
+}
+
 .glyphicon-center{
+	float: right;
+	margin-right: 1.4em;
+	margin-top: -1.6em;
 	vertical-align: middle;
-	margin-left: 1.4em;
+	color: #ffffff;
 }
 
 .dashboard-user-administration {
