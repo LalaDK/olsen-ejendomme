@@ -67,7 +67,14 @@
 </div>
 <!-- Script for activating and setting up liteboxes -->
 <script>
-	$('.litebox').liteBox();
+	$('.litebox').liteBox({
+  revealSpeed: 0,
+  background: 'rgba(0,0,0,.8)',
+  overlayClose: true,
+  escKey: true,
+  navKey: false,
+  errorMessage: 'Error loading content.'
+});
 </script>
 
 </body>
