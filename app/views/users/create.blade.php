@@ -4,7 +4,7 @@
 
 
 @section('content')
-<div class="container-fluid box">
+<div class="container-fluid box create-user-box">
 <div class="title-text">Opret bruger</div>
 
 	{{Form::open(['route' => 'users.store'])}}

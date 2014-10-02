@@ -7,7 +7,6 @@ body {
 .box {
 	position: relative;
 	top:30px;
-	max-width: 380px;
 	border-style: solid;
 	border-color: white;
 	background-color: #f7f7f7;
@@ -30,6 +29,14 @@ body {
 
 .box form input, .box form select {
 	margin-bottom: 5px;
+}
+
+.company-delete-box{
+	width:650px;
+}
+
+.create-user-box{
+	width:380px;
 }
 
 .button {

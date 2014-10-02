@@ -5,13 +5,14 @@
 $(document).ready(function(){
     $(document).on('click', '.company-delete', function () {
         var transaction_id = $(this).attr('id');
+        $(this).parent().parent().parent().addClass('td-greyed-out');
         alert("Delete transaction #" + transaction_id);
         return false;
     });
 
 });
 </script>
-<h3>DELETE</h3>
+<div class="container-fluid box company-delete-box">
 <table class="table-stribed table-curved" style="width:100%">
 	<th>Selskabes navn</th>
 	<th>E-mail</th>
@@ -28,5 +29,5 @@ $(document).ready(function(){
 	</tr>
 	@endforeach
 </table>
-
+</div>
 @stop
