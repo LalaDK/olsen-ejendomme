@@ -101,11 +101,15 @@ html,body {
 	border: medium none;
 	border-radius: 0;
 	color: #ffffff;
-	line-height: 32px;
-	text-align: center;
 	width: 80%;
 }
-
+.btn-new-item:focus{
+	background-color: #fcae4a;
+	border: medium none;
+	border-radius: 0;
+	color: #ffffff;
+	width: 80%;
+}
 
 .btn-new-item:hover{
 	background-color: #fcae4a;
@@ -129,10 +133,25 @@ html,body {
 	border: medium none;
 	border-radius: 0;
 	color: #ffffff;
-	line-height: 32px;
-	text-align: center;
 	width: 80%;
 	
+}
+
+.btn-delete-item:focus{
+	background-color: #cfcfcf;
+	border: medium none;
+	border-radius: 0;
+	color: #ffffff;
+	width: 80%;
+	
+}
+
+.btn-delete-item:hover{
+	background-color: #cfcfcf;
+	border: medium none;
+	border-radius: 0;
+	color: #ffffff;
+	width: 80%;
 }
 
 .btn-delete-item-background{
@@ -143,22 +162,9 @@ html,body {
 	float: left;
 }
 
-.btn-new-item-background a:hover {
-	color: #ffffff;
-	text-decoration: none;
-}
-
-.btn-delete-item-background a:hover {
-	color: #ffffff;
-	text-decoration: none;
-}
-
 .glyphicon-center{
-	float: right;
-	margin-right: 1.4em;
-	margin-top: -1.6em;
 	vertical-align: middle;
-	color: #ffffff;
+	margin-left: 1.4em;
 }
 
 .dashboard-user-administration {
@@ -177,8 +183,7 @@ html,body {
 	margin-left:6px;
 	margin-right:6px;
 	margin-bottom:-21px;
-	}
-
+}
 #dashboard-user-panel > div {
 	width: 75px; /* Declare your value. Can be in relative units. */
 	display: inline-block;
@@ -192,4 +197,10 @@ html,body {
 	content: "";
 	width: 100%;
 	display: inline-block;
+}
+
+
+/* Hide close button on every litebox */
+.litebox-overlay .litebox-close {
+	display:none;
 }

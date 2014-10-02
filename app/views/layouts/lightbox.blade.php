@@ -8,6 +8,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../../app/css/lightbox.css">
 	<link rel="stylesheet" type="text/css" href="../../app/css/style.css">	
+
 </head>
 
 <body>
@@ -15,8 +16,6 @@
 		@if (Session::has('message'))
 		<div class="alert alert-info">{{ Session::get('message') }}</div>
 		@endif
-
-		<div class="mads">
 		@yield('content')
 		</div>
 	</div>

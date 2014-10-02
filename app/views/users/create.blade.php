@@ -1,12 +1,18 @@
 @extends('layouts.lightbox')
 
+
+
+
 @section('content')
+<div class="container-fluid box">
+<div class="title-text">Opret bruger</div>
+
 	{{Form::open(['route' => 'users.store'])}}
-	{{Form::label('name', 'Navn:')}}
-	{{Form::text('name', 'name')}}
-	{{Form::label('username', 'E-mail:')}}
-	{{Form::text('username', 'username')}}
-	{{Form::label('password', 'Kodeord:')}}
-	{{Form::password('password')}}
-	{{Form::submit('Create user')}}
+	{{Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Navn'))}}
+	{{Form::text('username', '', array('class' => 'form-control', 'placeholder' => 'E-mail'))}}
+	{{Form::password('password', array('class' => 'form-control', 'placeholder' => 'Kodeord'))}}
+	{{Form::submit('Opret bruger', array('class' => 'btn btn-success button'))}}
+	{{ Form::close() }}
+	<button onClick="$('.litebox').closeLitebox();">Mads</button>
+</div>
 @stop
