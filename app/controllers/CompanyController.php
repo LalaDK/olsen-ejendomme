@@ -45,13 +45,30 @@ class CompanyController extends \BaseController {
 		return Redirect::route('company.dashboard');
 	}
 
-		/**
+	/**
 	 * Show the form for deleting a company
 	 *
 	 * @return Response
 	 */
-		public function deleteindex(){
-			$companies = Company::with('realestates')->get();
-			return View::make('companies.deleteindex', compact('companies'));
-		}
+	public function deleteindex(){
+		$companies = Company::with('realestates')->get();
+		return View::make('companies.deleteindex', compact('companies'));
 	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy()
+	{
+		$ids = Input::get('ids');
+		foreach ($ids as $id) {
+			$company = Company::find($id);
+			$company->realestates()->delete();
+			$company->delete();
+		}
+		return ;
+	}
+}

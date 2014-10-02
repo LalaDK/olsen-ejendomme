@@ -2,32 +2,62 @@
 
 @section('content')
 <script>
-$(document).ready(function(){
-    $(document).on('click', '.company-delete', function () {
-        var transaction_id = $(this).attr('id');
-        $(this).parent().parent().parent().addClass('td-greyed-out');
-        alert("Delete transaction #" + transaction_id);
-        return false;
-    });
+//Id's of companies selected for deletion
+var removeid = [];
 
+//Checking when a user marks a company for deletion
+//Sets the delete style and keeps the id in an array
+$(document).ready(function(){
+	$(document).on('click', '.company-delete', function () {
+		if (!$(this).hasClass('td-greyed-out')) {			
+			var transaction_id = $(this).attr('id');
+			removeid.push(transaction_id);
+
+			$(this).closest("tr").addClass('td-greyed-out');
+			$(this).removeClass('glyphicon-delete');
+			$(this).addClass('td-greyed-out');
+		} else {
+			var transaction_id = $(this).attr('id');
+			var index = removeid.indexOf(transaction_id);
+			if(index > -1){
+				removeid.splice(index,1);
+			}
+			$(this).closest("tr").removeClass('td-greyed-out');
+			$(this).addClass('glyphicon-delete');
+			$(this).removeClass('td-greyed-out');
+			};
+	});
 });
+
+function delete_companies(){
+	$.ajax({
+    url: 'destroy',
+    type: 'DELETE',
+    data: {'ids' : removeid},
+    success: function(result) {
+        parent.window.location="{{URL::to('dashboard')}}";
+    }
+  });
+}
+
 </script>
 <div class="container-fluid box company-delete-box">
-<table class="table-stribed table-curved" style="width:100%">
-	<th>Selskabes navn</th>
-	<th>E-mail</th>
-	<th>Antal ejendomme</th>
-	<th>Telefon nr</th>
-	<th>Slet</th>
-	@foreach ($companies as $company)
-	<tr>
-		<td>{{$company->name}}</td>
-		<td>{{$company->name}}</td>
-		<td>{{$company->realestates->count()}}</td>
-		<td>{{$company->phonenumber}}</td>
-		<td><a href="#" ><span class="glyphicon glyphicon-remove company-delete" id="{{$company->id}}" style="color:#000000"></span></a></td>
-	</tr>
-	@endforeach
-</table>
+	<table class="table-stribed table-curved" style="width:100%">
+		<th>Selskabes navn</th>
+		<th>E-mail</th>
+		<th>Antal ejendomme</th>
+		<th>Telefon nr</th>
+		<th>Slet</th>
+		@foreach ($companies as $company)
+		<tr>
+			<td>{{$company->name}}</td>
+			<td>{{$company->name}}</td>
+			<td>{{$company->realestates->count()}}</td>
+			<td>{{$company->phonenumber}}</td>
+			<td><a href="#" ><span class="glyphicon glyphicon-remove company-delete glyphicon-delete" id="{{$company->id}}"></span></a></td>
+		</tr>
+		@endforeach
+	</table>
+	<button onClick="delete_companies()">Mads</button>
 </div>
 @stop

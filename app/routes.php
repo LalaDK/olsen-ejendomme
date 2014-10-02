@@ -6,7 +6,7 @@ Route::get('/', function(){
 
 Route::resource('sessions','SessionsController');
 
-Route::resource('companies','CompanyController', ['only'=> ['index','create','store']]);
+Route::resource('companies','CompanyController', ['only'=> ['index','create','store','destroy']]);
 Route::resource('users','UserController');
 
 Route::resource('realestates','RealestateController');

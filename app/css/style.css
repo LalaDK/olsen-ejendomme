@@ -35,5 +35,14 @@
 }
 
 .td-greyed-out{
-	background-color: #000000;
+	background-color: #cfcfcf;
+	color: #ffffff;
+}
+
+.td-greyed-out-test{
+	color: red;
+}
+
+.glyphicon-delete{
+	color:#000000;
 }
