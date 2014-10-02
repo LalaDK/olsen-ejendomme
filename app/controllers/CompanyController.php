@@ -18,11 +18,11 @@ class CompanyController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
-	{
+		public function create()
+		{
 
-		Return View::make('companies.create');
-	}
+			return View::make('companies.create');
+		}
 
 
 	/**
@@ -45,7 +45,13 @@ class CompanyController extends \BaseController {
 		return Redirect::route('company.dashboard');
 	}
 
-	public function deleteform(){
-
+		/**
+	 * Show the form for deleting a company
+	 *
+	 * @return Response
+	 */
+		public function deleteindex(){
+			$companies = Company::with('realestates')->get();
+			return View::make('companies.deleteindex', compact('companies'));
+		}
 	}
-}

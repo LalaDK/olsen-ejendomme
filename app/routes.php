@@ -6,8 +6,7 @@ Route::get('/', function(){
 
 Route::resource('sessions','SessionsController');
 
-Route::resource('companies','CompanyController');
-
+Route::resource('companies','CompanyController', ['only'=> ['index','create','store']]);
 Route::resource('users','UserController');
 
 Route::resource('realestates','RealestateController');
@@ -26,5 +25,11 @@ Route::get('dashboard', [
 Route::get('tenants', [
 	'as' => 'tenant.index',
 	'uses' => 'TenantController@index',
+	'before' => 'auth',
+]);
+
+Route::get('companies/deleteindex', [
+	'as' => 'company.deleteindex',
+	'uses' => 'CompanyController@deleteindex',
 	'before' => 'auth',
 ]);

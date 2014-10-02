@@ -40,7 +40,7 @@ $(document).ready(function(){
 						</a>
 					</div>
 					<div class="btn-delete-item-background">
-						<a href="companies/delete" target="_self" class="litebox">
+						<a href="companies/deleteindex" target="_self" class="litebox">
 							<div class="btn-delete-item">Slet selskab</div>
 							<div class="glyphicon glyphicon-minus glyphicon-center"></div>
 						</a>

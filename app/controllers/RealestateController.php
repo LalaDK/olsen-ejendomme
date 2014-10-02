@@ -49,5 +49,14 @@ class RealestateController extends \BaseController {
 		return Redirect::route('company.dashboard');
 	}
 
+		/**
+	 * Show the form for deleting a realestate
+	 *
+	 * @return Response
+	 */
+	public function delete()
+	{
 
+		Return View::make('realestates.delete');
+	}
 }
