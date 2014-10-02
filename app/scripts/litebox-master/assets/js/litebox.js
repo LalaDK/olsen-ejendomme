@@ -172,7 +172,7 @@
 				// Insert into document
 					$('body').prepend($litebox.css({ 'background-color': this.options.background }));
 
-					$litebox.append($close, $text, $prevNav, $nextNav, $container);
+					$litebox.append($text, $prevNav, $nextNav, $container, $close);
 
 					$litebox.fadeIn(this.options.revealSpeed);
 			},
