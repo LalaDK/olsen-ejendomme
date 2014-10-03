@@ -49,13 +49,22 @@ function cancel(){
 }
 
 </script>
+
+<!-- Snippet for passing all users from database to javascript array -->
+@foreach ($companies as $company)
+<script>
+	var newcompany = Array('{{ $company->id }}', '{{ $company->name }}', '{{ $company->email }}', '{{ $company->phonenumber }}');
+	users.push(newcompany);
+</script>
+@endforeach
+
 <div class="container-fluid box company-delete-box">
 	<div id="status-msg">
 	</div>
 	<div>
 		Slet selskab
 	</div>
-	<div class="company-seach-box">
+	<div>
 		Søg efter et selskab der skal slettes fra systemet:<br>
 		<input type="text" name="companyname" class="form-control">
 	</div>
@@ -75,7 +84,7 @@ function cancel(){
 		</tr>
 		@endforeach
 	</table>
-	<button class="btn btn-success" onClick="cancel()">Anuller</button>	
-	<button class="btn btn-success" onClick="delete_companies()">Udfør</button>
+		<button class="btn btn-success" onClick="cancel()">Anuller</button>	
+		<button class="btn btn-success" onClick="delete_companies()">Udfør</button>
 </div>
 @stop

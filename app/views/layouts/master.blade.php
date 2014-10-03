@@ -9,7 +9,7 @@
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	
+	<script src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 	<link href="../app/scripts/litebox-master/assets/css/litebox.css" rel="stylesheet" />
 	<script src="../app/scripts/litebox-master/assets/js/images-loaded.min.js"></script>
 	<script src="../app/scripts/litebox-master/assets/js/litebox.js"></script>
