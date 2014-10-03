@@ -46,7 +46,7 @@ function delete_companies(){
 }
 function lightbox_dashboard_cancel(){
 	parent.window.location="{{URL::to('dashboard')}}";
-
+}
 </script>
 
 <!-- Snippet for passing all users from database to javascript array -->
