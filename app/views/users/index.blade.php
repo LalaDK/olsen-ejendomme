@@ -6,32 +6,19 @@
 var users = new Array();
 
 
-
-
 // Function to return divs
-function userFormat(users) {
+function userFormat(arr) {
 	var result = '';
-	for(i = 0; i < users.length; i++) {
+	before = '<b>';
+	after = '</b>';
+	for(i = 0; i < arr.length; i++) {
+		var key = document.getElementById('search').value;
+		var text = arr[i][1] + ' - ' + arr[i][2];
 		result += '<div class="search-result">' 
-		+ users[i][1] + ' - ' + users[i][2]
+		+ highlight(key, text, before, after)
 		+ '<div class="search-result-delete"><a href="users/"">x</a></div></div>';
 	}
 	document.getElementById('result').innerHTML = result;
-	return result; 
-}
-
-// Highlighter 
-function highlight(key, string) {
-	var result;
-	var tmpStr = string;
-	var keySize = key.length;
-	while(tmpStr.length != 0) {
-		var firstPos = string.indexOf(key);
-		result += tmpStr.subStr(0, firstPos);
-		result += '<b>' + tmpStr.subStr(firstPos, keySize) + '</b>';
-		
-	}
-
 }
 
 </script>
@@ -50,7 +37,7 @@ function highlight(key, string) {
 	<b>Søg efter brugere som skal slettes fra systemet</b><br>
 	<input type="text" id="search" class="form-control" onkeyup="userFormat(searchStr(document.getElementById('search').value, users));">
 	<div id="result"></div>
-@stop
+	@stop
 
 
 
