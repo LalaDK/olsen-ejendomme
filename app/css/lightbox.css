@@ -72,3 +72,9 @@ body {
 	color:grey;
 	font-weight: bold;
 }
+
+.search-result {
+	background-color: #f4f4f4;
+	border-radius: 5px;
+	
+}

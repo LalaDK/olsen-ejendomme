@@ -1,42 +1,51 @@
 @extends('layouts.lightbox')
 @section('content')
-<table class="table table-curved">
-	<tr>
-		<th>Navn</th>
-		<th>E-mail</th>
-		<th>Vis</th>
-		<th>Redigér</th>
-		<th>Slet</th>
-	</tr>
-	@foreach ($users as $user) 
-	<tr>
-		<td>{{ $user->name }} </td>
-		<td>{{ $user->email }} </td>
 
-		<!-- Vis -->
-		<td> 
-			{{ Form::open(array('action' => array('UserController@show', $user->id))) }}
-			{{ Form::hidden('_method', 'GET') }}
-			{{ Form::submit('Vis')}}
-			{{ Form::close() }}
-		</td>
+<script>
+// Global variable to store matching users
+var users = new Array();
 
-		<!-- Redigér -->
-		<td> 
-			{{ Form::open(array('action' => array('UserController@edit', $user->id))) }}
-			{{ Form::hidden('_method', 'GET') }}
-			{{ Form::submit('Redigér')}}
-			{{ Form::close() }}
-		</td>		
+// Search the global variable 'users' for a match
+function searchStr(str) {
+	var result = new Array();
+	for(i = 0; i < users.length; i++) {
+		if(users[i][1].toLowerCase().indexOf(str.toLowerCase()) != -1) {
+			result.push(users[i]);
+		}
+	}
+	return result;
+}
 
-		<!-- Slet -->
-		<td> 
-			{{ Form::open(array('url' => 'users/' . $user->id)) }}
-			{{ Form::hidden('_method', 'DELETE') }}
-			{{ Form::submit('Slet') }}
-			{{ Form::close() }}
-		</td>
-	</tr>
-	@endforeach
-</table>
+
+// Function to return divs
+function userFormat(users) {
+	var result = '';
+	for(i = 0; i < users.length; i++) {
+		result += '<div class="search-result">' + users[i][1] + '<div><a href="#"">x</a></div></div>';
+	}
+	document.getElementById('result').innerHTML = result;
+	return result; 
+}
+
+</script>
+
+
+<!-- Snippet for passing all users from database to javascript array -->
+@foreach ($users as $user)
+<script>
+	var newuser = Array('{{ $user->id }}', '{{ $user->name }}', '{{ $user->email }}');
+	users.push(newuser);
+</script>
+@endforeach
+
+<div class="box"> 
+	<div class="title-text">Slet lejer</div>
+	Søg efter brugere som skal slettes fra systemet<br>
+	<input type="text" id="search" onkeyup="userFormat(searchStr(document.getElementById('search').value));">
+	<div id="result"></div>
 @stop
+
+
+
+</div>
+
