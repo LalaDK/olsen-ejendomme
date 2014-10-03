@@ -5,10 +5,10 @@
 //Id's of companies selected for deletion
 var removeid = [];
 
-//Checking when a user marks a company for deletion
+//Checking when a user marks a realestate for deletion
 //Sets the delete style and keeps the id in an array
 $(document).ready(function(){
-	$(document).on('click', '.company-delete', function () {
+	$(document).on('click', '.realestate-delete', function () {
 		if (!$(this).hasClass('td-greyed-out')) {			
 			var transaction_id = $(this).attr('id');
 			removeid.push(transaction_id);
@@ -30,7 +30,7 @@ $(document).ready(function(){
 	});
 });
 
-function delete_companies(){
+function delete_realestate(){
 	$.ajax({
 		url: 'destroy',
 		type: 'DELETE',
@@ -50,14 +50,6 @@ function cancel(){
 
 </script>
 
-<!-- Snippet for passing all users from database to javascript array -->
-@foreach ($companies as $company)
-<script>
-	var newcompany = Array('{{ $company->id }}', '{{ $company->name }}', '{{ $company->email }}', '{{ $company->phonenumber }}');
-	users.push(newcompany);
-</script>
-@endforeach
-
 <div class="container-fluid box company-delete-box">
 	<div id="status-msg">
 	</div>
@@ -66,25 +58,25 @@ function cancel(){
 	</div>
 	<div>
 		Søg efter et selskab der skal slettes fra systemet:<br>
-		<input type="text" id="companyname" class="form-control" onkeyup="search_company()">
+		<input type="text" class="form-control">
 	</div>
 	<table class="table-stribed table-curved" style="width:100%">
-		<th>Selskabes navn</th>
-		<th>E-mail</th>
-		<th>Antal ejendomme</th>
-		<th>Telefon nr</th>
+		<th>Vej</th>
+		<th>Nummer</th>
+		<th>Post nummer</th>
+		<th>Matrikel nr</th>
 		<th>Slet</th>
-		@foreach ($companies as $company)
+		@foreach ($realestates as $realestate)
 		<tr>
-			<td>{{$company->name}}</td>
-			<td>{{$company->name}}</td>
-			<td>{{$company->realestates->count()}}</td>
-			<td>{{$company->phonenumber}}</td>
-			<td><a href="#" ><span class="glyphicon glyphicon-remove company-delete glyphicon-delete" id="{{$company->id}}"></span></a></td>
+			<td>{{$realestate->street_name}}</td>
+			<td>{{$realestate->street_number}}</td>
+			<td>{{$realestate->zip_code}}</td>
+			<td>{{$realestate->cadastral_number}}</td>
+			<td><a href="#" ><span class="glyphicon glyphicon-remove realestate-delete glyphicon-delete" id="{{$realestate->id}}"></span></a></td>
 		</tr>
 		@endforeach
 	</table>
 		<button class="btn btn-success" onClick="cancel()">Anuller</button>	
-		<button class="btn btn-success" onClick="delete_companies()">Udfør</button>
+		<button class="btn btn-success" onClick="delete_realestate()">Udfør</button>
 </div>
 @stop

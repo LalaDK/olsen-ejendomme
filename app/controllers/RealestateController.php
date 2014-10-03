@@ -49,14 +49,29 @@ class RealestateController extends \BaseController {
 		return Redirect::route('company.dashboard');
 	}
 
-		/**
-	 * Show the form for deleting a realestate
+	/**
+	 * Show the form for deleting a company
 	 *
 	 * @return Response
 	 */
-	public function delete()
-	{
+	public function deleteindex(){
+		$realestates = Realestate::all();
+		return View::make('realestates.deleteindex', compact('realestates'));
+	}
 
-		Return View::make('realestates.delete');
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy()
+	{
+		$ids = Input::get('ids');
+		foreach ($ids as $id) {
+			$realestate = Realestate::find($id);
+			$realestate->delete();
+		}
+		return ;
 	}
 }

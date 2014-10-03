@@ -65,7 +65,7 @@
 							</a>
 						</div>
 						<div class="btn-delete-item-background">
-							<a href="realestates/delete" target="_self" class="litebox">
+							<a href="realestates/deleteindex" target="_self" class="litebox">
 								<div class="btn-delete-item">Slet ejendom</div>
 								<div class="glyphicon glyphicon-minus glyphicon-center"></div>
 							</a>
