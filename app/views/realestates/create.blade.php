@@ -6,8 +6,6 @@ $(document).ready(function(){
 	$('#create_company_form').submit(function(e){
 		e.preventDefault();
 
-		
-
 		var street_name = $("[name = 'street_name']").val();
 		var street_number = $("[name = 'street_number']").val();
 		var zip_code = $("[name = 'zip_code']").val();
@@ -19,8 +17,13 @@ $(document).ready(function(){
 		var inner_sqm = $("[name = 'inner_sqm']").val();
 		var ground_area = $("[name = 'ground_area']").val();
 		var company = $("[name = 'company']").val();
-		alert(street_number);
-		alert(street_name);
+
+		var estate{
+			street_name : $("[name = 'street_name']").val()
+		};
+
+
+		alert(estate.street_name);
 
 	});
 });
