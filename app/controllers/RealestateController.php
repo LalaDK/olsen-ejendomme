@@ -19,8 +19,8 @@ class RealestateController extends \BaseController {
 	 */
 	public function create()
 	{
-
-		Return View::make('realestates.create');
+		$companies = Company::all()->lists('name','id');
+		return View::make('realestates.create', compact('companies'));
 	}
 
 
@@ -44,6 +44,7 @@ class RealestateController extends \BaseController {
 		$realestate->inner_sqm = Input::get('inner_sqm');
 		$realestate->ground_area = Input::get('ground_area');
 		$realestate->purchase_value = Input::get('purchase_value');
+		$realestate->company_id = Input::get('company');
 		$realestate->save();
 		Session::flash('message', 'Ejendommen blev oprettet');
 		return Redirect::route('company.dashboard');
