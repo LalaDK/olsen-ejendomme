@@ -16,7 +16,7 @@ function userFormat(arr) {
 		var text = arr[i][1] + ' - ' + arr[i][2];
 		result += '<div class="search-result">' 
 		+ highlight(key, text, before, after)
-		+ '<div class="search-result-delete"><a href="users/"">x</a></div></div>';
+		+ '<div class="search-result-delete"><a href="#">Slet bruger x</a></div></div>';
 	}
 	document.getElementById('result').innerHTML = result;
 }
@@ -34,12 +34,9 @@ function userFormat(arr) {
 
 <div class="box"> 
 	<div class="title-text">Slet lejer</div>
-	<b>Søg efter brugere som skal slettes fra systemet</b><br>
-	<input type="text" id="search" class="form-control" onkeyup="userFormat(searchStr(document.getElementById('search').value, users));">
-	<div id="result"></div>
-	@stop
-
-
-
-
-
+	<b>Søg efter brugere som skal slettes fra systemet</b><br><br>
+	<input type="text" id="search" placeholder="Indtast navn eller ID" class="form-control" onkeyup="userFormat(searchStr(this.value, users));">
+	<div id="result"></div><br>
+	<button type="button" class="btn btn-success button">Luk</button>
+</div>
+@stop

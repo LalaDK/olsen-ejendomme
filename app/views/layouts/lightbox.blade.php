@@ -20,7 +20,6 @@
 		<div class="alert alert-info">{{ Session::get('message') }}</div>
 		@endif
 		@yield('content')
-		</div>
 	</div>
 </body>
 </html>
