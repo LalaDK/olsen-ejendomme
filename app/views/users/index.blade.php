@@ -5,18 +5,7 @@
 // Global variable to store matching users
 var users = new Array();
 
-// Search through an array of arrays for a specified key
-function searchStr(str, array) {
-	var result = new Array();
-	for(i = 0; i < array.length; i++) {
-		for(j = 0; j < array[i].length; j++) {
-			if(array[i][j].toLowerCase().indexOf(str.toLowerCase()) != -1) {
-				result.push(users[i]);
-			}
-		}
-	}
-	return result;
-}
+
 
 
 // Function to return divs
@@ -34,11 +23,13 @@ function userFormat(users) {
 // Highlighter 
 function highlight(key, string) {
 	var result;
-	var tmpStr;
+	var tmpStr = string;
 	var keySize = key.length;
 	while(tmpStr.length != 0) {
 		var firstPos = string.indexOf(key);
-		result += string.subStr(0, firstPos)
+		result += tmpStr.subStr(0, firstPos);
+		result += '<b>' + tmpStr.subStr(firstPos, keySize) + '</b>';
+		
 	}
 
 }
