@@ -16,6 +16,7 @@ $(document).ready(function(){
 			$(this).closest("tr").addClass('td-greyed-out');
 			$(this).removeClass('glyphicon-delete');
 			$(this).addClass('td-greyed-out');
+			$('#status-msg').removeClass('alert alert-danger');
 		} else {
 			var transaction_id = $(this).attr('id');
 			var index = removeid.indexOf(transaction_id);
@@ -25,23 +26,39 @@ $(document).ready(function(){
 			$(this).closest("tr").removeClass('td-greyed-out');
 			$(this).addClass('glyphicon-delete');
 			$(this).removeClass('td-greyed-out');
-			};
+		};
 	});
 });
 
 function delete_companies(){
 	$.ajax({
-    url: 'destroy',
-    type: 'DELETE',
-    data: {'ids' : removeid},
-    success: function(result) {
-        parent.window.location="{{URL::to('dashboard')}}";
-    }
-  });
+		url: 'destroy',
+		type: 'DELETE',
+		data: {'ids' : removeid},
+		success: function(result) {
+			parent.window.location="{{URL::to('dashboard')}}";
+		},
+		error: function(){
+			$('#status-msg').addClass('alert alert-danger');
+			$('#status-msg').text('Der er ikke valgt nogen selskaber');
+		}
+	});
+}
+function cancel(){
+	parent.window.location="{{URL::to('dashboard')}}";
 }
 
 </script>
 <div class="container-fluid box company-delete-box">
+	<div id="status-msg">
+	</div>
+	<div>
+		Slet selskab
+	</div>
+	<div class="company-seach-box">
+		Søg efter et selskab der skal slettes fra systemet:<br>
+		<input type="text" name="companyname" class="form-control">
+	</div>
 	<table class="table-stribed table-curved" style="width:100%">
 		<th>Selskabes navn</th>
 		<th>E-mail</th>
@@ -58,6 +75,7 @@ function delete_companies(){
 		</tr>
 		@endforeach
 	</table>
-	<button onClick="delete_companies()">Mads</button>
+	<button class="btn btn-success" onClick="cancel()">Anuller</button>	
+	<button class="btn btn-success" onClick="delete_companies()">Udfør</button>
 </div>
 @stop

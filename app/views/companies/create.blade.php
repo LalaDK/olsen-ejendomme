@@ -1,6 +1,8 @@
 @extends('layouts.lightbox')
 
 @section('content')
+<div class="container-fluid box">
+
 	{{Form::open(['route' => 'companies.store'])}}
 	
 	{{Form::label('name', 'Navn:')}}
@@ -19,4 +21,5 @@
 	{{Form::text('vat_number', Input::old('vat_number'), array('placeholder'=>'Momsnummer', 'class' => 'form-control', 'style' => 'width:100%'))}}
 
 	{{Form::submit('Opret selskab', ['class' => 'btn btn-success loginbutton'])}}
+</div>
 @stop

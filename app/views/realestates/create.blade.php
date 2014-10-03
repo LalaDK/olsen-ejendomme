@@ -1,6 +1,8 @@
 @extends('layouts.lightbox')
 
 @section('content')
+<div class="container-fluid box">
+
 {{Form::open(['route' => 'realestates.store'])}}
 
 {{Form::text('street_name', Input::old('street_name'), array('placeholder'=>'Gade', 'class' => 'form-control', 'style' => 'width:100%'))}}
@@ -24,4 +26,5 @@
 {{Form::text('ground_area', Input::old('ground_area'), array('placeholder'=>'Grundareal', 'class' => 'form-control', 'style' => 'width:100%'))}}
 
 {{Form::submit('Opret ejendom', ['class' => 'btn btn-success loginbutton'])}}
+</div>
 @stop

@@ -33,6 +33,19 @@ body {
 
 .company-delete-box{
 	width:650px;
+	padding: 10px 0;
+}
+.company-seach-box{
+	width:45px;
+}
+
+.company-delete-buttons{
+	float:right;
+	width: 200px;
+}
+
+.company-search{
+	width:50%;
 }
 
 .create-user-box{
