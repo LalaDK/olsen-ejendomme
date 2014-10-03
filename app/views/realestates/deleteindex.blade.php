@@ -44,10 +44,9 @@ function delete_realestate(){
 		}
 	});
 }
-function cancel(){
+function lightbox_dashboard_cancel(){
 	parent.window.location="{{URL::to('dashboard')}}";
 }
-
 </script>
 
 <div class="container-fluid box company-delete-box">
@@ -76,7 +75,7 @@ function cancel(){
 		</tr>
 		@endforeach
 	</table>
-		<button class="btn btn-success" onClick="cancel()">Anuller</button>	
+		<button class="btn btn-success" onClick="lightbox_dashboard_cancel()">Anuller</button>	
 		<button class="btn btn-success" onClick="delete_realestate()">Udfør</button>
 </div>
 @stop

@@ -35,3 +35,7 @@ function highlight(key, text, before, after) {
 	}
 	return result;
 }
+
+function lightbox_dashboard_cancel(){
+	parent.window.location="{{URL::to('dashboard')}}";
+}

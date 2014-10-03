@@ -1,36 +1,21 @@
 @extends('layouts.lightbox')
 
 @section('content')
+
 <script>
 $(document).ready(function(){
-	$('#create_company_form').submit(function(e){
-		e.preventDefault();
-
-		var street_name = $("[name = 'street_name']").val();
-		var street_number = $("[name = 'street_number']").val();
-		var zip_code = $("[name = 'zip_code']").val();
-		var city = $("[name = 'city']").val();
-		var leases = $("[name = 'leases']").val();
-		var build_date = $("[name = 'build_date']").val();
-		var purchase_value = $("[name = 'purchase_value']").val();
-		var outer_sqm = $("[name = 'outer_sqm']").val();
-		var inner_sqm = $("[name = 'inner_sqm']").val();
-		var ground_area = $("[name = 'ground_area']").val();
-		var company = $("[name = 'company']").val();
-
-		var estate{
-			street_name : $("[name = 'street_name']").val()
-		};
-
-
-		alert(estate.street_name);
-
+	$('#lort').submit(function(){
+		parent.window.location="{{URL::to('dashboard')}}";
 	});
 });
+function lightbox_dashboard_cancel(){
+	parent.window.location="{{URL::to('dashboard')}}";
+}
 </script>
+
 <div class="container-fluid box">
 
-	{{Form::open(array("","id"=>"create_company_form"))}}
+	{{Form::open(['route' => 'realestates.store'])}}
 
 	{{Form::text('street_name', Input::old('street_name'), array('placeholder'=>'Gade', 'class' => 'form-control', 'style' => 'width:100%'))}}
 
@@ -55,5 +40,10 @@ $(document).ready(function(){
 	{{Form::select('company', $companies, ['class' => 'form-control', 'style' => 'width:100%;'])}}
 
 	{{Form::submit('Opret ejendom', ['class' => 'btn btn-success loginbutton'])}}
+
+	{{Form::close()}}
+
+	<button class="btn btn-success" onClick="lightbox_dashboard_cancel()">Anuller</button>	
+
 </div>
 @stop

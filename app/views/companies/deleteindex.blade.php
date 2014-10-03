@@ -44,9 +44,8 @@ function delete_companies(){
 		}
 	});
 }
-function cancel(){
+function lightbox_dashboard_cancel(){
 	parent.window.location="{{URL::to('dashboard')}}";
-}
 
 </script>
 
@@ -84,7 +83,7 @@ function cancel(){
 		</tr>
 		@endforeach
 	</table>
-		<button class="btn btn-success" onClick="cancel()">Anuller</button>	
+		<button class="btn btn-success" onClick="lightbox_dashboard_cancel()">Anuller</button>	
 		<button class="btn btn-success" onClick="delete_companies()">Udfør</button>
 </div>
 @stop
