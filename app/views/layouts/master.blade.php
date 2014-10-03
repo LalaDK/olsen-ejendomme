@@ -13,7 +13,8 @@
 	<link href="../app/scripts/litebox-master/assets/css/litebox.css" rel="stylesheet" />
 	<script src="../app/scripts/litebox-master/assets/js/images-loaded.min.js"></script>
 	<script src="../app/scripts/litebox-master/assets/js/litebox.js"></script>
-
+	<script src="../app/css/site.css"></script>
+	
 	<script type="text/javascript">
 
 		$(document).ready(function() {
