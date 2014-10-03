@@ -22,7 +22,7 @@
 						{{ HTML::image('../app/images/opret.png') }}</a></div>
 
 						
-						<div class='dashboard-user-administration'><a href="users/index" target="_self" class="litebox">	
+						<div class='dashboard-user-administration'><a href="users" target="_self" class="litebox">	
 							{{ HTML::image('../app/images/slet.png') }}</a></div>
 
 							<div class='dashboard-user-administration'><a href="users/edit" target="_self" class="litebox">
