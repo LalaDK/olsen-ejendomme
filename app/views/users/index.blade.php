@@ -5,23 +5,16 @@
 // Global variable to store matching users
 var users = new Array();
 
-// Search the global variable 'users' for a match
-function searchStr(str) {
-	var result = new Array();
-	for(i = 0; i < users.length; i++) {
-		if(users[i][1].toLowerCase().indexOf(str.toLowerCase()) != -1) {
-			result.push(users[i]);
-		}
-	}
-	return result;
-}
+
 
 
 // Function to return divs
 function userFormat(users) {
 	var result = '';
 	for(i = 0; i < users.length; i++) {
-		result += '<div class="search-result">' + users[i][1] + '<div><a href="#"">x</a></div></div>';
+		result += '<div class="search-result">' 
+		+ users[i][1] + ' - ' + users[i][2]
+		+ '<div class="search-result-delete"><a href="users/"">x</a></div></div>';
 	}
 	document.getElementById('result').innerHTML = result;
 	return result; 
@@ -44,7 +37,7 @@ function highlight(key, string) {
 </script>
 
 
-<!-- Snippet for passing all users from database to javascript array -->
+<!-- Snippet for passing all users from php/blade to javascript array -->
 @foreach ($users as $user)
 <script>
 	var newuser = Array('{{ $user->id }}', '{{ $user->name }}', '{{ $user->email }}');
@@ -54,12 +47,12 @@ function highlight(key, string) {
 
 <div class="box"> 
 	<div class="title-text">Slet lejer</div>
-	Søg efter brugere som skal slettes fra systemet<br>
-	<input type="text" id="search" onkeyup="userFormat(searchStr(document.getElementById('search').value));">
+	<b>Søg efter brugere som skal slettes fra systemet</b><br>
+	<input type="text" id="search" class="form-control" onkeyup="userFormat(searchStr(document.getElementById('search').value, users));">
 	<div id="result"></div>
 @stop
 
 
 
-</div>
+
 
