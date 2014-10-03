@@ -39,3 +39,17 @@ function highlight(key, text, before, after) {
 function lightbox_dashboard_cancel(){
 	parent.window.location="{{URL::to('dashboard')}}";
 }
+function delete_companies(){
+	$.ajax({
+		url: 'destroy',
+		type: 'DELETE',
+		data: {'ids' : removeid},
+		success: function(result) {
+			parent.window.location="{{URL::to('dashboard')}}";
+		},
+		error: function(){
+			$('#status-msg').addClass('alert alert-danger');
+			$('#status-msg').text('Der er ikke valgt nogen selskaber');
+		}
+	});
+}
