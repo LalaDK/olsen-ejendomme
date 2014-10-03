@@ -5,7 +5,10 @@ body {
 }
 
 .box {
-	position: absolute;
+	position: relative;
+	margin-left:auto;
+	margin-right:auto;
+
 	top:30px;
 	width:auto;
 	border-style: solid;
@@ -119,4 +122,10 @@ body {
 
 .search-result:hover {
 	background-color: #dcdcdc;
+}
+
+#delete-user {
+	width:auto;
+	max-width: 600px;
+
 }
