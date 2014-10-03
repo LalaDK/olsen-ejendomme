@@ -6,9 +6,10 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="<?php echo app_path(); ?>/css/lightbox.css">
-	<link rel="stylesheet" type="text/css" href="../../app/css/style.css">	
-
+	<script src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../app/css/lightbox.css">
+	<link rel="stylesheet" type="text/css" href="../../app/css/style.css">
+	<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.css">	
 </head>
 
 <body>

@@ -26,7 +26,6 @@ function userFormat(users) {
 	document.getElementById('result').innerHTML = result;
 	return result; 
 }
-
 </script>
 
 
