@@ -6,8 +6,10 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="<?php echo app_path(); ?>/css/lightbox.css">
-	<link rel="stylesheet" type="text/css" href="../../app/css/style.css">	
+	<link rel="stylesheet" type="text/css" href="../app/css/lightbox.css">
+	<link rel="stylesheet" type="text/css" href="../app/css/style.css">	
+	<script src="../app/css/site.css"></script>
+
 
 </head>
 
