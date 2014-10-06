@@ -105,7 +105,9 @@
 							@endforeach
 						</table>
 						@else
-						Der er ingen bygninger i dette firma...
+						<h3>
+						Der er ingen ejendomme i dette firma...
+					</h3>
 						@endif
 
 					</div>

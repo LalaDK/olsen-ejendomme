@@ -19,7 +19,7 @@ class CreateTableCompanies extends Migration {
 			$table->string('address');
 			$table->string('phonenumber');
 
-			$table->string('registration_number')->unique();
+			$table->string('registration_number');
 			$table->string('vat_number');
 			$table->timestamps();
 		});

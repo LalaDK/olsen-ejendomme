@@ -10,7 +10,8 @@ class TenantController extends \BaseController {
 	public function index()
 	{
 		$users = User::all();
-		return View::make('tenants.index',['users' => $users]);
+		$companies = Company::all();
+		return View::make('tenants.index',['users' => $users, 'companies' => $companies]);
 	}
 
 

@@ -27,6 +27,7 @@ $(document).ready(function(){
 			$(this).addClass('glyphicon-delete');
 			$(this).removeClass('td-greyed-out');
 		};
+		return false;
 	});
 });
 
