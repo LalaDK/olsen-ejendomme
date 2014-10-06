@@ -37,11 +37,13 @@ body {
 	margin-bottom: 5px;
 }
 
-.company-delete-box{
-	width:900px;
-	padding: 10px 0;
+.box-form-no-padding-right{
+	padding-right: 0px;
 }
 
+.box-form-no-padding-left{
+	padding-left: 0px;
+}
 .company-seach-box{
 	width:45px;
 }

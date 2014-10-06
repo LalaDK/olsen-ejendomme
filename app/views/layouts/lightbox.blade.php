@@ -9,12 +9,8 @@
 	<script src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="../../app/css/lightbox.css">
-	<link rel="stylesheet" type="text/css" href="../app/css/lightbox.css">
-	<link rel="stylesheet" type="text/css" href="../app/css/style.css">
 	<link rel="stylesheet" type="text/css" href="../../app/css/style.css">
 
-	<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.css">	
-	<script src="../app/scripts/site.js"></script>
 	<script src="../../app/scripts/site.js"></script>
 
 

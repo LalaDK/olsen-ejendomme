@@ -48,34 +48,36 @@ function lightbox_dashboard_cancel(){
 	parent.window.location="{{URL::to('dashboard')}}";
 }
 </script>
+<div class="col-md-8 col-md-offset-2">
+	<div class="container-fluid box">
+		<h4>Slet selskab</h4>
 
-<div class="container-fluid box company-delete-box">
-	<div id="status-msg">
-	</div>
-	<div>
-		Slet selskab
-	</div>
-	<div>
 		Søg efter et selskab der skal slettes fra systemet:<br>
 		<input type="text" class="form-control">
-	</div>
-	<table class="table-stribed table-curved" style="width:100%">
-		<th>Vej</th>
-		<th>Nummer</th>
-		<th>Post nummer</th>
-		<th>Matrikel nr</th>
-		<th>Slet</th>
-		@foreach ($realestates as $realestate)
-		<tr>
-			<td>{{$realestate->street_name}}</td>
-			<td>{{$realestate->street_number}}</td>
-			<td>{{$realestate->zip_code}}</td>
-			<td>{{$realestate->cadastral_number}}</td>
-			<td><a href="#" ><span class="glyphicon glyphicon-remove realestate-delete glyphicon-delete" id="{{$realestate->id}}"></span></a></td>
-		</tr>
-		@endforeach
-	</table>
+		<br>
+		<div id="status-msg">
+		</div>
+		<table class="table-stribed table-curved" style="width:100%">
+			<th>Vej</th>
+			<th>Nummer</th>
+			<th>Post nummer</th>
+			<th>Matrikel nr</th>
+			<th>Slet</th>
+			@foreach ($realestates as $realestate)
+			<tr>
+				<td>{{$realestate->street_name}}</td>
+				<td>{{$realestate->street_number}}</td>
+				<td>{{$realestate->zip_code}}</td>
+				<td>{{$realestate->cadastral_number}}</td>
+				<td><a href="#" ><span class="glyphicon glyphicon-remove realestate-delete glyphicon-delete" id="{{$realestate->id}}"></span></a></td>
+			</tr>
+			@endforeach
+		</table>
+
+		<br>
 		<button class="btn btn-success" onClick="lightbox_dashboard_cancel()">Anuller</button>	
 		<button class="btn btn-success" onClick="delete_realestate()">Udfør</button>
+	</div>
 </div>
+
 @stop
