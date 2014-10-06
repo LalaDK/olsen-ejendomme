@@ -3,17 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Olsen Ejendomme</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../app/css/dashboardstyle.css">
-	<link rel="stylesheet" type="text/css" href="../app/css/style.css">
+	{{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js') }}
+	{{ HTML::script('http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js') }}
+	{{ HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
+	{{ HTML::style('scripts/litebox-master/assets/css/litebox.css') }}
+	{{ HTML::script('scripts/litebox-master/assets/js/images-loaded.min.js') }}
+	{{ HTML::script('scripts/litebox-master/assets/js/litebox.js') }}
+	{{ HTML::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}
+	{{ HTML::style('css/dashboardstyle.css') }}
+	{{ HTML::style('css/style.css') }}
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
-	<link href="../app/scripts/litebox-master/assets/css/litebox.css" rel="stylesheet" />
-	<script src="../app/scripts/litebox-master/assets/js/images-loaded.min.js"></script>
-	<script src="../app/scripts/litebox-master/assets/js/litebox.js"></script>
-	
 	<script type="text/javascript">
 
 		$(document).ready(function() {

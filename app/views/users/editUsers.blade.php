@@ -24,7 +24,7 @@ function onSearch(searchString) {
 		result += '<div class="search-result">' 
 		+ highlight(key, text, '<b>', '</b>')
 		+ '<span class="">' 
-		+ '<a href="#" onClick="";>x</a>'
+		+ '<a href="#" onClick="";><span class="glyphicon glyphicon-lock" style="right:15px;"></span></a>'
 		+ '</span>'
 		+ '</div>';
 	}
