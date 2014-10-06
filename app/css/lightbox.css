@@ -9,8 +9,6 @@ body {
 	margin-left:auto;
 	margin-right:auto;
 
-	top:30px;
-	width:auto;
 	border-style: solid;
 	border-color: white;
 	background-color: #fafafa;
@@ -105,17 +103,19 @@ body {
 }
 
 .search-result-delete {
-	padding-right:20px;
-	padding-left:20px;
-	position:absolute;
+
 	display:inline;
-	right:15px;
+
 }
 
 .search-result-delete a {
 	text-decoration: none;
 	color:#333333;
 	font-weight: bold;
+	float:right;
+	padding-right:18px;
+	padding-left:18px;
+
 }
 
 .search-result-delete a:hover {
@@ -129,5 +129,17 @@ body {
 #delete-user {
 	width:auto;
 	max-width: 600px;
+}
 
+#search-results {
+	overflow-y:auto;
+	max-height:200px;
+}
+
+.alert-box {
+	display: none; 
+	background-color: #449D44;
+	border-radius: 5px;
+	padding:4px;
+	color:white;
 }

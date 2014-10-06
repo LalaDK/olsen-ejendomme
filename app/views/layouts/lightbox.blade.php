@@ -18,10 +18,16 @@
 
 <body>
 	<div class="container-fluid">
-		@if (Session::has('message'))
-		<div class="alert alert-info">{{ Session::get('message') }}</div>
-		@endif
+		
+		
+		
 		@yield('content')
+		@if (Session::has('message'))
+		<script>
+		document.getElementById('alert').innerHTML = "{{ Session::get('message') }}";
+		document.getElementById("alert").style.display="block";
+		</script>
+		@endif
 	</div>
 </body>
 </html>

@@ -41,7 +41,7 @@ class UserController extends \BaseController {
 		$user->password = Hash::make(Input::get('password'));
 		$user->save();
 		Session::flash('message', 'Brugeren blev oprettet!');
-		return Redirect::to('users');
+		return Redirect::to('users/create');
 	}
 
 

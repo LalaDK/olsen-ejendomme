@@ -17,24 +17,31 @@ function onSearch(searchString) {
 
 		result += '<div class="search-result">' 
 		+ highlight(key, text, '<b>', '</b>')
-		+ '<div class="search-result-delete">' 
+		+ '<span class="search-result-delete">' 
 		+ '<a href="#" onClick="deleteUser('+ arr[i][0] +');">x</a>'
-		+ '</div>'
+		+ '</span>'
 		+ '</div>';
 	}
 }
-	document.getElementById('result').innerHTML = result;	// Post result to page
+	document.getElementById('search-results').innerHTML = result;	// Post result to page
 };
 
 function deleteUser(id) {
 	var confirmed = confirm("Er du sikker på at du vil slette denne bruger?");
 	if(confirmed) {
+
+
+
 		$.ajax({
+			async: false,
 			url: document.URL + '/' + id,
-			type: 'DELETE',
-			success: function(result) {
-				alert('Brugeren blev slettet!');
-			}
+			type: 'POST',
+			data: {_method: 'delete'}
+		}).done(function(msg) {
+			alert("Brugeren blev slettet!");
+			location.reload(); 
+		}).fail(function(msg) {
+			alert('FEJL - brugeren blev ikke slettet!' + msg);
 		});
 	}
 };
@@ -52,6 +59,7 @@ function deleteUser(id) {
 
 
 <div class="box" id="delete-user"> 
+	<div id="alert"></div>
 	<div class="title-text">Slet bruger</div>
 	<b>Søg efter brugere som skal slettes fra systemet</b><br><br>
 	
@@ -60,7 +68,7 @@ function deleteUser(id) {
 	class="form-control" 
 	onkeyup="onSearch(this.value);">
 
-	<div id="result"></div><br>
+	<div id="search-results"></div><br>
 	<button type="button" class="btn btn-success button">Luk</button>
 </div>
 @stop
