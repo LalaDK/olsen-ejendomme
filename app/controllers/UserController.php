@@ -54,7 +54,7 @@ class UserController extends \BaseController {
 	public function show($id)
 	{
 		$user = User::find($id);
-		return View::make('users.show', ['user' => $user]);
+		return View::make('users/show', ['user' => $user]);
 	}
 
 
@@ -66,8 +66,10 @@ class UserController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$user = User::find($id);
-		return View::make('users.edit', ['user' => $user]);
+		$users = User::All();
+		return View::make('users.editUsers', ['users' => $users]);
+		//$user = User::find($id);
+		//return View::make('users.edit', ['user' => $user]);
 	}
 
 

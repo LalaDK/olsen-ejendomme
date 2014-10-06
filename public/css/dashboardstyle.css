@@ -1,0 +1,165 @@
+html,body {
+	height: 100%;
+}
+
+.dashboard-header{
+	padding-left: 20px;
+	color: white;
+	width: auto;
+	height: 35px;
+	line-height: 35px;
+	background-color: #fb9821;
+}
+
+.row-menu, .col-menu{
+	height:100%;
+}
+
+.menu {
+	background-color: #f9f9f9;
+	margin: 0;
+	height:calc(100%);
+	width:95px;
+}
+
+.menu ul {
+	padding: 0;
+	margin:0;
+	list-style-type: none;
+	float:left;
+}
+
+.menu ul li {
+	width: 95px;
+	background-color: #f9f9f9;
+	text-align: center;
+	margin-top: 25px;
+}
+
+.menu ul li:hover{
+	color: #fb9821;
+}
+
+.menu img {
+	height: auto;
+	margin-top: 35px;
+	padding: 0 0 5px;
+	width: 40%;
+}
+
+.menu-icon{
+	fill:#000000;
+}
+
+.selected{
+	color:#fb9821;
+}
+
+.panel-default > .panel-heading {
+	color: #ffffff;
+	background-color: #fb9821;
+	border-color: #ddd;
+}
+
+.btn-new-item{
+	background-color: #fcae4a;
+	border: medium none;
+	border-radius: 0;
+	color: #ffffff;
+	line-height: 32px;
+	text-align: center;
+	width: 80%;
+}
+
+.btn-new-item-background{
+	background-color: #fdc174;
+	color: #ffffff;
+	width: 100%;
+	height: 32px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+.btn-new-item-background a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.btn-new-item-background a:active{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.btn-delete-item{
+	background-color: #cfcfcf;
+	border: medium none;
+	border-radius: 0;
+	color: #ffffff;
+	line-height: 32px;
+	text-align: center;
+	width: 80%;
+}
+
+.btn-delete-item-background{
+	background-color: #dadada;
+	color: #ffffff;
+	width: 100%;
+	height: 32px;
+	float: left;
+}
+
+.btn-delete-item-background a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.btn-delete-item-background a:active {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.glyphicon-center{
+	float: right;
+	margin-right: 1.4em;
+	margin-top: -1.6em;
+	vertical-align: middle;
+	color: #ffffff;
+}
+
+.dashboard-user-administration {
+	width:75px;
+	height:75px;
+}
+
+.dashboard-user-administration img {
+	width:75px;
+	height:75px;
+}
+
+
+#dashboard-user-panel {
+	text-align: justify;
+	margin-left:6px;
+	margin-right:6px;
+	margin-bottom:-21px;
+}
+#dashboard-user-panel > div {
+	width: 75px; /* Declare your value. Can be in relative units. */
+	display: inline-block;
+	vertical-align: top;
+
+	/* IE fix. */
+	*display: inline;
+	zoom: 1;
+}
+#dashboard-user-panel:after {
+	content: "";
+	width: 100%;
+	display: inline-block;
+}
+
+
+/* Hide close button on every litebox */
+.litebox-overlay .litebox-close {
+	/*display:none;*/
+}
