@@ -1,9 +1,11 @@
 @extends('layouts.lightbox')
 @section('content')
+
 <script>
-var users = new Array();
+	var users = new Array();
 </script>
 
+<!-- Script for passing users into javascript -->
 @foreach ($users as $user)
 <script>
 	var newuser = Array('{{ $user->id }}', '{{ $user->name }}', '{{ $user->email }}');
@@ -12,6 +14,11 @@ var users = new Array();
 @endforeach
 
 <script>
+
+
+
+
+
 // Function to return divs
 function onSearch(searchString) {
 	var result = ''; // Result containing div elements to write to doc
@@ -21,16 +28,30 @@ function onSearch(searchString) {
 		var key = document.getElementById('search').value;
 		var text = arr[i][1] + ' - ' + arr[i][2];
 
-		result += '<div class="search-result">' 
-		+ highlight(key, text, '<b>', '</b>')
-		+ '<span class="">' 
-		+ '<a href="#" onClick="";><span class="glyphicon glyphicon-lock" style="right:15px;"></span></a>'
-		+ '</span>'
-		+ '</div>';
+		result += '<div class="search-result" onClick="myFunc(this)";>' + highlight(key, text, '<b>', '</b>')
+		+ '<a href="#"><span class="glyphicon glyphicon-lock" style="right:15px;"></span></a>'
+		+ '</div><div class="change-password"><span><form class="form-inline form-group"><input type="password" class="form-control"><button type="button" class="btn btn-default">Gem</button></form></div>';
 	}
 }
 	document.getElementById('search-results').innerHTML = result;	// Post result to page
 };
+
+
+function myFunc(element) {
+	// Hvis elementet allerede er markeret, gem det igen
+	if(element.nextSibling.style.display == "block") {
+		$(element.nextSibling).slideUp(100);
+	}
+	else {
+		// Gem alle elementer, og fremhæv det markeret
+		var changePasswordElements = document.getElementsByClassName('change-password');
+		for(i = 0; i < changePasswordElements.length; i++) {
+			$(changePasswordElements[i]).slideUp(100);
+		}
+		// marker
+		$(element.nextSibling).slideDown(100);
+	}
+}
 </script>
 
 
@@ -43,9 +64,4 @@ function onSearch(searchString) {
 	<div id="search-results"></div><br>
 	<button type="button" class="btn btn-success button">Luk</button>
 </div>
-
-
-
-
-
 @stop
