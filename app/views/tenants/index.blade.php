@@ -4,21 +4,15 @@
 
 <script>
 $(document).ready(function(){
-	setselected("#dashboard");
-	$('#companyTabs a:first').tab('show');
-	$('.tenantsdetail').hide();
-	$('.tenantslist').click(function(){
-		var id = ($(this).attr('id'));
-		$('#detail-'+id).slideToggle("slow");
-		$('#detailheader-'+id).slideToggle("slow");
-
-	});
+	setselected("#tenants");
+	$('#tenantTabs a:first').tab('show');
 });
 </script>
 
-<h3>Tenants</h3>
+<h3>Lejere</h3>
+
 <div class="col-md-10">
-	<ul class="nav nav-tabs" data-tabs="tabs" id="companyTabs">
+	<ul class="nav nav-tabs" data-tabs="tabs" id="tenantTabs">
 		@foreach ($companies as $company) 
 		<li><a href="#{{$company->id}}" role="tab" data-toggle="tab">{{$company->name}}</a></li>
 		@endforeach
@@ -32,27 +26,26 @@ $(document).ready(function(){
 				<table class="table-stribed table-curved" style="width:100%">
 					<th></th>
 					<th>Navn</th>
-					<th>Lejemåls Id</th>
+					<th>Lejemåls ID</th>
 					<th>Adresse</th>
 					<th>By</th>
-					<th>Post nr.</th>
+					<th>Postnummer</th>
 					<th>Telefon</th>
 					<th>Email</th>
 					<th>Saldo</th>
-
 					@foreach ($company->realestates as $estate)
-					<tr class="tenantslist" id="{{$estate->id}}">
+					<tr>
 						<td><span class="glyphicon glyphicon-chevron-right"></span></td>
 						<td>{{$estate->id}}</td>
-						<td>{{$estate->street_name}}</td>
-						<td>{{$estate->street_name}}</td>
-						<td>{{$estate->street_name}}</td>
 						<td>{{$estate->street_name}}</td>
 						<td>{{$estate->street_number}}</td>
 						<td>{{$estate->cadastral_number}}</td>
 						<td>{{$estate->leases}}</td>
+						<td>{{$estate->leases}}</td>
+						<td>{{$estate->leases}}</td>
+						<td>{{$estate->leases}}</td>
 					</tr>
-					<tr class="tenantsdetail" id="detailheader-{{$estate->id}}">
+					<tr>
 						<th></th>
 						<th>Indflytning</th>
 						<th>Udflytning</th>
@@ -62,27 +55,28 @@ $(document).ready(function(){
 						<th>Andre kontaktpersoner</th>
 						<th>Reguleringsprincip</th>
 					</tr>
-					<tr class="tenantsdetail" id="detail-{{$estate->id}}">
-						<td></td>
-						<td>{{$estate->id}}</td>
-						<td>{{$estate->street_name}}</td>
-						<td>{{$estate->street_name}}</td>
-						<td>{{$estate->street_name}}</td>
-						<td>{{$estate->street_number}}</td>
-						<td>{{$estate->cadastral_number}}</td>
-						<td>{{$estate->leases}}</td>
+					<tr>
+						<td colspan="2">Test</td>
+						<td>Test</td>
+						<td>Test</td>
+						<td>Test</td>
+						<td>Test</td>
+						<td>Test</td>
+						<td>Test</td>
+						<td>Test</td>
 					</tr>
-				</tr>
-				@endforeach
-			</table>
-			@else
-			<h3>
-				Der er ingen ejendomme i dette firma...
-			</h3>
-			@endif
+					@endforeach
+				</table>
+				@else
+				<h3>
+					Der er ingen ejendomme i dette firma...
+				</h3>
+				@endif
 
+			</div>
 		</div>
+		@endforeach
 	</div>
-	@endforeach
+</div>
 </div>
 @stop

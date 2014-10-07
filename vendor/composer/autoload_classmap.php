@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AdminController' => $baseDir . '/app/controllers/AdminController.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
     'Boris\\CLIOptionsHandler' => $vendorDir . '/d11wtq/boris/lib/Boris/CLIOptionsHandler.php',
@@ -30,13 +29,17 @@ return array(
     'ClassPreloader\\Parser\\FileVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/FileVisitor.php',
     'ClassPreloader\\Parser\\NodeTraverser' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
     'Company' => $baseDir . '/app/models/Company.php',
+    'CompanyController' => $baseDir . '/app/controllers/CompanyController.php',
     'CreateNameFieldInUsers' => $baseDir . '/app/database/migrations/2014_09_12_093030_create_name_field_in_users.php',
     'CreateTableCompanies' => $baseDir . '/app/database/migrations/2014_09_12_115102_create_table_companies.php',
     'CreateTableLease' => $baseDir . '/app/database/migrations/2014_09_12_131157_create_table_lease.php',
     'CreateTableRealestate' => $baseDir . '/app/database/migrations/2014_09_12_123350_create_table_realestate.php',
     'CreateTablesPictures' => $baseDir . '/app/database/migrations/2014_09_12_131948_create_tables_pictures.php',
+    'CreateTenantTable' => $baseDir . '/app/database/migrations/2014_10_07_080726_create_tenant_table.php',
     'CreateTwoCompanies' => $baseDir . '/app/database/migrations/2014_09_12_121236_create_two_companies.php',
+    'CreateTwoLeases' => $baseDir . '/app/database/migrations/2014_10_07_085412_create_two_leases.php',
     'CreateTwoRealestates' => $baseDir . '/app/database/migrations/2014_10_01_075120_create_two_realestates.php',
+    'CreateTwoTenants' => $baseDir . '/app/database/migrations/2014_10_07_090319_create_two_tenants.php',
     'CreateTwoUsersInUsersTable' => $baseDir . '/app/database/migrations/2014_09_10_090252_create_two_users_in_users_table.php',
     'CreateUsersTable' => $baseDir . '/app/database/migrations/2014_09_09_140035_create_users_table.php',
     'Crypt_AES' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/AES.php',
@@ -965,6 +968,7 @@ return array(
     'Psr\\Log\\LoggerTrait' => $vendorDir . '/psr/log/Psr/Log/LoggerTrait.php',
     'Psr\\Log\\NullLogger' => $vendorDir . '/psr/log/Psr/Log/NullLogger.php',
     'Realestate' => $baseDir . '/app/models/Realestate.php',
+    'RealestateController' => $baseDir . '/app/controllers/RealestateController.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
     'SessionsController' => $baseDir . '/app/controllers/SessionsController.php',
     'Stack\\Builder' => $vendorDir . '/stack/builder/src/Stack/Builder.php',
