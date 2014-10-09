@@ -1,5 +1,5 @@
 <?php
-class Realestate extends Eloquent {
+class Tenant extends Eloquent {
 	protected $table = 'tenants';
 	protected $guarded = array('id');
 

@@ -17,6 +17,13 @@
 	background-color:#fb9821;
 
 }
+
+.table-hover > tbody > tr:hover > th{
+	border-top: none;
+	color:#ffffff;
+	background-color:#fb9821;
+}
+
 .table-curved th:first-child {
 	border-radius: 4px 0 0 0;
 	background-color:#fb9821;
@@ -34,9 +41,19 @@
 	border-radius: 0 0 4px 0;
 }
 
-.td-greyed-out{
-	background-color: #cfcfcf;
-	color: #ffffff;
+.table-details td{
+	background-color: #f5f5f5;
+	border-left: none;
+}
+
+
+.table-details td:first-child{
+	background-color: #f5f5f5;
+	border-left: 1px solid #ccc;
+}
+
+.table-details-header{
+	background-color: #fb9821;
 }
 
 .td-greyed-out-test{
@@ -47,3 +64,44 @@
 	color:#000000;
 }
 
+.btn-create{
+	background-color: #fb9821;
+	color:#ffffff;
+}
+
+.btn-create:hover{
+	background-color: #fb9821;
+	color:#ffffff;
+}
+
+.btn-create:focus{
+	background-color: #fb9821;
+	color:#ffffff;
+}
+
+.ui-widget-header{
+	background: transparent;
+	background-color: #fb9821;
+	border: none;
+	color:#ffffff;
+}
+
+
+.ui-widget-header .ui-icon{
+	background-image: url("../images/ui-icons_ffffff_256x240.png");
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+	background: transparent;
+	background-color: #fb9821;
+	font-weight: normal;
+}
+
+textarea.form-control{
+	margin-bottom: 5px;
+}

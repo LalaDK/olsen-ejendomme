@@ -6,7 +6,22 @@
 $(document).ready(function(){
 	setselected("#tenants");
 	$('#tenantTabs a:first').tab('show');
+	$('.details').hide();
 });
+function toggleTenantDetails(id){
+	var dh = '#header-'+id;
+	var dd = '#detail-'+id;
+	var di = '#icon-'+id;
+	if($(dd).is(':visible')){
+			$(di).removeClass('glyphicon-chevron-down');
+			$(di).addClass('glyphicon-chevron-right');
+		} else {
+			$(di).removeClass('glyphicon-chevron-right');
+			$(di).addClass('glyphicon-chevron-down');
+		}
+	$(dh).fadeToggle();
+	$(dd).fadeToggle();
+}
 </script>
 
 <h3>Lejere</h3>
@@ -21,9 +36,11 @@ $(document).ready(function(){
 		@foreach ($companies as $company) 
 		<div class="tab-pane" id="{{$company->id}}">
 			<div class="col-md-12">
-				@if ($company->realestates->count() > 0)
 				<br>
-				<table class="table-stribed table-curved" style="width:100%">
+				{{ HTML::linkAction('TenantController@create', '+ Tilføj lejer', array($company->id),array('class'=>'litebox btn btn-create', 'target' => '_self')) }}
+				<br>
+				<br>
+				<table class="table-stribed table-hover table-curved" style="width:100%">
 					<th></th>
 					<th>Navn</th>
 					<th>Lejemåls ID</th>
@@ -34,18 +51,20 @@ $(document).ready(function(){
 					<th>Email</th>
 					<th>Saldo</th>
 					@foreach ($company->realestates as $estate)
-					<tr>
-						<td><span class="glyphicon glyphicon-chevron-right"></span></td>
-						<td>{{$estate->id}}</td>
-						<td>{{$estate->street_name}}</td>
-						<td>{{$estate->street_number}}</td>
-						<td>{{$estate->cadastral_number}}</td>
-						<td>{{$estate->leases}}</td>
-						<td>{{$estate->leases}}</td>
-						<td>{{$estate->leases}}</td>
-						<td>{{$estate->leases}}</td>
+					@foreach ($estate->leases as $lease) 
+					@foreach ($lease->tenant as $tenant)
+					<tr onclick="toggleTenantDetails({{ $tenant->id }})">
+						<td><span id="icon-{{ $tenant->id }}" class="glyphicon glyphicon-chevron-right"></span></td>
+						<td>{{ $tenant->firstname }} {{ $tenant->lastname }}</td>
+						<td>{{ $tenant->lease_id }}</td>
+						<td>{{ $tenant->street_name }} {{ $tenant->street_number }}</td>
+						<td>{{ $tenant->city }}</td>
+						<td>{{ $tenant->zipcode }}</td>
+						<td>{{ $tenant->phone }}</td>
+						<td>{{ $tenant->email }}</td>
+						<td>Saldo!!</td>
 					</tr>
-					<tr>
+					<tr class="details table-details-header" id="header-{{ $tenant->id }}">
 						<th></th>
 						<th>Indflytning</th>
 						<th>Udflytning</th>
@@ -55,24 +74,20 @@ $(document).ready(function(){
 						<th>Andre kontaktpersoner</th>
 						<th>Reguleringsprincip</th>
 					</tr>
-					<tr>
-						<td colspan="2">Test</td>
-						<td>Test</td>
-						<td>Test</td>
-						<td>Test</td>
-						<td>Test</td>
-						<td>Test</td>
-						<td>Test</td>
+					<tr class="details table-details" id="detail-{{ $tenant->id }}">
+						<td></td>
+						<td>{{ $tenant->moving_in }}</td>
+						<td>{{ $tenant->moving_out }}</td>
+						<td>Lejekontrakter</td>
+						<td>{{ $tenant->notes }}</td>
+						<td colspan="2"><a href="#">Se betalinger</a></td>
+						<td><a href"#">Kontaktpersoner</a></td>
 						<td>Test</td>
 					</tr>
 					@endforeach
+					@endforeach
+					@endforeach
 				</table>
-				@else
-				<h3>
-					Der er ingen ejendomme i dette firma...
-				</h3>
-				@endif
-
 			</div>
 		</div>
 		@endforeach
