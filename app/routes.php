@@ -7,11 +7,9 @@ Route::get('/', function(){
 Route::resource('sessions','SessionsController');
 
 Route::resource('companies','CompanyController', ['only'=> ['index','create','store','destroy']]);
-Route::resource('users','UserController');
 
 Route::resource('realestates','RealestateController', ['only'=> ['index','create','store','destroy']]);
 Route::resource('tenants','TenantController', ['only'=> ['index','store','destroy']]);
-
 
 Route::get('login','SessionsController@create');
 
@@ -47,3 +45,50 @@ Route::get('realestates/deleteindex', [
 	'uses' => 'RealestateController@deleteindex',
 	'before' => 'auth',
 ]);
+
+/* User routes */
+
+
+Route::get('users/create', [
+	'as' => 'users.create',
+	'uses' => 'UserController@createUser',
+	'before' => 'auth',
+]);
+
+
+Route::get('users/show', [
+	'as' => 'users.show',
+	'uses' => 'UserController@showUser',
+	'before' => 'auth',
+]);
+
+Route::get('users/resetPassword', [
+	'as' => 'users.resetPassword',
+	'uses' => 'UserController@resetUserPassword',
+	'before' => 'auth',
+]);
+
+Route::get('users/delete', [
+	'as' => 'users.delete',
+	'uses' => 'UserController@deleteUser',
+	'before' => 'auth',
+]);
+
+Route::put('users/store', [
+	'as' => 'users.store',
+	'uses' => 'UserController@store',
+	'before' => 'auth',
+]);
+
+Route::post('/users/update/{id}', [
+	'as' => 'users.update',
+	'uses' => 'UserController@update',
+	'before' => 'auth',
+]);
+
+Route::delete('users/delete/destroy/{id}', [
+	'as' => 'users.destroy',
+	'uses' => 'UserController@destroy',
+	'before' => 'auth',
+]);
+

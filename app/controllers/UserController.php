@@ -2,39 +2,19 @@
 
 class UserController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
+	public function deleteUser()
 	{
 		$users = User::all();
-		return View::make('users.index',['users' => $users]);
+		return View::make('users.deleteUsers',['users' => $users]);
 	}
 
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
+	public function createUser()
 	{
-
 		Return View::make('users.create');
 	}
 
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
 	public function store()
 	{
-		// var_dump(Input::All());
-
 		$user = new User();
 		$user->name = Input::get('name');
 		$user->email = Input::get('username');
@@ -45,53 +25,29 @@ class UserController extends \BaseController {
 	}
 
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
+	public function showUser($id)
 	{
 		$user = User::find($id);
 		return View::make('users/show', ['user' => $user]);
 	}
 
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
+	public function resetUserPassword()
 	{
 		$users = User::All();
-		return View::make('users.editUsers', ['users' => $users]);
-		//$user = User::find($id);
-		//return View::make('users.edit', ['user' => $user]);
+		return View::make('users.resetUserPassword', ['users' => $users]);
 	}
 
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function update($id)
 	{
 		$user = User::find($id);
-
 		$user->name = Input::get('name');
 		$user->email = Input::get('email');
 		$user->password = Hash::make(Input::get('password'));
 		$user->save();
 
 		Session::flash('message', 'Brugeren blev opdateret!');
-		return Redirect::to('users');
+		return 'JAAAA';
 	}
-
 
 	/**
 	 * Remove the specified resource from storage.
@@ -102,7 +58,6 @@ class UserController extends \BaseController {
 	public function destroy($id)
 	{
 		User::find($id)->delete();
-		Session::flash('message', 'Brugeren blev slettet!');
-		return Redirect::to('users');
+		return Redirect::back();
 	}
 }

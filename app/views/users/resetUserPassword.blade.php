@@ -1,6 +1,5 @@
 @extends('layouts.lightbox')
 @section('content')
-
 <script>
 	var users = new Array();
 </script>
@@ -14,30 +13,36 @@
 @endforeach
 
 <script>
-
-
-
-
-
 // Function to return divs
 function onSearch(searchString) {
-	var result = ''; // Result containing div elements to write to doc
+	var result = '';
 	if(searchString != '') {
-	var arr = searchStr(searchString, users);// Array containing users which matched the search
-	for(i = 0; i < arr.length; i++) {
-		var key = document.getElementById('search').value;
-		var text = arr[i][1] + ' - ' + arr[i][2];
+	var arr = searchStr(searchString, users);
+	var key = searchString; 
 
-		result += '<div class="search-result" onClick="myFunc(this)";>' + highlight(key, text, '<b>', '</b>')
-		+ '<a href="#"><span class="glyphicon glyphicon-lock" style="right:15px;"></span></a>'
-		+ '</div><div class="change-password"><span><form class="form-inline form-group"><input type="password" class="form-control"><button type="button" class="btn btn-default">Gem</button></form></div>';
+	for(i = 0; i < arr.length; i++) {
+		var text = arr[i][1] + ' - ' + arr[i][2];
+		result += '<div class="search-result" onClick="expandSelectedElement(this)";>' 
+		+ highlight(key, text, '<b>', '</b>')
+		+ '<a href="#">'
+		+ '<span class="glyphicon glyphicon-lock" style="right:15px;">'
+		+ '</span></a></div>'
+
+		+ '<div class="change-password">'
+		+ '<span>'
+		+ '<form class="form-inline form-group" action="{{URL::route(/users/update)}} /'+ arr[i][0] + '" method="POST">'
+		+ '<input type="password" name="password" placeholder="Ny adgangskode" class="form-control">'
+		+ '<input type="hidden" name="name" value="'+ arr[i][1] + '">'
+		+ '<input type="hidden" name="email" value="'+ arr[i][2] + '">'
+		+ '<input type="submit" value="Gem">'
+		+ '</form></div>';
 	}
 }
 	document.getElementById('search-results').innerHTML = result;	// Post result to page
 };
 
 
-function myFunc(element) {
+function expandSelectedElement(element) {
 	// Hvis elementet allerede er markeret, gem det igen
 	if(element.nextSibling.style.display == "block") {
 		$(element.nextSibling).slideUp(100);

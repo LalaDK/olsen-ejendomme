@@ -29,19 +29,16 @@ function onSearch(searchString) {
 function deleteUser(id) {
 	var confirmed = confirm("Er du sikker på at du vil slette denne bruger?");
 	if(confirmed) {
-
-
-
 		$.ajax({
 			async: false,
-			url: document.URL + '/' + id,
+			url: document.URL + '/destroy/' + id,
 			type: 'POST',
 			data: {_method: 'delete'}
 		}).done(function(msg) {
 			alert("Brugeren blev slettet!");
 			location.reload(); 
 		}).fail(function(msg) {
-			alert('FEJL - brugeren blev ikke slettet!' + msg);
+			alert('FEJL - brugeren blev ikke slettet!' + msg.responseText);
 		});
 	}
 };
