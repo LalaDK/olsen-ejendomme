@@ -2,6 +2,12 @@
 
 class CompanyController extends \BaseController {
 
+protected $company;
+
+public function __construct(Company $company){
+$this->company = $company;
+}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -9,7 +15,7 @@ class CompanyController extends \BaseController {
 	 */
 	public function dashboard()
 	{
-		$companies = Company::with('realestates')->get();
+		$companies = $this->company->with('realestates')->get();
 		return View::make('dashboard.index', compact('companies'));
 	}
 
@@ -20,7 +26,6 @@ class CompanyController extends \BaseController {
 	 */
 		public function create()
 		{
-
 			return View::make('companies.create');
 		}
 
@@ -32,8 +37,9 @@ class CompanyController extends \BaseController {
 	 */
 	public function store()
 	{
-		// var_dump(Input::All());
-
+		if(!$this->company->isValid(Input::all())){
+			return Redirect::back()->withInput()->withErrors($this->company->$errors);
+		}
 		$company = new Company();
 		$company->name = Input::get('name');
 		$company->address = Input::get('address');
@@ -51,7 +57,7 @@ class CompanyController extends \BaseController {
 	 * @return Response
 	 */
 	public function deleteindex(){
-		$companies = Company::with('realestates')->get();
+		$companies = $this->company->with('realestates')->get();
 		return View::make('companies.deleteindex', compact('companies'));
 	}
 

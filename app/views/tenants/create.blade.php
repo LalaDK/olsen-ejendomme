@@ -6,19 +6,54 @@ $(document).ready(function(){
 	$(document).submit(function(){
 		parent.window.location="{{URL::to('tenants')}}";
 	});
-	$('.datepicker').datepicker();
 
+	updateLeaseList($('#select_realestate option:first-child').val());
+
+	$('.datepicker').datepicker({ dateFormat: 'dd-mm-yy' });
+	$('#select_realestate').change(function(){
+		updateLeaseList( $(this).val());
+	});
 });
+
+function updateLeaseList(val){
+	$.ajax({
+		url: 'leases',
+		type: 'GET',
+		data: {'id' : val},
+		success: function(result) {
+			$('#select-lease').empty();
+			$.each(result,function(index,element){
+				$('#select-lease').append("<option value='"+ element.id +"'>" + element.type + "</option>");
+			});
+		},
+		error: function(){
+			$('#status-msg').addClass('alert alert-danger');
+			$('#status-msg').text('Fejl!!');
+		}
+	});
+}
+
 function lightbox_dashboard_cancel(){
 	parent.window.location="{{URL::to('tenants')}}";
 }
 </script>
+
+
+
 <div class="col-md-6 col-md-offset-3">
 	<div class="container-fluid box">
-		<h4>Opret ny lejer</h4>
-
-		{{Form::open(['route' => 'companies.store'])}}
+		<h4>Opret ny lejer i {{ $company->name }}</h4>
+		{{Form::open(['route' => 'tenants.store'])}}
 		<div class="col-md-12">
+			<select class="form-control" id="select_realestate">
+				@foreach ($company->realestates as $realestate)
+				<option class="form-control" value="{{ $realestate->id }}">{{ $realestate->street_name }} {{ $realestate->street_number }}</option>
+				@endforeach
+			</select>
+
+			<select class="form-control" id="select-lease" name="lease_id">
+			</select>
+
 			{{Form::text('firstname', Input::old('firstname'), array('placeholder'=>'Fornavn', 'class' => 'form-control', 'style' => 'width:100%'))}}
 
 			{{Form::text('lastname', Input::old('lastname'), array('placeholder'=>'Efternavn', 'class' => 'form-control', 'style' => 'width:100%'))}}
@@ -58,6 +93,7 @@ function lightbox_dashboard_cancel(){
 			{{Form::close()}}
 			<input type="button" class="btn btn-success" style="margin-bottom: 5px;" onClick="lightbox_dashboard_cancel()" value="Annuller"/>	
 		</row>
+
 	</div>
 </div>
 @stop

@@ -27,6 +27,12 @@ Route::get('tenants', [
 	'before' => 'auth',
 ]);
 
+Route::get('tenants/leases', [
+	'as' => 'tenant.leases',
+	'uses' => 'TenantController@leases',
+	'before' => 'auth',
+]);
+
 Route::get('tenants/{var?}', [
 	'as' => 'tenant.create',
 	'uses' => 'TenantController@create',

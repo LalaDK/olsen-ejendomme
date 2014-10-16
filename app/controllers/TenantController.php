@@ -29,17 +29,20 @@ class TenantController extends \BaseController {
 	 */
 	public function create($id)
 	{
-		$companies = Company::with('realestates')->get();
-		foreach ($companies as $company)
+		$company = Company::with('realestates')->find($id);
+		
+		foreach ($company->realestates as $realestate)
 		{
-			foreach ($company->realestates as $realestate)
-			{
-				$realestate->leases = Lease::with('tenant')->where('realestate_id', $realestate->id)->get();
-				
-			}
+			$realestate->leases = Lease::with('tenant')->where('realestate_id', $realestate->id)->get();
 		}
-		return $id;
-		return View::make('tenants.create',['companies' => $companies]);
+		return View::make('tenants.create',['company' => $company]);
+	}
+
+
+	public function leases(){
+		$id = Input::get('id');
+		$leases = Lease::where('realestate_id',$id)->get();
+		return $leases;
 	}
 
 
@@ -51,8 +54,9 @@ class TenantController extends \BaseController {
 	public function store()
 	{
 		$tenant = new Tenant();
+		$tenant->lease_id = Input::get('lease_id');
 		$tenant->firstname = Input::get('firstname');
-		$tenant->lastname = Input::get('lasttname');
+		$tenant->lastname = Input::get('lastname');
 		$tenant->street_name = Input::get('street_name');
 		$tenant->street_number = Input::get('street_number');
 		$tenant->zipcode = Input::get('zipcode');
@@ -61,8 +65,12 @@ class TenantController extends \BaseController {
 		$tenant->mobile_phone = Input::get('mobile_phone');
 		$tenant->email = Input::get('email');
 		$tenant->notes = Input::get('notes');
-		$tenant->moving_in = Input::get('moving_in');
-		$tenant->moving_out = Input::get('moving_out');
+
+		$tenant->moving_in = date("Y-m-d", strtotime(Input::get('moving_in')));
+		$tenant->moving_out = date("Y-m-d", strtotime(Input::get('moving_out')));
+		$tenant->save();
+		Session::flash('message', 'Lejeren blev oprettet');
+		return $tenant;
 	}
 
 
