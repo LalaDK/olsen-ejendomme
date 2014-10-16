@@ -361,10 +361,10 @@ class Realestates extends Seeder{
 				array(
 					'company_id' => 1,
 					
-					'street_name' => 'Vesterbrogade',
-					'street_number' => '20',
-					'zip_code' => '1666',
-					'city' => 'København',
+					'street_name' => 'Kanalvej',
+					'street_number' => '8',
+					'zip_code' => '2800',
+					'city' => 'Lyngby',
 					'cadastral_number' => 'euref90',
 					'leases' => 20,
 					'build_date' => $date,
@@ -381,9 +381,9 @@ class Realestates extends Seeder{
 				array(
 					'company_id' => 2,
 					
-					'street_name' => 'Vesterbrogade',
-					'street_number' => '20',
-					'zip_code' => '1666',
+					'street_name' => 'Nørregade',
+					'street_number' => '54',
+					'zip_code' => '1070',
 					'city' => 'København',
 					'cadastral_number' => 'euref91',
 					'leases' => 4,
@@ -400,10 +400,10 @@ class Realestates extends Seeder{
 					),
 				array(
 					'company_id' => 2,
-					'street_name' => 'Vesterbrogade',
-					'street_number' => '20',
-					'zip_code' => '1666',
-					'city' => 'København',
+					'street_name' => 'Roskildevej',
+					'street_number' => '280',
+					'zip_code' => '2100',
+					'city' => 'Vanløse',
 					'cadastral_number' => 'euref92',
 					'leases' => 24,
 					'build_date' => $date,
