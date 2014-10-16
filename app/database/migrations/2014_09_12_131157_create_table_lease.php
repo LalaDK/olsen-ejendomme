@@ -19,6 +19,7 @@ class CreateTableLease extends Migration {
 			$table->foreign('realestate_id')->references('id')->on('realestates');
 
 			$table->string('type');
+			$table->string('description');
 			$table->integer('size');
 			$table->float('lease_price');
 
