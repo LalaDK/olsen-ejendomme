@@ -156,3 +156,10 @@ body {
 	border-color:#d9d9d9;
 	border-width: 1px;
 }
+
+#login-box {
+	top:80px;
+	padding-left: 0;
+	padding-right: 0;
+	width:400px;
+}
