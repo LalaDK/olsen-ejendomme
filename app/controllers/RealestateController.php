@@ -9,7 +9,7 @@ class RealestateController extends \BaseController {
 	 */
 	public function index()
 	{
-		$companies = Company::with('realestates', 'waiting_list')->get();
+		$companies = Company::with('realestates', 'waiting_lists')->get();
 		foreach ($companies as $company)
 		{
 
@@ -32,7 +32,7 @@ class RealestateController extends \BaseController {
 				}
 			}
 		}
-		return View::make('realestates.index',['companies' => $companies, 'waiting_list' => $waiting_list]);
+		return View::make('realestates.index',['companies' => $companies]);
 	}
 
 		/**
