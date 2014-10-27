@@ -1,6 +1,6 @@
 <?php
 
-class TenantController extends \BaseController {
+class ContractController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,26 +9,7 @@ class TenantController extends \BaseController {
 	 */
 	public function index()
 	{
-		$companies = Company::with('realestates','waiting_lists')->get();
-		foreach ($companies as $company)
-		{
-			foreach ($company->waiting_lists as $list_item) {
-				$list_item->client = Client::find($list_item->client_id);
-			}
-			foreach ($company->realestates as $realestate)
-			{
-				$realestate->leases = Lease::with('client_leases')->where('realestate_id', $realestate->id)->get();
-				
-				foreach ($realestate->leases as $lease) 
-				{
-					foreach ($lease->client_leases as $client_lease) 
-					{
-						$client_lease->client = Client::find($client_lease->client_id);
-					}
-				}
-			}
-		}
-		return View::make('tenants.index',['companies' => $companies]);
+		//
 	}
 
 
@@ -53,7 +34,14 @@ class TenantController extends \BaseController {
 				}
 			}
 		}
-		return View::make('tenants.create',['company' => $company]);
+		return View::make('contracts.create',['company' => $company]);
+	}
+
+
+	public function leases(){
+		$id = Input::get('id');
+		$leases = Lease::where('realestate_id',$id)->get();
+		return $leases;
 	}
 
 
