@@ -12,9 +12,6 @@ class TenantController extends \BaseController {
 		$companies = Company::with('realestates','waiting_lists')->get();
 		foreach ($companies as $company)
 		{
-			foreach ($company->waiting_lists as $list_item) {
-				$list_item->client = Client::find($list_item->client_id);
-			}
 			foreach ($company->realestates as $realestate)
 			{
 				$realestate->leases = Lease::with('client_leases')->where('realestate_id', $realestate->id)->get();
@@ -39,20 +36,7 @@ class TenantController extends \BaseController {
 	 */
 	public function create($id)
 	{
-		$company = Company::with('realestates')->find($id);
-		
-		foreach ($company->realestates as $realestate)
-		{
-			$realestate->leases = Lease::with('client_leases')->where('realestate_id', $realestate->id)->get();
-			
-			foreach ($realestate->leases as $lease) 
-			{
-				foreach ($lease->client_leases as $client_lease) 
-				{
-					$client_lease->client = Client::find($client_lease->client_id);
-				}
-			}
-		}
+		$company = Company::find($id);
 		return View::make('tenants.create',['company' => $company]);
 	}
 
