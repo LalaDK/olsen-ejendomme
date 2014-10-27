@@ -1586,6 +1586,7 @@ return array(
     'User' => $baseDir . '/app/models/User.php',
     'UserController' => $baseDir . '/app/controllers/UserController.php',
     'Users' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
+    'Wait_List_Entry' => $baseDir . '/app/models/Wait_List_Entry.php',
     'Waiting_List' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
     'Whoops\\Exception\\ErrorException' => $vendorDir . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
     'Whoops\\Exception\\Formatter' => $vendorDir . '/filp/whoops/src/Whoops/Exception/Formatter.php',

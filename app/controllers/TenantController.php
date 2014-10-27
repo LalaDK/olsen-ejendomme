@@ -9,9 +9,12 @@ class TenantController extends \BaseController {
 	 */
 	public function index()
 	{
-		$companies = Company::with('realestates')->get();
+		$companies = Company::with('realestates','waiting_lists')->get();
 		foreach ($companies as $company)
 		{
+			foreach ($company->waiting_lists as $list_item) {
+				$list_item->client = Client::find($list_item->client_id);
+			}
 			foreach ($company->realestates as $realestate)
 			{
 				$realestate->leases = Lease::with('client_leases')->where('realestate_id', $realestate->id)->get();
