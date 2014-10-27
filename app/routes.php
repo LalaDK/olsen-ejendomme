@@ -26,9 +26,9 @@ Route::get('tenants', [
 	'before' => 'auth',
 ]);
 
-Route::get('tenants/leases', [
-	'as' => 'tenant.leases',
-	'uses' => 'TenantController@leases',
+Route::get('contracts/leases', [
+	'as' => 'contract.leases',
+	'uses' => 'ContractController@leases',
 	'before' => 'auth',
 ]);
 
@@ -38,6 +38,11 @@ Route::get('tenants/{var?}', [
 	'before' => 'auth',
 ]);
 
+Route::get('contracts/{var?}', [
+	'as' => 'contract.create',
+	'uses' => 'ContractController@create',
+	'before' => 'auth',
+]);
 
 Route::get('companies/deleteindex', [
 	'as' => 'company.deleteindex',

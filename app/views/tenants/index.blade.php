@@ -23,7 +23,7 @@ $(document).ready(function(){
 		<div class="tab-pane" id="{{$company->id}}">
 			<div class="col-md-12">
 				<br>
-				{{ HTML::linkAction('TenantController@create', '+ Tilføj lejer', array($company->id),array('class'=>'litebox btn btn-create', 'target' => '_self')) }}
+				{{ HTML::linkAction('ContractController@create', '+ Tilføj lejer', array($company->id),array('class'=>'litebox btn btn-create', 'target' => '_self')) }}
 				<br>
 				<br>
 				<table class="table-stribed table-hover table-curved" style="width:100%">
