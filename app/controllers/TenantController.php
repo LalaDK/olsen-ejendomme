@@ -14,8 +14,15 @@ class TenantController extends \BaseController {
 		{
 			foreach ($company->realestates as $realestate)
 			{
-				$realestate->leases = Lease::with('tenant')->where('realestate_id', $realestate->id)->get();
+				$realestate->leases = Lease::with('client_leases')->where('realestate_id', $realestate->id)->get();
 				
+				foreach ($realestate->leases as $lease) 
+				{
+					foreach ($lease->client_leases as $client_lease) 
+					{
+						$client_lease->client = Client::find($client_lease->client_id);
+					}
+				}
 			}
 		}
 		return View::make('tenants.index',['companies' => $companies]);
@@ -33,7 +40,15 @@ class TenantController extends \BaseController {
 		
 		foreach ($company->realestates as $realestate)
 		{
-			$realestate->leases = Lease::with('tenant')->where('realestate_id', $realestate->id)->get();
+			$realestate->leases = Lease::with('client_leases')->where('realestate_id', $realestate->id)->get();
+			
+			foreach ($realestate->leases as $lease) 
+			{
+				foreach ($lease->client_leases as $client_lease) 
+				{
+					$client_lease->client = Client::find($client_lease->client_id);
+				}
+			}
 		}
 		return View::make('tenants.create',['company' => $company]);
 	}

@@ -7,7 +7,7 @@ class Lease extends Eloquent {
 		return $this->belongsTo('Realestate');
 	}
 
-	public function tenant(){
-		return $this->hasMany('Tenant');
+	public function client_leases(){
+		return $this->hasMany('Client_Lease');
 	}
 }

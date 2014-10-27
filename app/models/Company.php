@@ -9,6 +9,13 @@ class Company extends Eloquent {
 		return $this->hasMany('Realestate');
 	}
 
+	public function waiting_list(){
+		return $this->hasMany('Waiting_List');
+	}
+
+
+
+
 	public $errors;
 
 	public static $rules = [

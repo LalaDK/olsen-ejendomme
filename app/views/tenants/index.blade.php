@@ -52,19 +52,19 @@ function toggleTenantDetails(id){
 					<th>Saldo</th>
 					@foreach ($company->realestates as $estate)
 					@foreach ($estate->leases as $lease) 
-					@foreach ($lease->tenant as $tenant)
-					<tr onclick="toggleTenantDetails({{ $tenant->id }})">
-						<td><span id="icon-{{ $tenant->id }}" class="glyphicon glyphicon-chevron-right"></span></td>
-						<td>{{ $tenant->firstname }} {{ $tenant->lastname }}</td>
-						<td>{{ $tenant->lease_id }}</td>
-						<td>{{ $tenant->street_name }} {{ $tenant->street_number }}</td>
-						<td>{{ $tenant->city }}</td>
-						<td>{{ $tenant->zipcode }}</td>
-						<td>{{ $tenant->phone }}</td>
-						<td>{{ $tenant->email }}</td>
+					@foreach ($lease->client_leases as $client_lease)
+					<tr onclick="toggleTenantDetails({{ $client_lease->id }})">
+						<td><span id="icon-{{ $client_lease->id }}" class="glyphicon glyphicon-chevron-right"></span></td>
+						<td>{{ $client_lease->client->firstname }} {{ $client_lease->client->lastname }}</td>
+						<td>{{ $client_lease->lease_id }}</td>
+						<td>{{ $estate->street_name }} {{ $lease->street_number }}</td>
+						<td>{{ $estate->city }}</td>
+						<td>{{ $estate->zip_code }}</td>
+						<td>{{ $client_lease->client->phone }}</td>
+						<td>{{ $client_lease->client->email }}</td>
 						<td>Saldo!!</td>
 					</tr>
-					<tr class="details table-details-header" id="header-{{ $tenant->id }}">
+					<tr class="details table-details-header" id="header-{{ $client_lease->id }}">
 						<th></th>
 						<th>Indflytning</th>
 						<th>Udflytning</th>
@@ -74,12 +74,12 @@ function toggleTenantDetails(id){
 						<th>Andre kontaktpersoner</th>
 						<th>Reguleringsprincip</th>
 					</tr>
-					<tr class="details table-details" id="detail-{{ $tenant->id }}">
+					<tr class="details table-details" id="detail-{{ $client_lease->id }}">
 						<td></td>
-						<td>{{ $tenant->moving_in }}</td>
-						<td>{{ $tenant->moving_out }}</td>
+						<td>{{ $client_lease->moving_in }}</td>
+						<td>{{ $client_lease->moving_out }}</td>
 						<td>Lejekontrakter</td>
-						<td>{{ $tenant->notes }}</td>
+						<td>{{ $client_lease->notes }}</td>
 						<td colspan="2"><a href="#">Se betalinger</a></td>
 						<td><a href"#">Kontaktpersoner</a></td>
 						<td>Test</td>
