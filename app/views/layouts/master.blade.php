@@ -15,6 +15,12 @@
 	{{ HTML::script('/scripts/site.js') }}
 	
 
+	{{ HTML::style('//cdn.datatables.net/1.10.3/css/jquery.dataTables.min.css') }}
+	{{ HTML::script('//cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js') }}
+
+
+
+
 	<script type="text/javascript">
 
 		$(document).ready(function() {

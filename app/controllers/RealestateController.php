@@ -9,15 +9,22 @@ class RealestateController extends \BaseController {
 	 */
 	public function index()
 	{
-				$companies = Company::with('realestates')->get();
+		$companies = Company::with('realestates', 'waiting_list')->get();
 		foreach ($companies as $company)
 		{
+
+			foreach ($company->waiting_lists as $list_item) {
+				$list_item->client = Client::find($list_item->client_id);
+			}
+			
 			foreach ($company->realestates as $realestate)
 			{
+				$realestate->leases_count = 0;
 				$realestate->leases = Lease::with('client_leases')->where('realestate_id', $realestate->id)->get();
 				
 				foreach ($realestate->leases as $lease) 
 				{
+					$realestate->leases_count++;
 					foreach ($lease->client_leases as $client_lease) 
 					{
 						$client_lease->client = Client::find($client_lease->client_id);
@@ -25,7 +32,7 @@ class RealestateController extends \BaseController {
 				}
 			}
 		}
-		return View::make('realestates.index',['companies' => $companies]);
+		return View::make('realestates.index',['companies' => $companies, 'waiting_list' => $waiting_list]);
 	}
 
 		/**
@@ -33,11 +40,11 @@ class RealestateController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
-	{
-		$companies = Company::all()->lists('name','id');
-		return View::make('realestates.create', compact('companies'));
-	}
+		public function create()
+		{
+			$companies = Company::all()->lists('name','id');
+			return View::make('realestates.create', compact('companies'));
+		}
 
 
 	/**
