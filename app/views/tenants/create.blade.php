@@ -33,7 +33,7 @@ function updateLeaseList(val){
 	});
 }
 
-function lightbox_dashboard_cancel(){
+function lightbox_tenants_cancel(){
 	parent.window.location="{{URL::to('tenants')}}";
 }
 </script>
@@ -91,7 +91,7 @@ function lightbox_dashboard_cancel(){
 		<row>
 			{{Form::submit('Opret lejer', ['class' => 'btn btn-success loginbutton'])}}
 			{{Form::close()}}
-			<input type="button" class="btn btn-success" style="margin-bottom: 5px;" onClick="lightbox_dashboard_cancel()" value="Annuller"/>	
+			<input type="button" class="btn btn-success" style="margin-bottom: 5px;" onClick="lightbox_tenants_cancel()" value="Annuller"/>	
 		</row>
 
 	</div>

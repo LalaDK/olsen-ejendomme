@@ -97,8 +97,14 @@ function highlight(key, text, split, before, after) {
 	}
 }
 
+//cancel back to dashboard page
 function lightbox_dashboard_cancel(){
 	parent.window.location="{{URL::to('dashboard')}}";
+}
+
+//cancel back to tenant page
+function lightbox_tenants_cancel(){
+	parent.window.location="{{URL::to('tenants')}}";
 }
 
 //Ajax call to delete companies

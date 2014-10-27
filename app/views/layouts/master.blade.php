@@ -54,9 +54,8 @@
 				<ul>
 					<li id="dashboard" onclick='location.href="/olsen-ejendomme/public/dashboard"'><?php include("../app/images/Dashboard.svg"); ?><br>Dashboard</li>
 					<li id="tenants" onclick='location.href="/olsen-ejendomme/public/tenants"'><?php include("../app/images/tenants.svg"); ?><br>Lejere</li>
-					<li id="economic" onclick='location.href="/olsen-ejendomme/public/dashboard"'><?php include("../app/images/company.svg"); ?><br>Økonomi</li>
-					<li id="company" onclick='location.href="/olsen-ejendomme/public/dashboard"'><?php include("../app/images/economic.svg"); ?><br>Selskab</li>
-					<li id="dashboard" onclick='location.href="/olsen-ejendomme/public/realestates"'><?php include("../app/images/dashboard.svg"); ?><br>Selskab</li>
+					<li id="economic" onclick='location.href="/olsen-ejendomme/public/dashboard"'><?php include("../app/images/economic.svg"); ?><br>Økonomi</li>
+					<li id="company" onclick='location.href="/olsen-ejendomme/public/realestates"'><?php include("../app/images/dashboard.svg"); ?><br>Selskab</li>
 				</ul>
 			</div>
 		</div>
