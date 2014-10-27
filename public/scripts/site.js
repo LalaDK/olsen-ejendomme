@@ -100,6 +100,8 @@ function highlight(key, text, split, before, after) {
 function lightbox_dashboard_cancel(){
 	parent.window.location="{{URL::to('dashboard')}}";
 }
+
+//Ajax call to delete companies
 function delete_companies(){
 	$.ajax({
 		url: 'destroy',
@@ -113,4 +115,20 @@ function delete_companies(){
 			$('#status-msg').text('Der er ikke valgt nogen selskaber');
 		}
 	});
+}
+
+//Toggle details on tables
+function toggleTableDetails(id){
+	var dh = '.header-'+id;
+	var dd = '.detail-'+id;
+	var di = '.icon-'+id;
+	if($(dd).is(':visible')){
+			$(di).removeClass('glyphicon-chevron-down');
+			$(di).addClass('glyphicon-chevron-right');
+		} else {
+			$(di).removeClass('glyphicon-chevron-right');
+			$(di).addClass('glyphicon-chevron-down');
+		}
+	$(dh).fadeToggle();
+	$(dd).fadeToggle();
 }

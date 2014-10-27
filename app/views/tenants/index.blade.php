@@ -8,20 +8,6 @@ $(document).ready(function(){
 	$('#tenantTabs a:first').tab('show');
 	$('.details').hide();
 });
-function toggleTenantDetails(id){
-	var dh = '#header-'+id;
-	var dd = '#detail-'+id;
-	var di = '#icon-'+id;
-	if($(dd).is(':visible')){
-			$(di).removeClass('glyphicon-chevron-down');
-			$(di).addClass('glyphicon-chevron-right');
-		} else {
-			$(di).removeClass('glyphicon-chevron-right');
-			$(di).addClass('glyphicon-chevron-down');
-		}
-	$(dh).fadeToggle();
-	$(dd).fadeToggle();
-}
 </script>
 
 <h3>Lejere</h3>
@@ -53,8 +39,8 @@ function toggleTenantDetails(id){
 					@foreach ($company->realestates as $estate)
 					@foreach ($estate->leases as $lease) 
 					@foreach ($lease->client_leases as $client_lease)
-					<tr onclick="toggleTenantDetails({{ $client_lease->id }})">
-						<td><span id="icon-{{ $client_lease->id }}" class="glyphicon glyphicon-chevron-right"></span></td>
+					<tr onclick="toggleTableDetails({{ $client_lease->id }})">
+						<td><span class="glyphicon glyphicon-chevron-right icon-{{ $client_lease->id }}"></span></td>
 						<td>{{ $client_lease->client->firstname }} {{ $client_lease->client->lastname }}</td>
 						<td>{{ $client_lease->lease_id }}</td>
 						<td>{{ $estate->street_name }} {{ $lease->street_number }}</td>
@@ -64,7 +50,7 @@ function toggleTenantDetails(id){
 						<td>{{ $client_lease->client->email }}</td>
 						<td>Saldo!!</td>
 					</tr>
-					<tr class="details table-details-header" id="header-{{ $client_lease->id }}">
+					<tr class="details table-details-header header-{{ $client_lease->id }}">
 						<th></th>
 						<th>Indflytning</th>
 						<th>Udflytning</th>
@@ -74,7 +60,7 @@ function toggleTenantDetails(id){
 						<th>Andre kontaktpersoner</th>
 						<th>Reguleringsprincip</th>
 					</tr>
-					<tr class="details table-details" id="detail-{{ $client_lease->id }}">
+					<tr class="details table-details detail-{{ $client_lease->id }}">
 						<td></td>
 						<td>{{ $client_lease->moving_in }}</td>
 						<td>{{ $client_lease->moving_out }}</td>

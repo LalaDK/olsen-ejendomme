@@ -12,6 +12,8 @@
 	{{ HTML::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}
 	{{ HTML::style('css/dashboardstyle.css') }}
 	{{ HTML::style('css/style.css') }}
+	{{ HTML::script('/scripts/site.js') }}
+	
 
 	<script type="text/javascript">
 
