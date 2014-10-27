@@ -49,7 +49,6 @@ class TenantController extends \BaseController {
 	public function store()
 	{
 		$tenant = new Tenant();
-		$tenant->lease_id = Input::get('lease_id');
 		$tenant->firstname = Input::get('firstname');
 		$tenant->lastname = Input::get('lastname');
 		$tenant->street_name = Input::get('street_name');
@@ -60,10 +59,8 @@ class TenantController extends \BaseController {
 		$tenant->mobile_phone = Input::get('mobile_phone');
 		$tenant->email = Input::get('email');
 		$tenant->notes = Input::get('notes');
-
-		$tenant->moving_in = date("Y-m-d", strtotime(Input::get('moving_in')));
-		$tenant->moving_out = date("Y-m-d", strtotime(Input::get('moving_out')));
 		$tenant->save();
+		
 		Session::flash('message', 'Lejeren blev oprettet');
 		return $tenant;
 	}

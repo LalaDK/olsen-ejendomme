@@ -2,38 +2,7 @@
 
 class RealestateController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		$companies = Company::with('realestates', 'waiting_lists')->get();
-		foreach ($companies as $company)
-		{
 
-			foreach ($company->waiting_lists as $list_item) {
-				$list_item->client = Client::find($list_item->client_id);
-			}
-			
-			foreach ($company->realestates as $realestate)
-			{
-				$realestate->leases_count = 0;
-				$realestate->leases = Lease::with('client_leases')->where('realestate_id', $realestate->id)->get();
-				
-				foreach ($realestate->leases as $lease) 
-				{
-					$realestate->leases_count++;
-					foreach ($lease->client_leases as $client_lease) 
-					{
-						$client_lease->client = Client::find($client_lease->client_id);
-					}
-				}
-			}
-		}
-		return View::make('realestates.index',['companies' => $companies]);
-	}
 
 		/**
 	 * Show the form for creating a new resource.

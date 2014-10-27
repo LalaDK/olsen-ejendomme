@@ -57,8 +57,8 @@
 
 				<div class="col-md-6">
 					<b>Venteliste</b>
-					<div class="container">
-						<button>Opret ny person</button>
+					<div class="well">
+						{{ HTML::linkAction('TenantController@create', '+ Tilføj lejer', array($company->id),array('class'=>'litebox btn btn-create', 'target' => '_self')) }}
 					</div>
 
 					<table id="company-table" class="table-stribed table-hover table-curved">
