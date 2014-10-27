@@ -27,12 +27,6 @@ class WaitingListController extends \BaseController {
 
 	public function destroy()
 	{
-		$ids = Input::get('ids');
-		foreach ($ids as $id) {
-			$company = Company::find($id);
-			$company->realestates()->delete();
-			$company->delete();
-		}
-		return ;
+		Wait_List_Entry::destroy(Input::get('id'));
 	}
 }
