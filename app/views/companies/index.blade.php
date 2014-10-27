@@ -78,7 +78,7 @@
 								<td>{{ $waiting_list->client->firstname }} {{ $waiting_list->client->lastname }}</td>
 								<td>{{ $waiting_list->client->phone }}</td>
 								<td>{{ $waiting_list->client->email }}</td>
-								<td>{{ $waiting_list->client->notes }}</td>
+								<td><span id="" class="glyphicon glyphicon-envelope"></span></td>
 								<td onClick="alert();"><span id="" class="glyphicon glyphicon-remove"></span></td>
 								<td><span id="" class="glyphicon glyphicon-chevron-down"></span></td>
 
