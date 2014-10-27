@@ -1,14 +1,13 @@
 <?php
 
-Route::get('/', function(){
-	return View::make('sessions.create');
-});
+Route::get('/','SessionsController@create');
 
 Route::resource('sessions','SessionsController');
 
 Route::resource('companies','CompanyController', ['only'=> ['index','create','store','destroy']]);
 
 Route::resource('realestates','RealestateController', ['only'=> ['index','create','store','destroy']]);
+
 Route::resource('tenants','TenantController', ['only'=> ['index','store','destroy']]);
 
 Route::get('login','SessionsController@create');

@@ -20,10 +20,12 @@ class SessionsController extends BaseController {
 	 */
 	public function create()
 	{
-		if(Input::has('username')) {
-			
+		$companies = Company::All();
+		$result = [];
+		foreach($companies as $company) {
+			$result[$company->id] = $company->name;
 		}
-		return View::make('sessions.create');
+		return View::make('sessions.create')->with('companies', $result);
 	}
 
 

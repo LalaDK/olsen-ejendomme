@@ -9,14 +9,14 @@ var users = new Array();
 // Function to return divs
 function onSearch(searchString) {
 	var result = ''; // Result containing div elements to write to doc
-	if(searchString != '') {
-	var arr = searchStr(searchString, users);// Array containing users which matched the search
+	if(searchString.value != '') {
+	var arr = searchStr(searchString.value, users, true);// Array containing users which matched the search
 	for(i = 0; i < arr.length; i++) {
 		var key = document.getElementById('search').value;
 		var text = arr[i][1] + ' - ' + arr[i][2];
 
 		result += '<div class="search-result">' 
-		+ highlight(key, text, '<b>', '</b>')
+		+ highlight(key, text, true, '<b>', '</b>')
 		+ '<span class="search-result-delete">' 
 		+ '<a href="#" onClick="deleteUser('+ arr[i][0] +');">x</a>'
 		+ '</span>'
@@ -37,7 +37,7 @@ function deleteUser(id) {
 		}).done(function(msg) {
 			alert("Brugeren blev slettet!");
 			location.reload(); 
-		}).fail(function(msg) {
+		}).fail(function(msg) { 
 			alert('FEJL - brugeren blev ikke slettet!' + msg.responseText);
 		});
 	}
@@ -63,7 +63,7 @@ function deleteUser(id) {
 	<input type="text" id="search" 
 	placeholder="Indtast navn eller ID" 
 	class="form-control" 
-	onkeyup="onSearch(this.value);">
+	onkeyup="onSearch(this);">
 
 	<div id="search-results"></div><br>
 	<button type="button" class="btn btn-success button">Luk</button>

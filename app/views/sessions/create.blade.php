@@ -14,20 +14,12 @@
 	<table style="width:100%;">
 		<tr>
 			<td style="width:100%;">
-				{{Form::select('selskab',
-					array(
-						'e1 1' => 'Selskab 1',
-						'e2 2' => 'Selskab 2',
-						'e3 3' => 'Selskab 3',
-						'e3 4' => 'Selskab 4',
-						'e4 5' => 'Selskab 5'
-						),'',
+				{{Form::select('selskab', $companies,'',
 					['class' => 'form-control', 'style' => 'width:100%;']
 					)
 				}}
 			</td>
 			<td>
-
 				{{Form::submit('Login', ['class' => 'btn btn-success loginbutton'])}}
 				{{ Form::Close()}}
 			</td>
