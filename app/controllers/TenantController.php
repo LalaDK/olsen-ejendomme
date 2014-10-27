@@ -48,21 +48,21 @@ class TenantController extends \BaseController {
 	 */
 	public function store()
 	{
-		$tenant = new Tenant();
-		$tenant->firstname = Input::get('firstname');
-		$tenant->lastname = Input::get('lastname');
-		$tenant->street_name = Input::get('street_name');
-		$tenant->street_number = Input::get('street_number');
-		$tenant->zipcode = Input::get('zipcode');
-		$tenant->city = Input::get('city');
-		$tenant->phone = Input::get('phone');
-		$tenant->mobile_phone = Input::get('mobile_phone');
-		$tenant->email = Input::get('email');
-		$tenant->notes = Input::get('notes');
-		$tenant->save();
-		
+		$client = new Client();
+		$client->firstname = Input::get('firstname');
+		$client->lastname = Input::get('lastname');
+		$client->street_name = Input::get('street_name');
+		$client->street_number = Input::get('street_number');
+		$client->zipcode = Input::get('zipcode');
+		$client->city = Input::get('city');
+		$client->phone = Input::get('phone');
+		$client->mobile_phone = Input::get('mobile_phone');
+		$client->email = Input::get('email');
+		$client->notes = Input::get('notes');
+		$client->save();
+
 		Session::flash('message', 'Lejeren blev oprettet');
-		return $tenant;
+		return $client;
 	}
 
 
