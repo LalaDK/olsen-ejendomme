@@ -1,14 +1,30 @@
 @extends('layouts.master')
-
 @section('content')
 
 <script>
-$(document).ready(function(){
-	$('#company-table').DataTable();
+	$(document).ready(function(){
+		$('#company-table').DataTable();
+	});
 
-function toggleVisibility(id) {
-	$(".details-"+id).fadeToggle();
-}
+	function toggleVisibility(id) {
+		$(".details-" + id).fadeToggle();
+	}
+
+	function deleteWaitEntry(id) {
+		var agree = confirm('Er du sikker på at du vil fjerne klienten fra ventelisten?\nOBS. Klienten slettes også.');
+		if(agree) {
+			$.ajax(
+			{
+				url:"WaitingListController/destroy?id=" + id,
+				success:function(result){
+					location.reload();
+				},
+				error:function(result) {
+					alert('Der skete en fejl.\n' + result.responseText);
+				}
+			});
+		}
+	}
 </script>
 
 <h3>Selskab</h3>
@@ -74,32 +90,36 @@ function toggleVisibility(id) {
 					@foreach ($company->waiting_lists as $waiting_list)
 					<tbody>					
 						<tr onClick="">
-							<td>{{ $waiting_list->client->id }}</td>
+							<td>{{ $waiting_list->id }}</td>
 							<td>{{ $waiting_list->client->firstname }} {{ $waiting_list->client->lastname }}</td>
 							<td>{{ $waiting_list->client->phone }}</td>
 							<td>{{ $waiting_list->client->email }}</td>
-							<td>{{ $waiting_list->client->notes }}</td>
-							<td onClick="alert();"><span id="" class="glyphicon glyphicon-remove"></span></td>
-							<td><span id="" class="glyphicon glyphicon-chevron-down"></span></td>
 
-						</tr>
-						@foreach ($estate->leases as $lease) 
-						<tr class="details-{{$estate->id}}" style="display:none;"><!-- The hidden row -->	
-							<td>{{$lease->id}}</td>
-							<td>{{ $estate->street_name }} {{ $estate->street_number }} ({{$lease->description}})</td>
-							<td>{{$lease->type}}</td>
-							<td></td>
-							<td></td>
-						</tr>
-						@endforeach
-						@endforeach
-					</tbody>
-				</table>
+							<td><span id="" class="glyphicon glyphicon-envelope"></span></td>
 
+							<td id="{{ $waiting_list->id }}" onClick="deleteWaitEntry(this.id);">
+								<span class="glyphicon glyphicon-remove"></span></td>
+								
+								<td><span id="" class="glyphicon glyphicon-chevron-down"></span></td>
+
+							</tr>
+							@foreach ($estate->leases as $lease) 
+							<tr class="details-{{$estate->id}}" style="display:none;"><!-- The hidden row -->	
+								<td>{{$lease->id}}</td>
+								<td>{{ $estate->street_name }} {{ $estate->street_number }} ({{$lease->description}})</td>
+								<td>{{$lease->type}}</td>
+								<td></td>
+								<td></td>
+							</tr>
+							@endforeach
+							@endforeach
+						</tbody>
+					</table>
+
+				</div>
 			</div>
+			@endforeach
 		</div>
-		@endforeach
 	</div>
-</div>
 </div>
 @stop
