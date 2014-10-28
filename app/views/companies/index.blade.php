@@ -2,139 +2,146 @@
 @section('content')
 
 <script>
-	$('#companyTabs a').click(function (e) {
-		e.preventDefault()
-		$(this).tab('show')
-	})
-
-
 	$(document).ready(function(){
-		$('#company-table').DataTable();
+		// Initialize DataTable for better tablemangement
+		$.each(
+			$('.company-table'), function (value) {
+				value.DataTable();
+			}
+			);
 
-		$('#companyTabs a:first').tab('show');
+
+		$('#wait-list-table').DataTable();
 
 
 
+
+		// if a company selection previously have been made,
+		// select that one. Else select the first
+		if($.cookie('selectedTab') != undefined) {
+			var selectedTab = $.cookie('selectedTab');	
+			$('#companyTabs a[href="#' + selectedTab + '"]').tab('show');
+		} 
+		else {
+			$('#companyTabs a[href="#1"]').tab('show');
+		}
 	});
 
+
+	/* Set the cookie 'selecterTab' */
 	function setCookie(id) {
-		alert(id);
+		$.cookie('selectedTab', id);
 	}
+
 
 	function toggleVisibility(id) {
 		$(".details-" + id).fadeToggle();
 	}
 
+	/* Function for deleting a Wait List Entry */
 	function deleteWaitEntry(id) {
-		var agree = confirm('Er du sikker på at du vil fjerne klienten fra ventelisten?\nOBS. Klienten slettes også, såfremt klienten ikke er tilknyttet en lejekontrakt.');
-		if(agree) {
-			$.ajax(
+		var agree = confirm('Er du sikker på at du vil fjerne klienten fra ventelisten?');
+		if(agree) {$.ajax(		
 			{
 				url:"WaitingListController/destroy?id=" + id,
-				success:function(result){
-					location.reload();
-				},
-				error:function(result) {
-					alert('Der skete en fejl.\n' + result.responseText);
-				}
-			});
-		}
+				success:function(result){location.reload();},
+				error:function(result) {alert('Der skete en fejl.\n' + result.responseText);}
+			});}
 	}
 </script>
 
-<h3>Selskab</h3>
 <div class="col-md-10">
+	<h3>Selskab</h3>
 	<ul class="nav nav-tabs" data-tabs="tabs" id="companyTabs">
 		@foreach ($companies as $company) 
-		<li><a href="#{{$company->id}}" onclick="setCookie(this.href);" role="tab" data-toggle="tab">{{$company->name}}</a></li>
-		@endforeach
-	</ul>
-	<div class="tab-content">
-		@foreach ($companies as $company) 
-		<div class="tab-pane" id="{{$company->id}}">
-			<div class="col-md-6">
-				<b>Ejendomme</b>
-				<table id="company-table" class="table-stribed table-hover table-curved">
-					<thead>
-						<th>ID</th>
-						<th>Adresse</th>
-						<th>Matrikel nr.</th>
-						<th>Antal lejemål</th>
-						<th>*udvid</th>
-					</thead>
-					<tbody>					
-						@foreach ($company->realestates as $estate)
-						<tr onClick="toggleVisibility({{$estate->id}});">
-							<td>{{ $estate->id }}</td>
-							<td>{{ $estate->street_name }} {{ $estate->street_number }}</td>
-							<td>{{ $estate->cadastral_number }}</td>
-							<td>{{ $estate->leases_count }}</td>
-							<td><span id="icon-{{ $estate->id }}" class="glyphicon glyphicon-chevron-down"></span></td>
-						</tr>
-						@foreach ($estate->leases as $lease) 
-						<tr class="details-{{$estate->id}}" style="display:none;"><!-- The hidden row -->	
-							<td>{{$lease->id}}</td>
-							<td>{{ $estate->street_name }} {{ $estate->street_number }} ({{$lease->description}})</td>
-							<td>{{$lease->type}}</td>
-							<td></td>
-							<td></td>
-						</tr>
-						@endforeach
-						@endforeach
-					</tbody>
-				</table>
-			</div>
+		<li>
+			<a href="#{{$company->id}}" onclick="setCookie({{$company->id}});" 
+				role="tab" data-toggle="tab">{{$company->name}}</a></li>
+				@endforeach
+			</ul>
+			<div class="tab-content">
+				@foreach ($companies as $company) 
+				<div class="tab-pane" id="{{$company->id}}">
+					<div class="col-md-6">
+						<b>Ejendomme</b>
+						<!-- Venstre kolonne -->
+						<table class="company-table" class="table-stribed table-hover table-curved">
+							<thead>
+								<th>ID</th>
+								<th>Adresse</th>
+								<th>Matrikel nr.</th>
+								<th>Antal lejemål</th>
+								<th>*udvid</th>
+							</thead>
+							<tbody>					
+								@foreach ($company->realestates as $estate)
+								<tr onClick="toggleVisibility({{$estate->id}});">
+									<td>{{ $estate->id }}</td>
+									<td>{{ $estate->street_name }} {{ $estate->street_number }}</td>
+									<td>{{ $estate->cadastral_number }}</td>
+									<td>{{ $estate->leases_count }}</td>
+									<td><span id="icon-{{ $estate->id }}" class="glyphicon glyphicon-chevron-down"></span></td>
+								</tr>
+								@foreach ($estate->leases as $lease) 
+								<tr class="details-{{$estate->id}}" style="display:none;"><!-- The hidden row -->	
+									<td>{{$lease->id}}</td>
+									<td>{{ $estate->street_name }} {{ $estate->street_number }} ({{$lease->description}})</td>
+									<td>{{$lease->type}}</td>
+									<td></td>
+									<td></td>
+								</tr>
+								@endforeach
+								@endforeach
+							</tbody>
+						</table>
+					</div><!-- /Venstre kolonne -->
 
+					<div class="col-md-6"><!-- Højre kolonne -->
+						<b>Venteliste</b>
+						<div class="well">
+							{{ HTML::linkAction('TenantController@create', '+ Tilføj lejer', array($company->id),array('class'=>'litebox btn btn-create', 'target' => '_self')) }}
+						</div>
 
-			<div class="col-md-6">
-				<b>Venteliste</b>
-				<div class="well">
-					{{ HTML::linkAction('TenantController@create', '+ Tilføj lejer', array($company->id),array('class'=>'litebox btn btn-create', 'target' => '_self')) }}
-				</div>
+						<table class="wait-list-table" class="table-stribed table-hover table-curved" style="width:100%;">
+							<thead>
+								<th>nr.</th>
+								<th>Navn</th>
+								<th>Telefon nr.</th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</thead>
+							@foreach ($company->wait_list_entry as $wait_list_entry)
+							<tbody>					
+								<tr onClick="">
+									<td>{{ $wait_list_entry->id }}</td>
+									<td>{{ $wait_list_entry->client->firstname }} {{ $wait_list_entry->client->lastname }}</td>
+									<td>{{ $wait_list_entry->client->phone }}</td>
+									<td>{{ $wait_list_entry->client->email }}</td>
 
-				<table id="company-table" class="table-stribed table-hover table-curved">
-					<thead>
-						<th>nr.</th>
-						<th>Navn</th>
-						<th>Telefon nr.</th>
-						<th>Email</th>
-						<th>Besked</th>
-						<th>Slet</th>
-						<th></th>
-					</thead>
-					@foreach ($company->wait_list_entry as $wait_list_entry)
-					<tbody>					
-						<tr onClick="">
-							<td>{{ $wait_list_entry->id }}</td>
-							<td>{{ $wait_list_entry->client->firstname }} {{ $wait_list_entry->client->lastname }}</td>
-							<td>{{ $wait_list_entry->client->phone }}</td>
-							<td>{{ $wait_list_entry->client->email }}</td>
+									<td><a href="mailto:{{ $wait_list_entry->client->email }}"><span id="" class="glyphicon glyphicon-envelope"></span></a></td>
 
-							<td><span id="" class="glyphicon glyphicon-envelope"></span></td>
+									<td><a href="#" onClick="deleteWaitEntry({{ $wait_list_entry->id }});"><span class="glyphicon glyphicon-remove"></span></a></td>
 
-							<td id="{{ $wait_list_entry->id }}" onClick="deleteWaitEntry(this.id);">
-								<span class="glyphicon glyphicon-remove"></span></td>
+									<td><a href="#"><span id="" class="glyphicon glyphicon-chevron-down"></span></a></td>
 
-								<td><span id="" class="glyphicon glyphicon-chevron-down"></span></td>
-
-							</tr>
-							@foreach ($estate->leases as $lease) 
-							<tr class="details-{{$estate->id}}" style="display:none;"><!-- The hidden row -->	
-								<td>{{$lease->id}}</td>
-								<td>{{ $estate->street_name }} {{ $estate->street_number }} ({{$lease->description}})</td>
-								<td>{{$lease->type}}</td>
-								<td></td>
-								<td></td>
-							</tr>
-							@endforeach
-							@endforeach
-						</tbody>
-					</table>
-
-				</div>
-			</div>
-			@endforeach
-		</div>
-	</div>
-</div>
-@stop
+								</tr>
+								@foreach ($estate->leases as $lease) 
+								<tr class="details-{{$estate->id}}" style="display:none;"><!-- The hidden row -->	
+									<td>{{$lease->id}}</td>
+									<td>{{ $estate->street_name }} {{ $estate->street_number }} ({{$lease->description}})</td>
+									<td>{{$lease->type}}</td>
+									<td></td>
+									<td></td>
+								</tr>
+								@endforeach
+								@endforeach
+							</tbody>
+						</table>
+					</div><!-- /højre kolonne -->			
+				</div><!-- /class="tab-pane" -->
+				@endforeach
+			</div><!-- class="tab-content" -->
+		</div><!-- class="col-md-10" -->
+		@stop
