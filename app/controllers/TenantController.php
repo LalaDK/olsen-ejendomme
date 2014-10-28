@@ -61,8 +61,13 @@ class TenantController extends \BaseController {
 		$client->notes = Input::get('notes');
 		$client->save();
 
+		$newEntry = new Wait_List_Entry();
+
+		$newEntry->client_id = $client->id;
+		$newEntry->company_id = Input::get('company_id');;
+		$newEntry->save();
 		Session::flash('message', 'Lejeren blev oprettet');
-		return $client;
+		return Redirect::action('companies.index');
 	}
 
 

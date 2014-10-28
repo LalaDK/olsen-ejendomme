@@ -4,10 +4,10 @@
 <script>
 $(document).ready(function(){
 	$(document).submit(function(){
-		parent.window.location="{{URL::to('tenants')}}";
+		parent.window.location="{{URL::to('companies')}}";
+
 	});
 });
-}
 </script>
 
 
@@ -51,7 +51,7 @@ $(document).ready(function(){
 		</div>
 		<div class="col-md-12">
 			<row>
-				{{Form::submit('Opret lejer', ['class' => 'btn btn-success loginbutton'])}}
+				{{Form::submit('Tilføj til venteliste', ['class' => 'btn btn-success loginbutton'])}}
 				{{Form::close()}}
 				<input type="button" class="btn btn-success" style="margin-bottom: 5px;" onClick="lightbox_tenants_cancel()" value="Annuller"/>	
 			</row>
