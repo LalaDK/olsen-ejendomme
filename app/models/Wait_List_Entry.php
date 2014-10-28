@@ -1,6 +1,6 @@
 <?php
 class Wait_List_Entry extends Eloquent {
-	protected $table = 'waiting_list';
+	protected $table = 'wait_list_entry';
 	protected $guarded = array('id');
 
 	public function company(){

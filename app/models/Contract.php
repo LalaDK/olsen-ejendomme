@@ -1,6 +1,6 @@
 <?php
-class Client_Lease extends Eloquent {
-	protected $table = 'client_leases';
+class Contract extends Eloquent {
+	protected $table = 'contracts';
 	protected $guarded = array('id');
 
 	public function lease(){

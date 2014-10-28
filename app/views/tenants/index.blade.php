@@ -38,19 +38,19 @@ $(document).ready(function(){
 					<th>Saldo</th>
 					@foreach ($company->realestates as $estate)
 					@foreach ($estate->leases as $lease) 
-					@foreach ($lease->client_leases as $client_lease)
-					<tr onclick="toggleTableDetails({{ $client_lease->id }})">
-						<td><span class="glyphicon glyphicon-chevron-right icon-{{ $client_lease->id }}"></span></td>
-						<td>{{ $client_lease->client->firstname }} {{ $client_lease->client->lastname }}</td>
-						<td>{{ $client_lease->lease_id }}</td>
+					@foreach ($lease->contracts as $contract)
+					<tr onclick="toggleTableDetails({{ $contract->id }})">
+						<td><span class="glyphicon glyphicon-chevron-right icon-{{ $contract->id }}"></span></td>
+						<td>{{ $contract->client->firstname }} {{ $contract->client->lastname }}</td>
+						<td>{{ $contract->lease_id }}</td>
 						<td>{{ $estate->street_name }} {{ $lease->street_number }}</td>
 						<td>{{ $estate->city }}</td>
 						<td>{{ $estate->zip_code }}</td>
-						<td>{{ $client_lease->client->phone }}</td>
-						<td>{{ $client_lease->client->email }}</td>
+						<td>{{ $contract->client->phone }}</td>
+						<td>{{ $contract->client->email }}</td>
 						<td>Saldo!!</td>
 					</tr>
-					<tr class="details table-details-header header-{{ $client_lease->id }}">
+					<tr class="details table-details-header header-{{ $contract->id }}">
 						<th></th>
 						<th>Indflytning</th>
 						<th>Udflytning</th>
@@ -60,12 +60,12 @@ $(document).ready(function(){
 						<th>Andre kontaktpersoner</th>
 						<th>Reguleringsprincip</th>
 					</tr>
-					<tr class="details table-details detail-{{ $client_lease->id }}">
+					<tr class="details table-details detail-{{ $contract->id }}">
 						<td></td>
-						<td>{{ $client_lease->moving_in }}</td>
-						<td>{{ $client_lease->moving_out }}</td>
+						<td>{{ $contract->moving_in }}</td>
+						<td>{{ $contract->moving_out }}</td>
 						<td>Lejekontrakter</td>
-						<td>{{ $client_lease->notes }}</td>
+						<td>{{ $contract->notes }}</td>
 						<td colspan="2"><a href="#">Se betalinger</a></td>
 						<td><a href"#">Kontaktpersoner</a></td>
 						<td>Test</td>

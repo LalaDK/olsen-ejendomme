@@ -33,21 +33,21 @@ class DatabaseSeeder extends Seeder {
 
 		$this->command->info('Client table seeded');
 
-		$this->call('Client_Leases');
+		$this->call('Contracts');
 
-		$this->command->info('Client_Leases table seeded');
+		$this->command->info('Contracts table seeded');
 
-		$this->call('Waiting_List');
+		$this->call('Wait_List_Entry');
 
-		$this->command->info('Waiting_List table seeded');
+		$this->command->info('Wait_List_Entry table seeded');
 	}
 
 }
 
 class Delete_Data extends Seeder{
 	public function run(){
-		DB::table('waiting_list')->delete();
-		DB::table('client_leases')->delete();
+		DB::table('wait_list_entry')->delete();
+		DB::table('contracts')->delete();
 		DB::table('contacts')->delete();
 		DB::table('clients')->delete();
 		DB::table('leases')->delete();
@@ -57,12 +57,12 @@ class Delete_Data extends Seeder{
 	}
 }
 
-class Waiting_List extends Seeder{
+class Wait_List_Entry extends Seeder{
 	public function run(){
 
 		$date = new \DateTime;
 
-		DB::table('waiting_list')->insert(
+		DB::table('wait_list_entry')->insert(
 			array(
 				array(
 					'company_id'=>'3',
@@ -83,12 +83,12 @@ class Waiting_List extends Seeder{
 	}
 }
 
-class Client_Leases extends Seeder{
+class Contracts extends Seeder{
 	public function run(){
 
 		$date = new \DateTime;
 
-		DB::table('client_leases')->insert(
+		DB::table('contracts')->insert(
 			array(
 				array(
 					'lease_id'=>'1',
@@ -181,6 +181,7 @@ class Clients extends Seeder{
 		DB::table('clients')->insert(
 			array(
 				array(
+					'company_id'=>'1',
 					'firstname' => 'Johnny',
 					'lastname' => 'Madsen',
 					'street_name' => 'Amagerbrogade',
@@ -195,6 +196,7 @@ class Clients extends Seeder{
 					'updated_at' => $date
 					),
 				array(
+					'company_id'=>'1',
 					'firstname' => 'Svend',
 					'lastname' => 'Svendsen',
 					'street_name' => 'Nørrebrogade',
@@ -209,6 +211,7 @@ class Clients extends Seeder{
 					'updated_at' => $date
 					),
 				array(
+					'company_id'=>'1',
 					'firstname' => 'Bo',
 					'lastname' => 'Bondemand',
 					'street_name' => 'Gyden',
@@ -223,6 +226,7 @@ class Clients extends Seeder{
 					'updated_at' => $date
 					),
 				array(
+					'company_id'=>'1',
 					'firstname' => 'Helle',
 					'lastname' => 'Thorning',
 					'street_name' => 'Rådhuspladsen',

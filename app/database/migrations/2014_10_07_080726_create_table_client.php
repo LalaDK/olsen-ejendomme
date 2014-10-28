@@ -15,6 +15,8 @@ class CreateTableClient extends Migration {
 		Schema::create('clients', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('company_id')->unsigned();
+			$table->foreign('company_id')->references('id')->on('companies');
 			$table->string('firstname');
 			$table->string('lastname');
 			$table->string('street_name');
@@ -41,7 +43,7 @@ class CreateTableClient extends Migration {
 			$table->timestamps();
 		});
 
-		Schema::create('client_leases', function(Blueprint $table){
+		Schema::create('contracts', function(Blueprint $table){
 			$table->increments('id');
 			$table->integer('lease_id')->unsigned();
 			$table->foreign('lease_id')->references('id')->on('leases');
@@ -52,7 +54,7 @@ class CreateTableClient extends Migration {
 			$table->timestamps();
 		});
 
-		Schema::create('waiting_list', function(Blueprint $table){
+		Schema::create('wait_list_entry', function(Blueprint $table){
 			$table->increments('id');
 			$table->integer('company_id')->unsigned();
 			$table->foreign('company_id')->references('id')->on('companies');
@@ -70,7 +72,7 @@ class CreateTableClient extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('client_leases');
+		Schema::drop('contracts');
 		Schema::drop('contacts');
 		Schema::drop('clients');
 	}

@@ -7,13 +7,10 @@ class WaitingListController extends \BaseController {
 	{
 		$newEntry = new Wait_List_Entry();
 
-		$inputClientId = Input::get('clientId');
-		$inputCompanyId = Input::get('companyId');
+		$newEntry->client_id = Input::get('clientId');
+		$newEntry->company_id = Input::get('companyId');
 
-		$newEntry->client = Client::find($inputClientId);
-		$newEntry->company = Company::find($inputCompanyId);
-
-		if($newEntry->client == null || $newEntry->company == null) {
+		if($newEntry->client_id == null || $newEntry->company_id == null) {
 			Session::flash('message', 'Forkerte parametre!');
 			return Redirect::back();
 		}
@@ -28,8 +25,6 @@ class WaitingListController extends \BaseController {
 	public function destroy()
 	{
 		$waitListEntry = Wait_List_Entry::find(Input::get('id'));
-		$client = Client::find($waitListEntry->id);
-
 		$waitListEntry->delete();
 	}
 }

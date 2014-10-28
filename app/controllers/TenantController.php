@@ -9,18 +9,18 @@ class TenantController extends \BaseController {
 	 */
 	public function index()
 	{
-		$companies = Company::with('realestates','waiting_lists')->get();
+		$companies = Company::with('realestates','wait_list_entry')->get();
 		foreach ($companies as $company)
 		{
 			foreach ($company->realestates as $realestate)
 			{
-				$realestate->leases = Lease::with('client_leases')->where('realestate_id', $realestate->id)->get();
+				$realestate->leases = Lease::with('contracts')->where('realestate_id', $realestate->id)->get();
 				
 				foreach ($realestate->leases as $lease) 
 				{
-					foreach ($lease->client_leases as $client_lease) 
+					foreach ($lease->contracts as $contract) 
 					{
-						$client_lease->client = Client::find($client_lease->client_id);
+						$contract->client = Client::find($contract->client_id);
 					}
 				}
 			}

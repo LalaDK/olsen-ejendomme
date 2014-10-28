@@ -4,6 +4,6 @@ class Contact extends Eloquent {
 	protected $guarded = array('id');
 
 	public function tenant(){
-		return $this->belongsTo('Tenant');
+		return $this->belongsTo('Client');
 	}
 }

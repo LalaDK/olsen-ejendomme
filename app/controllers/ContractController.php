@@ -20,9 +20,9 @@ class ContractController extends \BaseController {
 	 */
 	public function create($id)
 	{
-		$company = Company::with('waiting_lists')->find($id);
+		$company = Company::with('wait_list_entry')->find($id);
 		
-		foreach ($company->waiting_lists as $list_item)
+		foreach ($company->wait_list_entry as $list_item)
 		{
 			$list_item->client = Client::find($list_item->client_id);
 		}
@@ -59,11 +59,11 @@ class ContractController extends \BaseController {
 			$client->notes = Input::get('notes');
 			$client->save();
 		} else {
-			$wait_list_entry = Wait_List_Entry::find(Input::get('waitinglist_id'));
+			$wait_list_entry = Contract::find(Input::get('waitinglist_id'));
 			$client = Client::find($wait_list_entry->client_id);
 			$wait_list_entry->delete();
 		}
-		$contract = new Client_Lease();
+		$contract = new Contract();
 		$contract->moving_in = date("Y-m-d", strtotime(Input::get('moving_in')));
 		$contract->moving_out = date("Y-m-d", strtotime(Input::get('moving_out')));
 		$contract->client_id = $client->id;

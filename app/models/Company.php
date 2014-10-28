@@ -9,7 +9,7 @@ class Company extends Eloquent {
 		return $this->hasMany('Realestate');
 	}
 
-	public function waiting_lists(){
+	public function wait_list_entry(){
 		return $this->hasMany('Wait_List_Entry');
 	}
 
