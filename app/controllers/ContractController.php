@@ -70,7 +70,7 @@ class ContractController extends \BaseController {
 		$contract->lease_id = Input::get('lease_id');
 		$contract->save();
 		Session::flash('message', 'Lejeren blev oprettet');
-		return $tenant;
+		return View::make('shared.entitycreated',['title' => 'Succes', 'message' => 'Kontrakten blev oprettet korrekt']);
 	}
 
 

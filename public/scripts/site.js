@@ -97,6 +97,11 @@ function highlight(key, text, split, before, after) {
 	}
 }
 
+//Reloads the parent window when in a lightbox
+function lightbox_parent_reload(){
+	parent.window.location.reload(false);
+}
+
 //cancel back to dashboard page
 function lightbox_dashboard_cancel(){
 	parent.window.location="{{URL::to('dashboard')}}";

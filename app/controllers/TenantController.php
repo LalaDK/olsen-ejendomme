@@ -67,7 +67,8 @@ class TenantController extends \BaseController {
 		$newEntry->company_id = Input::get('company_id');;
 		$newEntry->save();
 		Session::flash('message', 'Lejeren blev oprettet');
-		return Redirect::action('companies.index');
+		return View::make('shared.entitycreated',['title' => 'Succes', 'message' => 'Personen blev tilføjet ventelisten korrekt']);
+
 	}
 
 

@@ -1,17 +1,6 @@
 @extends('layouts.lightbox')
 
 @section('content')
-
-<script>
-$(document).ready(function(){
-	$(document).submit(function(){
-		parent.window.location="{{URL::to('dashboard')}}";
-	});
-});
-function lightbox_dashboard_cancel(){
-	parent.window.location="{{URL::to('dashboard')}}";
-}
-</script>
 <h4>Opret ny ejendom</h4>
 <div class="col-md-4 col-md-offset-4">
 	<div class="container-fluid box">
@@ -48,7 +37,7 @@ function lightbox_dashboard_cancel(){
 		<row>
 			{{Form::submit('Opret ejendom', ['class' => 'btn btn-success loginbutton'])}}
 			{{Form::close()}}
-			<input type="button" class="btn btn-success" style="margin-bottom: 5px;" onClick="lightbox_dashboard_cancel()" value="Annuller"/>	
+			<input type="button" class="btn btn-success" style="margin-bottom: 5px;" onClick="lightbox_parent_reload()" value="Annuller"/>	
 		</row>
 	</div>
 </div>

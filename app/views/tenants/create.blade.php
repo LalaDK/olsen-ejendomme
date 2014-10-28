@@ -1,17 +1,6 @@
 @extends('layouts.lightbox')
 
 @section('content')
-<script>
-$(document).ready(function(){
-	$(document).submit(function(){
-		parent.window.location="{{URL::to('companies')}}";
-
-	});
-});
-</script>
-
-
-
 <div class="col-md-6 col-md-offset-3">
 	<div class="container-fluid box">		
 		<h4>Opret lejer i {{ $company->name }}</h4>
@@ -53,7 +42,7 @@ $(document).ready(function(){
 			<row>
 				{{Form::submit('Tilføj til venteliste', ['class' => 'btn btn-success loginbutton'])}}
 				{{Form::close()}}
-				<input type="button" class="btn btn-success" style="margin-bottom: 5px;" onClick="lightbox_tenants_cancel()" value="Annuller"/>	
+				<input type="button" class="btn btn-success" style="margin-bottom: 5px;" onClick="lightbox_parent_reload()" value="Annuller"/>	
 			</row>
 		</div>
 	</div>

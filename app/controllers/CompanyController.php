@@ -71,7 +71,7 @@ $this->company = $company;
 	public function store()
 	{
 		if(!$this->company->isValid(Input::all())){
-			return Redirect::back()->withInput()->withErrors($this->company->$errors);
+			return Redirect::back()->withInput()->withErrors($this->company->errors);
 		}
 		$company = new Company();
 		$company->name = Input::get('name');
@@ -81,7 +81,7 @@ $this->company = $company;
 		$company->vat_number = Input::get('vat_number');
 		$company->save();
 		Session::flash('message', 'Selskabet blev oprettet!');
-		return Redirect::route('company.dashboard');
+		return View::make('shared.entitycreated',['title' => 'Succes', 'message' => 'Selskabet blev oprettet korrekt']);
 	}
 
 	/**

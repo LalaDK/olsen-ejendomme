@@ -39,7 +39,8 @@ class RealestateController extends \BaseController {
 		$realestate->company_id = Input::get('company');
 		$realestate->save();
 		Session::flash('message', 'Ejendommen blev oprettet');
-		return Redirect::route('company.dashboard');
+		return View::make('shared.entitycreated',['title' => 'Succes', 'message' => 'Ejendommen blev oprettet korrekt']);
+		
 	}
 
 	/**

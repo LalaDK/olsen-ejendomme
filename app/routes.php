@@ -34,6 +34,11 @@ Route::get('contracts/leases', [
 	'before' => 'auth',
 ]);
 
+Route::get('shared/entitycreated', [
+	'as' => 'shared.entitycreated',
+	'before' => 'auth',
+]);
+
 Route::get('tenants/{var?}', [
 	'as' => 'tenant.create',
 	'uses' => 'TenantController@create',

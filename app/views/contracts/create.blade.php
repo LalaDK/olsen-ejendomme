@@ -3,10 +3,6 @@
 @section('content')
 <script>
 $(document).ready(function(){
-	$(document).submit(function(){
-		parent.window.location="{{URL::to('tenants')}}";
-	});
-
 	updateLeaseList($('#select_realestate option:first-child').val());
 	$('#waitingListTenant').fadeToggle();
 
@@ -127,7 +123,7 @@ function updateLeaseList(val){
 			<row>
 				{{Form::submit('Opret lejer', ['class' => 'btn btn-success loginbutton'])}}
 				{{Form::close()}}
-				<input type="button" class="btn btn-success" style="margin-bottom: 5px;" onClick="lightbox_tenants_cancel()" value="Annuller"/>	
+				<input type="button" class="btn btn-success" style="margin-bottom: 5px;" onClick="lightbox_parent_reload()" value="Annuller"/>	
 			</row>
 		</div>
 	</div>
