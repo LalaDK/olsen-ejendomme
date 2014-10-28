@@ -1,7 +1,7 @@
 @extends('layouts.lightbox')
 @section('content')
 <div class="create-user-box box"> 
-<div id="alert" class="alert-box"></div>
+	<div id="alert" class="alert-box"></div>
 	<div class="title-text">Opret bruger</div>
 	{{Form::open(['route' => 'users.store'])}}
 	{{Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Navn'))}}
@@ -9,5 +9,6 @@
 	{{Form::password('password', array('class' => 'form-control', 'placeholder' => 'Kodeord'))}}
 	{{Form::submit('Opret bruger', array('class' => 'btn btn-success button'))}}
 	{{ Form::close() }}
+	<input type="button" class="btn btn-success" style="margin-bottom: 5px;" onClick="lightbox_parent_reload()" value="Annuller"/>	
 </div>
 @stop

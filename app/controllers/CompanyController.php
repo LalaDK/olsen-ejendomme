@@ -108,6 +108,6 @@ $this->company = $company;
 			$company->realestates()->delete();
 			$company->delete();
 		}
-		return ;
+		return null;
 	}
 }

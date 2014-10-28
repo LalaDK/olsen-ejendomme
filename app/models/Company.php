@@ -18,14 +18,19 @@ class Company extends Eloquent {
 
 	public $errors;
 
-	public static $rules = [
-	'name' => 'required',
+	public $rules = [
+	'name' => 'required|unique:companies',
 	'vat_number' => 'required',
 	'registration_number' => 'required'
 	];
 
+	public $messages = [
+		'required' => 'Feltet :attribute skal udfyldes.',
+		'unique' 	=> 'Firmaet findes allerede.'
+		];
+
 	public function isValid($data){
-		$validation = Validator::make($data,static::$rules);
+		$validation = Validator::make($data, $this->rules, $this->messages);
 		if($validation->passes()){
 			return true;
 		}

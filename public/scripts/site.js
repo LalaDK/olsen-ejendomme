@@ -1,3 +1,43 @@
+var ids_to_delete_from_table = [];
+
+$(document).ready(function(){
+	$(document).on('click', '.delete_multi_table', function () {
+		if (!$(this).hasClass('td-greyed-out')) {			
+			var transaction_id = $(this).attr('id');
+			ids_to_delete_from_table.push(transaction_id);
+
+			$(this).closest("tr").addClass('td-greyed-out');
+			$(this).removeClass('glyphicon-delete');
+			$(this).addClass('td-greyed-out');
+			$('#status-msg').removeClass('alert alert-danger');
+		} else {
+			var transaction_id = $(this).attr('id');
+			var index = ids_to_delete_from_table.indexOf(transaction_id);
+			if(index > -1){
+				ids_to_delete_from_table.splice(index,1);
+			}
+			$(this).closest("tr").removeClass('td-greyed-out');
+			$(this).addClass('glyphicon-delete');
+			$(this).removeClass('td-greyed-out');
+		};
+		return false;
+	});
+});
+
+function delete_multi_table(){
+	$.ajax({
+		url: 'destroy',
+		type: 'DELETE',
+		data: {'ids' : ids_to_delete_from_table},
+		success: function(result) {
+		parent.window.location.reload(false);
+		},
+		error: function(){
+			$('#status-msg').addClass('alert alert-danger');
+			$('#status-msg').text('Intet er valgt til sletning');
+		}
+	});
+}
 // Search through an array of arrays for a specified key
 function searchStr(str, array) {
 	var result = new Array();
@@ -102,31 +142,6 @@ function lightbox_parent_reload(){
 	parent.window.location.reload(false);
 }
 
-//cancel back to dashboard page
-function lightbox_dashboard_cancel(){
-	parent.window.location="{{URL::to('dashboard')}}";
-}
-
-//cancel back to tenant page
-function lightbox_tenants_cancel(){
-	parent.window.location="{{URL::to('tenants')}}";
-}
-
-//Ajax call to delete companies
-function delete_companies(){
-	$.ajax({
-		url: 'destroy',
-		type: 'DELETE',
-		data: {'ids' : removeid},
-		success: function(result) {
-			parent.window.location="{{URL::to('dashboard')}}";
-		},
-		error: function(){
-			$('#status-msg').addClass('alert alert-danger');
-			$('#status-msg').text('Der er ikke valgt nogen selskaber');
-		}
-	});
-}
 
 //Toggle details on tables
 function toggleTableDetails(id){
@@ -143,3 +158,4 @@ function toggleTableDetails(id){
 	$(dh).fadeToggle();
 	$(dd).fadeToggle();
 }
+

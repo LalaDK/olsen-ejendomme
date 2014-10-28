@@ -10,16 +10,16 @@
 			{{Form::open(['route' => 'companies.store'])}}
 
 			{{Form::text('name', Input::old('name'), array('placeholder'=>'Navn', 'class' => 'form-control', 'style' => 'width:100%'))}}
-			{{ $errors->first('name') }}
+			{{ $errors->first('name','<div class="alert alert-danger" role="alert">:message</div>') }}
 			{{Form::text('address', Input::old('address'), array('placeholder'=>'Adresse', 'class' => 'form-control', 'style' => 'width:100%'))}}
 
 			{{Form::text('phonenumber', Input::old('phonenumber'), array('placeholder'=>'Telefonnummer', 'class' => 'form-control', 'style' => 'width:100%'))}}
 
 			{{Form::text('registration_number', Input::old('registration_number'), array('placeholder'=>'CVR nummer', 'class' => 'form-control', 'style' => 'width:100%'))}}
-			{{ $errors->first('registration_number') }}
+			{{ $errors->first('registration_number','<div class="alert alert-danger" role="alert">:message</div>') }}
 
 			{{Form::text('vat_number', Input::old('vat_number'), array('placeholder'=>'Momsnummer', 'class' => 'form-control', 'style' => 'width:100%'))}}
-			{{ $errors->first('vat_number') }}
+			{{ $errors->first('vat_number','<div class="alert alert-danger" role="alert">:message</div>') }}
 		</div>
 		<row>
 			{{Form::submit('Opret selskab', ['class' => 'btn btn-success loginbutton'])}}

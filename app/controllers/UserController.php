@@ -21,8 +21,7 @@ class UserController extends \BaseController {
 		$user->password = Hash::make(Input::get('password'));
 		$user->save();
 		Session::flash('message', 'Brugeren blev oprettet!');
-		return View::make('shared.entitycreated',['title' => 'Succes', 'message' => 'Selskabet blev oprettet korrekt']);
-		return Redirect::to('users/create');
+		return View::make('shared.entitycreated',['title' => 'Succes', 'message' => 'Brugeren blev oprettet korrekt']);
 	}
 
 
