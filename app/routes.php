@@ -102,3 +102,8 @@ Route::delete('users/delete/destroy/{id}', [
 	'before' => 'auth',
 ]);
 
+Route::get('/WaitingListController/destroy', [
+	'as' => 'WaitingListController.destroy',
+	'uses' => 'WaitingListController@destroy',
+	'before' => 'auth',
+]);

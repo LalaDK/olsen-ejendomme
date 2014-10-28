@@ -27,6 +27,9 @@ class WaitingListController extends \BaseController {
 
 	public function destroy()
 	{
-		Wait_List_Entry::destroy(Input::get('id'));
+		$waitListEntry = Wait_List_Entry::find(Input::get('id'));
+		$client = Client::find($waitListEntry->id);
+
+		$waitListEntry->delete();
 	}
 }
