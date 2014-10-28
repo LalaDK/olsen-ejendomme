@@ -13,6 +13,7 @@
 	{{ HTML::style('css/dashboardstyle.css') }}
 	{{ HTML::style('css/style.css') }}
 	{{ HTML::script('/scripts/site.js') }}
+	{{ HTML::script('scripts/jquery-cookie/jquery.cookie.js') }}
 	
 
 	{{ HTML::style('//cdn.datatables.net/1.10.3/css/jquery.dataTables.min.css') }}

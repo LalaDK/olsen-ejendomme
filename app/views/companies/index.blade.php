@@ -2,8 +2,19 @@
 @section('content')
 
 <script>
+	$('#companyTabs a').click(function (e) {
+		e.preventDefault()
+		$(this).tab('show')
+	})
+
+
 	$(document).ready(function(){
 		$('#company-table').DataTable();
+
+		$('#companyTabs a:first').tab('show');
+
+
+
 	});
 
 	function toggleVisibility(id) {
@@ -11,7 +22,7 @@
 	}
 
 	function deleteWaitEntry(id) {
-		var agree = confirm('Er du sikker på at du vil fjerne klienten fra ventelisten?\nOBS. Klienten slettes også.');
+		var agree = confirm('Er du sikker på at du vil fjerne klienten fra ventelisten?\nOBS. Klienten slettes også, såfremt klienten ikke er tilknyttet en lejekontrakt.');
 		if(agree) {
 			$.ajax(
 			{
@@ -29,9 +40,9 @@
 
 <h3>Selskab</h3>
 <div class="col-md-10">
-	<ul class="nav nav-tabs" data-tabs="tabs" id="tenantTabs">
+	<ul class="nav nav-tabs" data-tabs="tabs" id="companyTabs">
 		@foreach ($companies as $company) 
-		<li><a href="#{{$company->id}}" role="tab" data-toggle="tab">{{$company->name}}</a></li>
+		<li><a href="#{{$company->id}}" id="{{$company->id}}" role="tab" data-toggle="tab" onClick="$.cookie('selectedTab', this.value);">{{$company->name}}</a></li>
 		@endforeach
 	</ul>
 	<div class="tab-content">
@@ -99,7 +110,7 @@
 
 							<td id="{{ $waiting_list->id }}" onClick="deleteWaitEntry(this.id);">
 								<span class="glyphicon glyphicon-remove"></span></td>
-								
+
 								<td><span id="" class="glyphicon glyphicon-chevron-down"></span></td>
 
 							</tr>
