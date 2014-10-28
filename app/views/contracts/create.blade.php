@@ -54,7 +54,7 @@ function updateLeaseList(val){
 <div class="col-md-6 col-md-offset-3">
 	<div class="container-fluid box">		
 		<h4>Opret lejer i {{ $company->name }}</h4>
-		{{Form::open(['route' => 'tenants.store'])}}
+		{{Form::open(['route' => 'contracts.store'])}}
 
 		<div class="col-md-6">
 			{{ Form::radio('newTenant','true',true, array('class'=>'createNewTenant')) }} Opret ny
@@ -109,9 +109,9 @@ function updateLeaseList(val){
 		<div id ="waitingListTenant">
 			<div class="col-md-12">
 				@if (isset($company->waiting_lists))	
-				<select class="form-control" id="select_client">
+				<select class="form-control" id="select_client" name="waitinglist_id">
 					@foreach ($company->waiting_lists as $wait_list_entry)
-					<option class="form-control" value="{{ $wait_list_entry->client_id }}">{{ $wait_list_entry->client->first }}</option>
+					<option class="form-control" name="wait_list_id" value="{{ $wait_list_entry->id }}">{{ $wait_list_entry->client->firstname }} {{ $wait_list_entry->client->lastname }}</option>
 					@endforeach
 				</select>				
 				@else 

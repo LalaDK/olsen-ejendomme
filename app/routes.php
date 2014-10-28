@@ -10,6 +10,8 @@ Route::resource('realestates','RealestateController', ['only'=> ['index','create
 
 Route::resource('tenants','TenantController', ['only'=> ['index','store','destroy']]);
 
+Route::resource('contracts','ContractController', ['only'=> ['index','store','destroy']]);
+
 Route::get('login','SessionsController@create');
 
 Route::get('logout','SessionsController@destroy'); 

@@ -20,19 +20,11 @@ class ContractController extends \BaseController {
 	 */
 	public function create($id)
 	{
-		$company = Company::with('realestates')->find($id);
+		$company = Company::with('waiting_lists')->find($id);
 		
-		foreach ($company->realestates as $realestate)
+		foreach ($company->waiting_lists as $list_item)
 		{
-			$realestate->leases = Lease::with('client_leases')->where('realestate_id', $realestate->id)->get();
-			
-			foreach ($realestate->leases as $lease) 
-			{
-				foreach ($lease->client_leases as $client_lease) 
-				{
-					$client_lease->client = Client::find($client_lease->client_id);
-				}
-			}
+			$list_item->client = Client::find($list_item->client_id);
 		}
 		return View::make('contracts.create',['company' => $company]);
 	}
@@ -52,22 +44,31 @@ class ContractController extends \BaseController {
 	 */
 	public function store()
 	{
-		$tenant = new Tenant();
-		$tenant->lease_id = Input::get('lease_id');
-		$tenant->firstname = Input::get('firstname');
-		$tenant->lastname = Input::get('lastname');
-		$tenant->street_name = Input::get('street_name');
-		$tenant->street_number = Input::get('street_number');
-		$tenant->zipcode = Input::get('zipcode');
-		$tenant->city = Input::get('city');
-		$tenant->phone = Input::get('phone');
-		$tenant->mobile_phone = Input::get('mobile_phone');
-		$tenant->email = Input::get('email');
-		$tenant->notes = Input::get('notes');
-
-		$tenant->moving_in = date("Y-m-d", strtotime(Input::get('moving_in')));
-		$tenant->moving_out = date("Y-m-d", strtotime(Input::get('moving_out')));
-		$tenant->save();
+		$createType=Input::get('newTenant');
+		$client = new Client();
+		if($createType == 'true'){
+			$client->firstname = Input::get('firstname');
+			$client->lastname = Input::get('lastname');
+			$client->street_name = Input::get('street_name');
+			$client->street_number = Input::get('street_number');
+			$client->zipcode = Input::get('zipcode');
+			$client->city = Input::get('city');
+			$client->phone = Input::get('phone');
+			$client->mobile_phone = Input::get('mobile_phone');
+			$client->email = Input::get('email');
+			$client->notes = Input::get('notes');
+			$client->save();
+		} else {
+			$wait_list_entry = Wait_List_Entry::find(Input::get('waitinglist_id'));
+			$client = Client::find($wait_list_entry->client_id);
+			$wait_list_entry->delete();
+		}
+		$contract = new Client_Lease();
+		$contract->moving_in = date("Y-m-d", strtotime(Input::get('moving_in')));
+		$contract->moving_out = date("Y-m-d", strtotime(Input::get('moving_out')));
+		$contract->client_id = $client->id;
+		$contract->lease_id = Input::get('lease_id');
+		$contract->save();
 		Session::flash('message', 'Lejeren blev oprettet');
 		return $tenant;
 	}
