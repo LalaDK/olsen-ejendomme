@@ -86,7 +86,7 @@ Route::get('users/delete', [
 	'before' => 'auth',
 ]);
 
-Route::put('users/store', [
+Route::post('users/store', [
 	'as' => 'users.store',
 	'uses' => 'UserController@store',
 	'before' => 'auth',
