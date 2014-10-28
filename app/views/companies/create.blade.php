@@ -22,9 +22,9 @@
 			{{ $errors->first('vat_number','<div class="alert alert-danger" role="alert">:message</div>') }}
 		</div>
 		<row>
+			<input type="button" class="btn btn-success" onClick="lightbox_parent_reload()" value="Annuller"/>
 			{{Form::submit('Opret selskab', ['class' => 'btn btn-success loginbutton'])}}
 			{{Form::close()}}
-			<input type="button" class="btn btn-success" style="margin-bottom: 5px;" onClick="lightbox_parent_reload()" value="Annuller"/>	
 		</row>
 	</div>
 </div>
