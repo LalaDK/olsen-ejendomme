@@ -42,7 +42,7 @@
 <div class="col-md-10">
 	<ul class="nav nav-tabs" data-tabs="tabs" id="companyTabs">
 		@foreach ($companies as $company) 
-		<li><a href="#{{$company->id}}" id="{{$company->id}}" role="tab" data-toggle="tab" onClick="$.cookie('selectedTab', this.value);">{{$company->name}}</a></li>
+		<li><a href="#{{$company->id}}" role="tab" data-toggle="tab">{{$company->name}}</a></li>
 		@endforeach
 	</ul>
 	<div class="tab-content">
