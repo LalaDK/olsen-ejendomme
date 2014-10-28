@@ -98,17 +98,17 @@
 						<th>Slet</th>
 						<th></th>
 					</thead>
-					@foreach ($company->waiting_lists as $waiting_list)
+					@foreach ($company->wait_list_entry as $wait_list_entry)
 					<tbody>					
 						<tr onClick="">
-							<td>{{ $waiting_list->id }}</td>
-							<td>{{ $waiting_list->client->firstname }} {{ $waiting_list->client->lastname }}</td>
-							<td>{{ $waiting_list->client->phone }}</td>
-							<td>{{ $waiting_list->client->email }}</td>
+							<td>{{ $wait_list_entry->id }}</td>
+							<td>{{ $wait_list_entry->client->firstname }} {{ $wait_list_entry->client->lastname }}</td>
+							<td>{{ $wait_list_entry->client->phone }}</td>
+							<td>{{ $wait_list_entry->client->email }}</td>
 
 							<td><span id="" class="glyphicon glyphicon-envelope"></span></td>
 
-							<td id="{{ $waiting_list->id }}" onClick="deleteWaitEntry(this.id);">
+							<td id="{{ $wait_list_entry->id }}" onClick="deleteWaitEntry(this.id);">
 								<span class="glyphicon glyphicon-remove"></span></td>
 
 								<td><span id="" class="glyphicon glyphicon-chevron-down"></span></td>

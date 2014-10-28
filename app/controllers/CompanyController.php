@@ -19,7 +19,7 @@ $this->company = $company;
 		foreach ($companies as $company)
 		{
 
-			foreach ($company->waiting_lists as $list_item) {
+			foreach ($company->wait_list_entry as $list_item) {
 				$list_item->client = Client::find($list_item->client_id);
 			}
 			
