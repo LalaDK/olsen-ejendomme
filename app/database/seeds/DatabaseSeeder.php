@@ -14,32 +14,34 @@ class DatabaseSeeder extends Seeder {
 		$this->command->info('Old data deleted');
 
 		$this->call('Users');
-
 		$this->command->info('User table seeded!');
 
+		$this->command->info('Generating 5 companies...');
 		$this->call('Companies');
-
 		$this->command->info('Company table seeded!');
 
-		$this->call('Realestates');
 
+		$this->command->info('Generating 200 realestates...');
+		$this->call('Realestates');
 		$this->command->info('Realestate table seeded');
 
 		$this->call('Leases');
-
 		$this->command->info('Lease table seeded');
 
 		$this->call('Clients');
-
 		$this->command->info('Client table seeded');
 
 		$this->call('Contracts');
-
 		$this->command->info('Contracts table seeded');
 
+		$this->command->info('Generating 20 wait list entries...');
 		$this->call('Wait_List_Entry');
-
 		$this->command->info('Wait_List_Entry table seeded');
+
+
+		$this->command->info('Generating 70 contacts...');
+		$this->call('Contacts');
+		$this->command->info('Contacts table seeded');
 	}
 
 }
@@ -51,8 +53,8 @@ class Delete_Data extends Seeder{
 		DB::table('contacts')->delete();
 		DB::table('clients')->delete();
 		DB::table('leases')->delete();
-		DB::table('realestates')->delete();
 		DB::table('companies')->delete();
+		DB::table('realestates')->delete();
 		DB::table('users')->delete();
 	}
 }
@@ -110,62 +112,23 @@ class Contacts extends Seeder{
 	public function run(){
 
 		$date = new \DateTime;
-
-		DB::table('contacts')->insert(
-			array(
+		for($i = 0; $i < 70; $i++) {
+			DB::table('contacts')->insert(
 				array(
-					'client_id' => 1,
-					'firstname' => 'Henrik',
-					'lastname' => 'Madsen',
-					'phone' => '12312312',
-					'mobile_phone' => '21321321',
-					'email' => 'johnny@madsen.dk',
-					'created_at' => $date,
-					'updated_at' => $date
-					),  
-				array(
-					'client_id' => 2,
-					'firstname' => 'Anders',
-					'lastname' => 'Hansen',
-					'phone' => '12312312',
-					'mobile_phone' => '21321321',
-					'email' => 'ah@gmail.dk',
-					'created_at' => $date,
-					'updated_at' => $date
-					),  
-				array(
-					'client_id' => 3,
-					'firstname' => 'Lars',
-					'lastname' => 'Frandsen',
-					'phone' => '12312312',
-					'mobile_phone' => '21321321',
-					'email' => 'lf@gmail.dk',
-					'created_at' => $date,
-					'updated_at' => $date
-					),  
-				array(
-					'client_id' => 4,
-					'firstname' => 'Rolf',
-					'lastname' => 'Frans Larsen',
-					'phone' => '12312312',
-					'mobile_phone' => '21321321',
-					'email' => 'rofl@yahoo.dk',
-					'created_at' => $date,
-					'updated_at' => $date
-					),
-				array(
-					'client_id' => 4,
-					'firstname' => 'Torben',
-					'lastname' => 'Thorning',
-					'phone' => '12312312',
-					'mobile_phone' => '21321321',
-					'email' => 'turbotorben@hotmail.com',
-					'created_at' => $date,
-					'updated_at' => $date
+					array(
+						'client_id' => 1,
+						'firstname' => DG::firstname(),
+						'lastname' => DG::lastname(),
+						'phone' => DG::phone(),
+						'mobile_phone' => DG::phone(),
+						'email' => DG::email(),
+						'created_at' => $date,
+						'updated_at' => $date
+						)
 					)
-				)
-);
-}
+				);
+		}
+	}
 }
 
 class Clients extends Seeder{
@@ -200,90 +163,25 @@ class Leases extends Seeder{
 	public function run(){
 
 		$date = new \DateTime;
-
+		for($i = 0; $i < 40; $i++){
 		DB::table('leases')->insert(
 			array(
 				array(
-					'realestate_id' => 1,
-					'type' => 'Erhverv',
-					'description' => 'Lejemål 1',
-					'size' => 200,
-					'lease_price' => 6500,
-					'water_advance' => 200,
-					'heat_advance' => 150,
-					'power_advance' => 250,
-					'gas_advance' => 75,
+					'realestate_id' => rand(1,199),
+					'type' => DG::ranChooser(array('Erhverv', 'Garage', 'Privat')),
+					'description' => 'Lejemål ' . $i,
+					'size' => rand(100,200),
+					'lease_price' => rand(1000,10000),
+					'water_advance' => rand(100,900),
+					'heat_advance' => rand(100,900),
+					'power_advance' => rand(100,900),
+					'gas_advance' => rand(100,900),
 					'created_at' => $date,
 					'updated_at' => $date
-					),
-				array(
-					'realestate_id' => 1,
-					'type' => 'Erhverv',
-					'description' => 'Lejemål 2',
-					'size' => 500,
-					'lease_price' => 7500,
-					'water_advance' => 200,
-					'heat_advance' => 150,
-					'power_advance' => 250,
-					'gas_advance' => 75,
-					'created_at' => $date,
-					'updated_at' => $date
-					),
-				array(
-					'realestate_id' => 1,
-					'type' => 'Privat',
-					'description' => 'Lejemål 3',
-					'size' => 56,
-					'lease_price' => 3500,
-					'water_advance' => 100,
-					'heat_advance' => 50,
-					'power_advance' => 50,
-					'gas_advance' => 175,
-					'created_at' => $date,
-					'updated_at' => $date
-					),
-				array(
-					'realestate_id' => 2,
-					'type' => 'Privat',
-					'description' => 'Lejemål 4',
-					'size' => 100,
-					'lease_price' => 8500,
-					'water_advance' => 300,
-					'heat_advance' => 350,
-					'power_advance' => 350,
-					'gas_advance' => 375,
-					'created_at' => $date,
-					'updated_at' => $date
-					),
-				array(
-					'realestate_id' => 2,
-					'type' => 'Privat',
-					'description' => 'Lejemål 5',
-					'size' => 90,
-					'lease_price' => 11500,
-					'water_advance' => 250,
-					'heat_advance' => 140,
-					'power_advance' => 280,
-					'gas_advance' => 175,
-					'created_at' => $date,
-					'updated_at' => $date
-					),
-				array(
-					'realestate_id' => 2,
-					'type' => 'Privat',
-					'description' => 'Lejemål 6',
-					'size' => 500,
-					'lease_price' => 2500,
-					'water_advance' => 100,
-					'heat_advance' => 75,
-					'power_advance' => 50,
-					'gas_advance' => 35,
-					'created_at' => $date,
-					'updated_at' => $date
-					),
+					)
 				)
-);
-
+			);
+	}
 }
 }
 
@@ -296,7 +194,7 @@ class Realestates extends Seeder{
 			DB::table('realestates')->insert(
 				array(
 					array(
-						'company_id' => rand(1,3),
+						'company_id' => rand(1,5),
 						'street_name' => DG::streetname(),
 						'street_number' => DG::number2(),
 						'zip_code' => DG::zipcode(),
@@ -324,7 +222,7 @@ class Companies extends Seeder{
 	public function run(){
 
 		$date = new \DateTime;
-		for($i = 0; $i < 5; $i++) {
+		for($i = 1; $i < 6; $i++) {
 			DB::table('companies')->insert(
 				array(
 					array(
