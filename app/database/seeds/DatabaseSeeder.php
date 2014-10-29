@@ -1,7 +1,7 @@
 <?php
+include('DataGenerator.php');
 
 class DatabaseSeeder extends Seeder {
-
 	/**
 	 * Run the database seeds.
 	 *
@@ -62,24 +62,19 @@ class Wait_List_Entry extends Seeder{
 
 		$date = new \DateTime;
 
-		DB::table('wait_list_entry')->insert(
-			array(
+		for($i = 0; $i < 20; $i++) {
+			DB::table('wait_list_entry')->insert(
 				array(
-					'company_id'=>'3',
-					'client_id'=>'3',
-					'signed_up'=>$date,
-					'created_at' => $date,
-					'updated_at' => $date
-					),
-				array(
-					'company_id'=>'3',
-					'client_id'=>'4',
-					'signed_up'=>$date,
-					'created_at' => $date,
-					'updated_at' => $date
+					array(
+						'company_id'=>rand(1,5),
+						'client_id'=>rand(1,50),
+						'signed_up'=>$date,
+						'created_at' => $date,
+						'updated_at' => $date
+						)
 					)
-				)
-			);
+				);
+		}
 	}
 }
 
@@ -177,72 +172,28 @@ class Clients extends Seeder{
 	public function run(){
 
 		$date = new \DateTime;
-
-		DB::table('clients')->insert(
-			array(
+		for($i = 0; $i < 200; $i++) {
+			DB::table('clients')->insert(
 				array(
-					'company_id'=>'1',
-					'firstname' => 'Johnny',
-					'lastname' => 'Madsen',
-					'street_name' => 'Amagerbrogade',
-					'street_number' => 100,
-					'city' => 'Copenhagen',
-					'zipcode' => 2100,
-					'phone' => '12312312',
-					'mobile_phone' => '21321321',
-					'email' => 'johnny@madsen.dk',
-					'notes' => 'Vil kun bo i en lejlighed med vinduer',
-					'created_at' => $date,
-					'updated_at' => $date
-					),
-				array(
-					'company_id'=>'1',
-					'firstname' => 'Svend',
-					'lastname' => 'Svendsen',
-					'street_name' => 'Nørrebrogade',
-					'street_number' => 24,
-					'city' => 'Copenhagen',
-					'zipcode' => 2100,
-					'phone' => '12312312',
-					'mobile_phone' => '21321321',
-					'email' => 'Svendsemand@gmail.dk',
-					'notes' => 'Vil kun bo i en lejlighed med vinduer',
-					'created_at' => $date,
-					'updated_at' => $date
-					),
-				array(
-					'company_id'=>'1',
-					'firstname' => 'Bo',
-					'lastname' => 'Bondemand',
-					'street_name' => 'Gyden',
-					'street_number' => 45,
-					'city' => 'Århus',
-					'zipcode' => 8600,
-					'phone' => '12312312',
-					'mobile_phone' => '21321321',
-					'email' => 'bo@bondemand.dk',
-					'notes' => '',
-					'created_at' => $date,
-					'updated_at' => $date
-					),
-				array(
-					'company_id'=>'1',
-					'firstname' => 'Helle',
-					'lastname' => 'Thorning',
-					'street_name' => 'Rådhuspladsen',
-					'street_number' => 1,
-					'city' => 'Copenhagen',
-					'zipcode' => 1000,
-					'phone' => '12312312',
-					'mobile_phone' => '21321321',
-					'email' => 'Helle@thorning.dk',
-					'notes' => 'Vil kun bo i en lejlighed med walk in closet',
-					'created_at' => $date,
-					'updated_at' => $date
+					array(
+						'company_id'=>rand(1,5),
+						'firstname' => DG::firstname(),
+						'lastname' => DG::lastname(),
+						'street_name' => DG::streetname(),
+						'street_number' => DG::number2(),
+						'city' => DG::city(),
+						'zipcode' => DG::zipcode(),
+						'phone' => DG::phone(),
+						'mobile_phone' => DG::phone(),
+						'email' => DG::email(),
+						'notes' => 'Vil kun bo i en lejlighed med vinduer',
+						'created_at' => $date,
+						'updated_at' => $date
+						)
 					)
-				)
-);
-}
+				);
+		}
+	}
 }
 
 class Leases extends Seeder{
@@ -341,128 +292,56 @@ class Realestates extends Seeder{
 
 		$date = new \DateTime;
 
-		DB::table('realestates')->insert(
-			array(
+		for($i = 0; $i < 200; $i++) {
+			DB::table('realestates')->insert(
 				array(
-					'company_id' => 1,
-					'street_name' => 'Vesterbrogade',
-					'street_number' => '20',
-					'zip_code' => '1666',
-					'city' => 'København',
-					'cadastral_number' => 'euref89',
-					'leases' => 10,
-					'build_date' => $date,
-					'outer_sqm' => 65,
-					'inner_sqm' => 59,
-					'ground_area' => 65,
-					'energy_label' => 'D',
-					'property_valuation' => 1200000,
-					'purchase_value' => 1100000,
-					'base_value' => 400000,
-					'created_at' => $date,
-					'updated_at' => $date
-					),
-				array(
-					'company_id' => 1,
-					
-					'street_name' => 'Kanalvej',
-					'street_number' => '8',
-					'zip_code' => '2800',
-					'city' => 'Lyngby',
-					'cadastral_number' => 'euref90',
-					'leases' => 20,
-					'build_date' => $date,
-					'outer_sqm' => 45,
-					'inner_sqm' => 39,
-					'ground_area' => 45,
-					'energy_label' => 'D',
-					'property_valuation' => 1000000,
-					'purchase_value' => 1800000,
-					'base_value' => 350000,
-					'created_at' => $date,
-					'updated_at' => $date
-					),
-				array(
-					'company_id' => 2,
-					
-					'street_name' => 'Nørregade',
-					'street_number' => '54',
-					'zip_code' => '1070',
-					'city' => 'København',
-					'cadastral_number' => 'euref91',
-					'leases' => 4,
-					'build_date' => $date,
-					'outer_sqm' => 100,
-					'inner_sqm' => 95,
-					'ground_area' => 100,
-					'energy_label' => 'A',
-					'property_valuation' => 2200000,
-					'base_value' => 900000,
-					'purchase_value' => 2100000,
-					'created_at' => $date,
-					'updated_at' => $date
-					),
-				array(
-					'company_id' => 2,
-					'street_name' => 'Roskildevej',
-					'street_number' => '280',
-					'zip_code' => '2100',
-					'city' => 'Vanløse',
-					'cadastral_number' => 'euref92',
-					'leases' => 24,
-					'build_date' => $date,
-					'outer_sqm' => 55,
-					'inner_sqm' => 49,
-					'ground_area' => 55,
-					'energy_label' => 'C',
-					'property_valuation' => 1100000,
-					'purchase_value' => 3100000,
-					'base_value' => 300000,
-					'created_at' => $date,
-					'updated_at' => $date
+					array(
+						'company_id' => rand(1,3),
+						'street_name' => DG::streetname(),
+						'street_number' => DG::number2(),
+						'zip_code' => DG::zipcode(),
+						'city' => DG::city(),
+						'cadastral_number' => 'euref' . DG::number2(),
+						'leases' => rand(5,50),
+						'build_date' => $date,
+						'outer_sqm' => rand(30,80),
+						'inner_sqm' => rand(30,80),
+						'ground_area' => rand(30,200),
+						'energy_label' => 'A',
+						'property_valuation' => rand(100000, 1000000),
+						'purchase_value' => rand(100000, 1000000),
+						'base_value' => rand(100000, 1000000),
+						'created_at' => $date,
+						'updated_at' => $date
+						)
 					)
-				)
-);
-}
+				);
+		}
+	}
 }
 
 class Companies extends Seeder{
 	public function run(){
 
 		$date = new \DateTime;
-		DB::table('companies')->insert(
-			array(
+		for($i = 0; $i < 5; $i++) {
+			DB::table('companies')->insert(
 				array(
-					'name' => 'Selskab 1',
-					'address' => 'Dronning Olgas Vej 41',
-					'phonenumber' => '+45 55555555',
-					'registration_number' => '12345678',
-					'vat_number' => '87654321',
-					'created_at' => $date,
-					'updated_at' => $date
-					),
-				array(
-					'name' => 'Selskab 2',
-					'address' => 'Frederiksberg Alle 2',
-					'phonenumber' => '+45 77777777',
-					'registration_number' => '12341234',
-					'vat_number' => '12345678',
-					'created_at' => $date,
-					'updated_at' => $date
-					),
-				array(
-					'name' => 'Selskab 3',
-					'address' => 'Jagtvej 51',
-					'phonenumber' => '+45 55555555',
-					'registration_number' => '22222222',
-					'vat_number' => '33333333',
-					'created_at' => $date,
-					'updated_at' => $date
+					array(
+						'name' => DG::city() . "s " . DG::ranChooser(array('Boligselskab A/S', 'Ejendomme ApS', 'Mæglere ApS')),
+						'address' => DG::streetname() . " " . DG::number2() . ", " . DG::zipcode() . " " . DG::city(),
+						'phonenumber' => '+45 ' . rand(11111111, 99999999),
+						'registration_number' => rand(11111, 99999),
+						'vat_number' => rand(1111111, 9999999),
+						'created_at' => $date,
+						'updated_at' => $date
+						)
 					)
-				)
-			);
+				);
+		}
 	}
 }
+
 class Users extends Seeder {
 
 	public function run()

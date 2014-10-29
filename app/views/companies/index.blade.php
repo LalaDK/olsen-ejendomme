@@ -4,17 +4,8 @@
 <script>
 	$(document).ready(function(){
 		// Initialize DataTable for better tablemangement
-		$.each(
-			$('.company-table'), function (value) {
-				value.DataTable();
-			}
-			);
-
-
-		$('#wait-list-table').DataTable();
-
-
-
+		$('.company-table').DataTable();
+		$('.wait-list-table').DataTable();
 
 		// if a company selection previously have been made,
 		// select that one. Else select the first
@@ -27,12 +18,10 @@
 		}
 	});
 
-
 	/* Set the cookie 'selecterTab' */
 	function setCookie(id) {
 		$.cookie('selectedTab', id);
 	}
-
 
 	function toggleVisibility(id) {
 		$(".details-" + id).fadeToggle();
@@ -139,7 +128,71 @@
 								@endforeach
 							</tbody>
 						</table>
-					</div><!-- /højre kolonne -->			
+					</div><!-- /højre kolonne -->
+
+					<div class="col-md-12">
+						<div class="col-md-4">			
+						</div><!-- "col-md-4" -->
+						<div class="col-md-8">
+							<style>
+								.companyinformation{
+									background-color:#f9f9f9;
+									padding-left:15px;
+									border-style:solid;
+									border-radius: 1px;
+									border-color:#bcbcbc;
+								}
+
+								.top {
+									height:40px;
+									background-color:orange;
+								}
+							</style>
+							<div class="companyinformation">
+								<div class="top">Firmainformation</div>
+								<form role="form">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="companyname">Firma navn</label>
+												<input class="form-control" type="text" name="companyname" value="{{ $company->name }}">
+											</div>
+											<div class="form-group">
+												<label for="address">Adresse</label>
+												<input class="form-control" type="text" name="address" value="{{ $company->address }}">
+											</div>
+											<div class="form-group">
+												<label for="phonenumber">Telefon</label>
+												<input class="form-control" type="text" name="phonenumber" value="{{ $company->phonenumber }}">
+											</div>
+											<div class="form-group">
+												<label for="fax">Fax</label>
+												<input class="form-control" type="text" name="fax" value="{{ $company->fax }}">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="registration_number">CVR</label>
+												<input class="form-control" type="text" name="registration_number" value="{{ $company->registration_number }}">
+											</div>
+											<div class="form-group">
+												<label for="vat_number">Moms nr.</label>
+												<input class="form-control" type="text" name="vat_number" value="{{ $company->vat_number }}">
+											</div>
+											<div class="form-group">
+												<label for="email">Email</label>
+												<input class="form-control" type="text" name="email" value="{{ $company->email }}">
+											</div>
+											<div class="form-group">
+												<input class="btn btn-default" type="submit" value="Gem ændringer" disabled>
+											</div>
+
+										</div>
+									</form>
+								</div>
+							</div> <!-- /companyinformation -->
+						</div><!-- "col-md-6" -->			
+					</div><!-- "col-md-10" -->			
 				</div><!-- /class="tab-pane" -->
 				@endforeach
 			</div><!-- class="tab-content" -->
