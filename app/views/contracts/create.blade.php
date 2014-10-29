@@ -4,16 +4,6 @@
 <script>
 $(document).ready(function(){
 	updateLeaseList($('#select_realestate option:first-child').val());
-	$('#waitingListTenant').fadeToggle();
-
-	var selected = $("input[type='radio'][name='newTenant']:checked"); 
-	if(selected.val() == "false"){
-		$('#newTenantForm').hide();
-		$('#waitingListTenant').show();
-	} else {
-		$('#newTenantForm').show();
-		$('#waitingListTenant').hide();
-	}
 
 	$('.datepicker').datepicker({ dateFormat: 'dd-mm-yy' });
 	$('#select_realestate').change(function(){
@@ -29,6 +19,14 @@ $(document).ready(function(){
 			$('#waitingListTenant').hide(300);
 		}
 	});
+	var selected = $("input[type='radio'][name='newTenant']:checked"); 
+	if(selected.val() == "false"){
+		$('#newTenantForm').hide();
+		$('#waitingListTenant').show();
+	} else {
+		$('#newTenantForm').show();
+		$('#waitingListTenant').hide();
+	}
 });
 
 function updateLeaseList(val){
@@ -127,7 +125,7 @@ function updateLeaseList(val){
 					@endforeach
 				</select>	
 				@else
-					Dette selskab har ingen på venteliste
+				Dette selskab har ingen på venteliste
 				@endif
 			</div>
 		</div>

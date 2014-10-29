@@ -54,7 +54,7 @@ class ContractController extends \BaseController {
 	{
 		$createType=Input::get('newTenant');
 		$client = new Client();
-		if(!$this->contract->isValid(Input::all())){
+				if(!$this->contract->isValid(Input::all())){
 			return Redirect::back()->withInput()->withErrors($this->contract->errors);
 		}
 		if($createType == 'true'){
