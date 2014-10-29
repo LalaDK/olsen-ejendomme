@@ -37,7 +37,7 @@ function updateLeaseList(val){
 		success: function(result) {
 			$('#select-lease').empty();
 			$.each(result,function(index,element){
-				$('#select-lease').append("<option value='"+ element.id +"'>" + element.type + "</option>");
+				$('#select-lease').append("<option value='"+ element.id +"'>" + element.description + "</option>");
 			});
 		},
 		error: function(){
