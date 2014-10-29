@@ -125,7 +125,9 @@ function updateLeaseList(val){
 					@endforeach
 				</select>	
 				@else
-				Dette selskab har ingen på venteliste
+				<div class="alert alert-warning" role="alert">
+					Dette selskab har ingen på venteliste
+				</div>
 				@endif
 			</div>
 		</div>
