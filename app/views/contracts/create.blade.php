@@ -118,10 +118,10 @@ function updateLeaseList(val){
 		<!--Form for choosing a user on the waiting list -->
 		<div id ="waitingListTenant">
 			<div class="col-md-12">
-				@if (isset($company->waiting_lists))	
+				@if (isset($company->wait_list_entry))	
 				<select class="form-control" id="select_client" name="waitinglist_id">
-					@foreach ($company->waiting_lists as $wait_list_entry)
-					<option class="form-control" name="wait_list_id" value="{{ $wait_list_entry->id }}">{{ $wait_list_entry->client->firstname }} {{ $wait_list_entry->client->lastname }}</option>
+					@foreach ($company->wait_list_entry as $list_item)
+					<option class="form-control" name="wait_list_id" value="{{ $list_item->id }}">{{ $list_item->client->firstname }} {{ $list_item->client->lastname }}</option>
 					@endforeach
 				</select>	
 				@else
