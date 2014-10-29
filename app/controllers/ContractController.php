@@ -2,6 +2,14 @@
 
 class ContractController extends \BaseController {
 
+	protected $contract;
+	protected $client;
+
+	public function __construct(Contract $contract, Client $client){
+		$this->contract = $contract;
+		$this->client = $client;
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -46,7 +54,14 @@ class ContractController extends \BaseController {
 	{
 		$createType=Input::get('newTenant');
 		$client = new Client();
+		if(!$this->contract->isValid(Input::all())){
+			return Redirect::back()->withInput()->withErrors($this->contract->errors);
+		}
 		if($createType == 'true'){
+			if(!$this->client->isValid(Input::all())){
+				return Redirect::back()->withInput()->withErrors($this->client->errors);
+			}
+			$client->company_id = Input::get('company_id');
 			$client->firstname = Input::get('firstname');
 			$client->lastname = Input::get('lastname');
 			$client->street_name = Input::get('street_name');
@@ -59,10 +74,15 @@ class ContractController extends \BaseController {
 			$client->notes = Input::get('notes');
 			$client->save();
 		} else {
-			$wait_list_entry = Contract::find(Input::get('waitinglist_id'));
-			$client = Client::find($wait_list_entry->client_id);
-			$wait_list_entry->delete();
+			if(Input::get('waitinglist_id') == 0){
+				return Redirect::back()->withInput()->withErrors(array('waiting_list'=>'Der skal vælges en klient fra ventelisten'));;
+			} else {				
+				$wait_list_entry = Contract::find(Input::get('waitinglist_id'));
+				$client = Client::find($wait_list_entry->client_id);
+				$wait_list_entry->delete();
+			}
 		}
+
 		$contract = new Contract();
 		$contract->moving_in = date("Y-m-d", strtotime(Input::get('moving_in')));
 		$contract->moving_out = date("Y-m-d", strtotime(Input::get('moving_out')));

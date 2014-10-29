@@ -2,6 +2,10 @@
 
 class UserController extends \BaseController {
 
+	public function __construct(User $user){
+		$this->user = $user;
+	}
+
 	public function deleteUser()
 	{
 		$users = User::all();
@@ -15,6 +19,9 @@ class UserController extends \BaseController {
 
 	public function store()
 	{
+		if(!$this->user->isValid(Input::all())){
+			return Redirect::back()->withInput()->withErrors($this->user->errors);
+		}
 		$user = new User();
 		$user->name = Input::get('name');
 		$user->email = Input::get('username');

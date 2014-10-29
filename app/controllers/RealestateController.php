@@ -2,7 +2,9 @@
 
 class RealestateController extends \BaseController {
 
-
+	public function __construct(Realestate $realestate){
+		$this->realestate = $realestate;
+	}
 
 		/**
 	 * Show the form for creating a new resource.
@@ -23,8 +25,9 @@ class RealestateController extends \BaseController {
 	 */
 	public function store()
 	{
-		// var_dump(Input::All());
-
+		if(!$this->realestate->isValid(Input::all())){
+			return Redirect::back()->withInput()->withErrors($this->realestate->errors);
+		}
 		$realestate = new Realestate();
 		$realestate->street_name = Input::get('street_name');
 		$realestate->street_number = Input::get('street_number');
@@ -38,7 +41,6 @@ class RealestateController extends \BaseController {
 		$realestate->purchase_value = Input::get('purchase_value');
 		$realestate->company_id = Input::get('company');
 		$realestate->save();
-		Session::flash('message', 'Ejendommen blev oprettet');
 		return View::make('shared.entitycreated',['title' => 'Succes', 'message' => 'Ejendommen blev oprettet korrekt']);
 		
 	}

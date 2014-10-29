@@ -11,6 +11,7 @@
 
 			{{Form::text('firstname', Input::old('firstname'), array('placeholder'=>'Fornavn', 'class' => 'form-control', 'style' => 'width:100%'))}}
 
+
 			{{Form::text('lastname', Input::old('lastname'), array('placeholder'=>'Efternavn', 'class' => 'form-control', 'style' => 'width:100%'))}}
 		</div>
 		<div class="col-md-8" style="padding-right:5px">
