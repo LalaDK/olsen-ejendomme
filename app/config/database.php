@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'olsen-ejendomme',
-			'username'  => 'root',
-			'password'  => '',
+			'database'  => 't7_olsenejendom',
+			'username'  => 't7_olsenejendom',
+			'password'  => 't2osCIpQ@',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

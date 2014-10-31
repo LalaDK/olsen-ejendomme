@@ -58,10 +58,10 @@
 		<div class="col-md-1 col-menu">
 			<div class="menu">
 				<ul>
-					<li id="dashboard" onclick='location.href="/olsen-ejendomme/public/dashboard"'><?php include("../app/images/Dashboard.svg"); ?><br>Dashboard</li>
-					<li id="tenants" onclick='location.href="/olsen-ejendomme/public/tenants"'><?php include("../app/images/tenants.svg"); ?><br>Lejere</li>
-					<li id="economic" onclick='location.href="/olsen-ejendomme/public/dashboard"'><?php include("../app/images/economic.svg"); ?><br>Økonomi</li>
-					<li id="company" onclick='location.href="/olsen-ejendomme/public/companies"'><?php include("../app/images/company.svg"); ?><br>Selskab</li>
+					<li id="dashboard" onclick='location.href="/dashboard"'><?php include("../app/images/dashboard.svg"); ?><br>Dashboard</li>
+					<li id="tenants" onclick='location.href="/tenants"'><?php include("../app/images/tenants.svg"); ?><br>Lejere</li>
+					<li id="economic" onclick='location.href="/dashboard"'><?php include("../app/images/economic.svg"); ?><br>Økonomi</li>
+					<li id="company" onclick='location.href="/companies"'><?php include("../app/images/company.svg"); ?><br>Selskab</li>
 				</ul>
 			</div>
 		</div>
