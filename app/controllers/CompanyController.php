@@ -84,6 +84,30 @@ class CompanyController extends \BaseController {
 		return View::make('shared.entitycreated',['title' => 'Succes', 'message' => 'Selskabet blev oprettet korrekt']);
 	}
 
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function update()
+	{
+		$company = Company::find(Input::get('id'));
+		$company->name = Input::get('name');
+		$company->address = Input::get('address');
+		$company->phonenumber = Input::get('phonenumber');
+		//$company->fax = Input::get('fax');
+		$company->registration_number = Input::get('registration_number');
+		$company->vat_number = Input::get('vat_number');
+		//$company->email = Input::get('email');
+
+		$company->save();
+
+		Session::flash('message', 'Firmationinformation blev opdateret!');
+		return Redirect::action('CompanyController@index');
+	}
+
+
 	/**
 	 * Show the form for deleting a company
 	 *

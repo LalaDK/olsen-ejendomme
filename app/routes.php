@@ -16,6 +16,13 @@ Route::get('login','SessionsController@create');
 
 Route::get('logout','SessionsController@destroy'); 
 
+
+Route::put('companies/edit', [
+	'as' => 'company.update',
+	'uses' => 'CompanyController@update',
+	'before' => 'auth',
+]);
+
 Route::get('dashboard', [
 	'as' => 'company.dashboard',
 	'uses' => 'CompanyController@dashboard',

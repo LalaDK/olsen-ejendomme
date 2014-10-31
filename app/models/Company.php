@@ -13,11 +13,7 @@ class Company extends Eloquent {
 		return $this->hasMany('Wait_List_Entry');
 	}
 
-
-
-
 	public $errors;
-
 	public $rules = [
 	'name' => 'required|unique:companies',
 	'vat_number' => 'required',

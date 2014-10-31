@@ -10,12 +10,11 @@
 	{{ HTML::script('scripts/litebox-master/assets/js/images-loaded.min.js') }}
 	{{ HTML::script('scripts/litebox-master/assets/js/litebox.js') }}
 	{{ HTML::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css') }}
-	{{ HTML::style('css/dashboardstyle.css') }}
 	{{ HTML::style('css/style.css') }}
 	{{ HTML::script('/scripts/site.js') }}
 	{{ HTML::script('scripts/jquery-cookie/jquery.cookie.js') }}
-	
-
+	{{ HTML::style('scripts/litebox-master/assets/css/litebox.css') }}
+	{{ HTML::style('scripts/hint.css/hint.css') }}
 	{{ HTML::style('//cdn.datatables.net/1.10.3/css/jquery.dataTables.min.css') }}
 	{{ HTML::script('//cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js') }}
 
