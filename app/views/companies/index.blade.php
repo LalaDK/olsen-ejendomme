@@ -72,15 +72,17 @@ function deleteWaitEntry(id) {
 				@endforeach
 			</ul>
 			<div class="tab-content">
+				<!-- Tilføj lejer -->
+				<br>
 				<div class="row">
 					<div class="col-md-6"></div>
-					<div class="col-md-6">
+					<div class="col-md-6">				
 						<div class="well">
-							{{ HTML::linkAction('TenantController@create', '+ Tilføj lejer', array($company->id),array('class'=>'litebox btn btn-create', 'target' => '_self')) }}
+							{{ HTML::linkAction('TenantController@create', '+ Tilføj lejer til venteliste', array($company->id),array('class'=>'litebox btn btn-create', 'target' => '_self')) }}
 						</div>
 					</div>
 				</div>
-				
+				<!-- /Tilføj lejer -->
 				@foreach ($companies as $company) 
 				<div class="tab-pane" id="{{$company->id}}">
 					<div class="col-md-6">
@@ -88,7 +90,7 @@ function deleteWaitEntry(id) {
 						<!-- Venstre kolonne -->
 						<table class="table-stribed table-hover table-curved paging-table">
 							<thead>
-								<th>ID</th>
+								<th style="white-space: nowrap;">ID</th>
 								<th>Adresse</th>
 								<th style="text-align:center;">Matrikel nr.</th>
 								<th style="text-align:center;">Antal lejemål</th>
@@ -101,7 +103,14 @@ function deleteWaitEntry(id) {
 									<td>{{ $estate->street_name }} {{ $estate->street_number }}</td>
 									<td>{{ $estate->cadastral_number }}</td>
 									<td style="text-align:center;">{{ $estate->leases_count }}</td>
-									<td style="text-align:center;"><span id="icon-{{ $estate->id }}" class="glyphicon glyphicon-chevron-down"></span></td>
+
+
+
+									<td style="text-align:center;">
+										@if ($estate->leases_count > 0)
+										<span id="icon-{{ $estate->id }}" class="glyphicon glyphicon-chevron-down"></span>
+										@endif										
+									</td>
 								</tr>
 								@foreach ($estate->leases as $lease) 
 								<tr id="details-{{$estate->id}}" style="display:none;"><!-- The hidden row -->	
@@ -181,6 +190,7 @@ function deleteWaitEntry(id) {
 						<div class="col-md-6">			
 						</div><!-- /col-md-6 -->
 						<div class="col-md-6">
+						<br>
 							@include('companies.edit')
 						</div><!-- /col-md-6 -->
 					</div><!-- /col-md-12 -->	
