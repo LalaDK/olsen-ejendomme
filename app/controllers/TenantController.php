@@ -49,6 +49,8 @@ class TenantController extends \BaseController {
 	public function store()
 	{
 		$client = new Client();
+		$client->company_id = Input::get('company_id');
+
 		$client->firstname = Input::get('firstname');
 		$client->lastname = Input::get('lastname');
 		$client->street_name = Input::get('street_name');
