@@ -43,6 +43,7 @@ class SessionsController extends BaseController {
 		}
 
 		Session::flash('message', "Brugernavn og/eller kodeord er forkert!");
+		return Redirect::route('sessions.create');
 		return Redirect::back();
 	}
 
