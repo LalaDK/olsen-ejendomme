@@ -160,6 +160,10 @@ html,body {
 	fill:#000000;
 }
 
+.menu-icon:hover{
+	fill:#fb9821;
+}
+
 .selected{
 	color:#fb9821;
 }

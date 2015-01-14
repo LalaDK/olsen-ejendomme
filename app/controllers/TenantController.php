@@ -63,7 +63,7 @@ class TenantController extends \BaseController {
 		$client->notes = Input::get('notes');
 		$client->save();
 
-		$newEntry = new Wait_List_Entry();
+		$newEntry = new WaitingList();
 
 		$newEntry->client_id = $client->id;
 		$newEntry->company_id = Input::get('company_id');;

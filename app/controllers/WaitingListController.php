@@ -5,7 +5,7 @@ class WaitingListController extends \BaseController {
 
 	public function store()
 	{
-		$newEntry = new Wait_List_Entry();
+		$newEntry = new WaitingList();
 
 		$newEntry->client_id = Input::get('clientId');
 		$newEntry->company_id = Input::get('companyId');
@@ -24,7 +24,7 @@ class WaitingListController extends \BaseController {
 
 	public function destroy()
 	{
-		$waitListEntry = Wait_List_Entry::find(Input::get('id'));
+		$waitListEntry = WaitingList::find(Input::get('id'));
 		$waitListEntry->delete();
 	}
 }

@@ -7,8 +7,8 @@ class Client extends Eloquent {
 		return $this->belongsTo('Contract');
 	}
 
-	public function waiting_list(){
-		return $this->belongsTo('Wait_List_Entry');
+	public function wait_list_entry(){
+		return $this->hasOne('WaitingList');
 	}
 
 	public function contacts(){

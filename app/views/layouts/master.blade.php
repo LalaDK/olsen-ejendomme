@@ -33,7 +33,6 @@
 					$(this).children().find(".menu-icon").css("fill","#000000");
 				}
 			});
-
 		});
 
 		function setselected(select_id){

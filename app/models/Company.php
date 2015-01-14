@@ -10,7 +10,7 @@ class Company extends Eloquent {
 	}
 
 	public function wait_list_entry(){
-		return $this->hasMany('Wait_List_Entry');
+		return $this->hasMany('WaitingList');
 	}
 
 	public $errors;

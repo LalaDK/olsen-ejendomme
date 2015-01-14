@@ -1,5 +1,6 @@
 <?php
-class Wait_List_Entry extends Eloquent {
+
+class WaitingList extends Eloquent {
 	protected $table = 'wait_list_entry';
 	protected $guarded = array('id');
 
@@ -8,6 +9,6 @@ class Wait_List_Entry extends Eloquent {
 	}
 
 	public function clients(){
-		return $this->hasMany('Client');
+		return $this->belongsTo('Client');
 	}
 }

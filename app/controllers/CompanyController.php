@@ -15,7 +15,7 @@ class CompanyController extends \BaseController {
 	 */
 	public function index()
 	{
-		$companies = Company::with('realestates', 'wait_list_entry')->get();
+		$companies = Company::with('realestates','wait_list_entry')->get();
 		foreach ($companies as $company)
 		{
 
